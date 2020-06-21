@@ -1,0 +1,714 @@
+/*%FSM<COMPILE "E:\Applications\Poseidon\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, createRenegadeBoat">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Begin",0,250,100.000000,25.000000,150.000000,75.000000,0.000000,"Begin"};
+item1[] = {"not_found",8,218,100.000000,-50.000000,150.000000,0.000000,0.000000,"not" \n "found"};
+item2[] = {"guess_direction",5,218,175.000000,25.000000,225.000000,75.000000,0.000000,"guess" \n "direction"};
+item3[] = {"_",2,250,175.000000,-50.000000,225.000000,0.000000,0.000000,""};
+item4[] = {"veh_OK_create_gr",5,218,325.000000,25.000000,375.000000,75.000000,1.000000,"veh" \n "OK" \n "create" \n "grp"};
+item5[] = {"wait_for_veh",2,250,325.000000,-50.000000,375.000000,0.000000,0.000000,"wait" \n "for" \n "veh"};
+item6[] = {"spawn_driver",5,218,400.000000,-50.000000,450.000000,0.000000,1.000000,"spawn" \n "driver"};
+item7[] = {"__1",-1,250,-1250.000000,1025.000000,50.000000,1500.000000,0.000000,""};
+item8[] = {"Create_Renegade",-1,250,25.000000,-350.000000,600.000000,-150.000000,0.000000,"Create" \n "Renegade Boat"};
+item9[] = {"End",1,250,25.000000,-50.000000,75.000000,0.000000,0.000000,"End"};
+item10[] = {"wait_for_grp",2,250,400.000000,25.000000,450.000000,75.000000,0.000000,"wait" \n "for" \n "grp"};
+item11[] = {"good_pos_create",4,218,250.000000,-50.000000,300.000000,0.000000,1.000000,"good" \n "pos" \n "create" \n "veh"};
+item12[] = {"check_pool",4,218,100.000000,100.000000,150.000000,150.000000,1.000000,"check" \n "pool"};
+item13[] = {"wait",2,250,175.000000,100.000000,225.000000,150.000000,0.000000,"wait"};
+item14[] = {"pool_too_low",8,218,25.000000,25.000000,75.000000,75.000000,0.000000,"pool" \n "too" \n "low"};
+item15[] = {"__2",2,250,700.000000,-125.000000,750.000000,-75.000000,0.000000,""};
+item16[] = {"proceed",5,218,550.000000,-50.000000,600.000000,0.000000,0.000000,"proceed"};
+item17[] = {"timeout",2,250,475.000000,-50.000000,525.000000,0.000000,0.000000,"timeout"};
+item18[] = {"spawn_gunner",4,218,475.000000,25.000000,525.000000,75.000000,1.000000,"spawn" \n "gunner"};
+item19[] = {"Check_Gunners",2,250,550.000000,25.000000,600.000000,75.000000,0.000000,"Check" \n "Gunners"};
+item20[] = {"no_gunners",8,218,625.000000,25.000000,675.000000,75.000000,0.000000,"no" \n "gunners"};
+item21[] = {"proceed",5,218,550.000000,100.000000,600.000000,150.000000,0.000000,"proceed"};
+item22[] = {"wait_1",2,250,475.000000,100.000000,525.000000,150.000000,0.000000,"wait"};
+item23[] = {"allowed",4,218,625.000000,175.000000,675.000000,225.000000,1.000000,"allowed"};
+item24[] = {"Check_Cargo",2,250,625.000000,100.000000,675.000000,150.000000,0.000000,"Check" \n "Cargo"};
+item25[] = {"add_cargo_unit",4,218,700.000000,250.000000,750.000000,300.000000,0.000000,"add" \n "cargo" \n "unit"};
+item26[] = {"Check_spaces",2,250,700.000000,175.000000,750.000000,225.000000,0.000000,"Check" \n "spaces"};
+item27[] = {"proceed",5,218,775.000000,175.000000,825.000000,225.000000,0.000000,"proceed"};
+item28[] = {"wait_2",2,250,775.000000,250.000000,825.000000,300.000000,0.000000,"wait"};
+item29[] = {"setup",8,218,700.000000,100.000000,750.000000,150.000000,0.000000,"setup"};
+item30[] = {"Set_WPs",8,218,25.000000,-125.000000,75.000000,-75.000000,0.000000,"Set" \n "WPs"};
+version=1;
+class LayoutItems
+{
+	class Item7
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=17;
+			FontWeight=700;
+			lStyle=1;
+			lColor=-1;
+		};
+	};
+	class Item8
+	{
+		class ItemInfo
+		{
+			FontFace="Franklin Gothic Heavy";
+			FontHeight=36;
+		};
+		BgColor=8454143;
+	};
+};
+link0[] = {0,12};
+link1[] = {0,14};
+link2[] = {1,9};
+link3[] = {2,3};
+link4[] = {3,1};
+link5[] = {3,11};
+link6[] = {4,10};
+link7[] = {5,4};
+link8[] = {6,17};
+link9[] = {10,6};
+link10[] = {11,5};
+link11[] = {12,13};
+link12[] = {13,2};
+link13[] = {14,9};
+link14[] = {15,30};
+link15[] = {16,19};
+link16[] = {17,16};
+link17[] = {18,22};
+link18[] = {19,18};
+link19[] = {19,20};
+link20[] = {20,24};
+link21[] = {21,19};
+link22[] = {22,21};
+link23[] = {23,26};
+link24[] = {24,23};
+link25[] = {24,29};
+link26[] = {25,28};
+link27[] = {26,25};
+link28[] = {26,29};
+link29[] = {27,26};
+link30[] = {28,27};
+link31[] = {29,15};
+link32[] = {30,9};
+globals[] = {0.000000,0,0,0,0,640,480,3,405,6316128,1,-32.341747,356.329529,486.780029,-291.612946,370,741,1};
+window[] = {0,-1,-1,-1,-1,1017,130,1224,130,1,388};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "createRenegadeBoat";
+        class States
+        {
+                /*%FSM<STATE "Begin">*/
+                class Begin
+                {
+                        name = "Begin";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"params [""_player"",""_startPos""];" \n
+                         "" \n
+                         "_delay = 0.1;" \n
+                         "" \n
+                         "_fnc_vehicleDamageAnimSetup = horde_fnc_vehicleDamageAnimSetup;" \n
+                         "_fnc_findSafePosASL = horde_fnc_findSafePosASL;" \n
+                         "" \n
+                         "_cargoPoolVarName = ""no_passengers""; // maybe change later" \n
+                         "" \n
+                         "//systemChat format [""beginning car rens %1"",_this];" \n
+                         "//diag_log format [""beginning car rens %1"",_this];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "check_pool">*/
+                                class check_pool
+                                {
+                                        itemno = 12;
+                                        priority = 1.000000;
+                                        to="wait";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"count ncb_gv_renegadePool > 10"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timeout = time + 10;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "pool_too_low">*/
+                                class pool_too_low
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"//diag_log format [""ren car pool too low %1"",true];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "good_pos_create">*/
+                                class good_pos_create
+                                {
+                                        itemno = 11;
+                                        priority = 1.000000;
+                                        to="wait_for_veh";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not ([] isEqualTo _spawnPos)" \n
+                                         "and {not ([_spawnPos,300] call horde_fnc_playerIsNear)}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_class = selectRandom ncb_gv_enemyPatrolBoatTypes;" \n
+                                         "_veh = createVehicle [_class,_spawnPos,[],0,""can_collide""];" \n
+                                         "[_veh,false] call horde_fnc_allowDamageGlobal;" \n
+                                         "" \n
+                                         "_player setVariable [""playerLastRenegadeSpawnTime"",round time];" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "not_found">*/
+                                class not_found
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"diag_log format [""ren boat no spawn pos %1"",_spawnPos];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "wait_for_veh">*/
+                class wait_for_veh
+                {
+                        name = "wait_for_veh";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "veh_OK_create_gr">*/
+                                class veh_OK_create_gr
+                                {
+                                        itemno = 4;
+                                        priority = 1.000000;
+                                        to="wait_for_grp";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not isNull _veh"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_grp = createGroup resistance;" \n
+                                         "//diag_log format [""ren car spawn pos %1"",_spawnPos];" \n
+                                         "//diag_log format [""ren car grp %1"",_grp];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "wait_for_grp">*/
+                class wait_for_grp
+                {
+                        name = "wait_for_grp";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "spawn_driver">*/
+                                class spawn_driver
+                                {
+                                        itemno = 6;
+                                        priority = 1.000000;
+                                        to="timeout";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not isNull _grp"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_cfgVeh = configFile >> ""CfgVehicles"" >> _class;" \n
+                                         "" \n
+                                         "if (getNumber(_cfgVeh >> ""hasDriver"") isEqualTo 1) then {" \n
+                                         "	_unit = ncb_gv_renegadePool deleteAt 0;" \n
+                                         "	[_unit] joinSilent _grp;" \n
+                                         "	_unit enableSimulationGlobal true;" \n
+                                         "	_unit hideObjectGlobal false;" \n
+                                         "	_unit moveInDriver _veh;" \n
+                                         "	[_unit,true] call horde_fnc_allowDamageGlobal;" \n
+                                         "" \n
+                                         "	_unit enableAI ""checkVisible"";" \n
+                                         "};" \n
+                                         "" \n
+                                         "_timeout = time + _delay;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "wait">*/
+                class wait
+                {
+                        name = "wait";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "guess_direction">*/
+                                class guess_direction
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"private _fnc_noLand = {" \n
+                                         "    private _noLand = true;" \n
+                                         "    for ""_i"" from 0 to 315 step 45 do {" \n
+                                         "        if (getTerrainHeightASL (_this getPos [100,_i]) > 0) exitWith {" \n
+                                         "            _noLand = false" \n
+                                         "        };" \n
+                                         "    };" \n
+                                         "    _noLand" \n
+                                         "};" \n
+                                         "" \n
+                                         "" \n
+                                         "_finishPos = getPosASL _player;" \n
+                                         "_dirTarg = 0;" \n
+                                         "_distCheck = 0;" \n
+                                         "if (_startPos distance2D _finishPos > 10) then {" \n
+                                         "	_distCheck = 500;" \n
+                                         "	_dirTarg = _startPos getDir _finishPos;" \n
+                                         "};" \n
+                                         "_spawnPos = [];" \n
+                                         "scopeName ""1"";" \n
+                                         "{" \n
+                                         "	if (_x select 1 != 0) then {" \n
+                                         "		if (surfaceIsWater (_x select 0)) then {" \n
+                                         "			// nail it down so spawn pos is truly clear" \n
+                                         "			//_spawnPos = [_x select 0,0,30,6,2,10,0] call _fnc_findSafePosASL;" \n
+                                         "			//if not (_spawnPos isEqualTo []) then {" \n
+                                         "			//	_spawnPos set [2,0];" \n
+                                         "			//	breakTo ""1""" \n
+                                         "			//};" \n
+                                         "			diag_log format [""no land: %1"", (_x select 0) call _fnc_noLand];" \n
+                                         "			if ((_x select 0) call _fnc_noLand) then {" \n
+                                         "				_spawnPos = _x select 0;" \n
+                                         "				_spawnPos set [2,0];" \n
+                                         "				breakTo ""1""" \n
+                                         "			};" \n
+                                         "		};" \n
+                                         "	};" \n
+                                         "	true" \n
+                                         "} count (selectBestPlaces [" \n
+                                         "	_finishPos getPos [_distCheck,_dirTarg]," \n
+                                         "	800," \n
+                                         "	""sea""," \n
+                                         "	100," \n
+                                         "	5" \n
+                                         "]);"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__2">*/
+                class __2
+                {
+                        name = "__2";
+                        itemno = 15;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Set_WPs">*/
+                                class Set_WPs
+                                {
+                                        itemno = 30;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"// MOVE 1" \n
+                                         "" \n
+                                         "_posArr = selectBestPlaces [" \n
+                                         "	_finishPos," \n
+                                         "	500," \n
+                                         "	""waterDepth""," \n
+                                         "	5," \n
+                                         "	15" \n
+                                         "];" \n
+                                         "" \n
+                                         "_pos = _finishPos;" \n
+                                         "{" \n
+                                         "	//diag_log format [""water return: %1"",_x];" \n
+                                         "	_x params [""_xpos"",""_suitability""];" \n
+                                         "	if (_suitability > 6" \n
+                                         "		and {surfaceIsWater _xpos}" \n
+                                         "	) exitWith {" \n
+                                         "		_pos = _xpos" \n
+                                         "	};" \n
+                                         "} forEach _posArr;" \n
+                                         "" \n
+                                         "_wp = _grp addWaypoint [_pos, 0];" \n
+                                         "_wp setWaypointBehaviour ""aware"";" \n
+                                         "_wp setWaypointCombatMode ""yellow"";" \n
+                                         "_wp setWaypointCompletionRadius 30;" \n
+                                         "_wp setWaypointFormation ""wedge"";" \n
+                                         "_wp setWaypointSpeed ""full"";" \n
+                                         "_wp setWaypointStatements [""true"",""""];" \n
+                                         "_wp setWaypointTimeout [0,0,0];" \n
+                                         "_wp setWaypointType ""move"";" \n
+                                         "" \n
+                                         "// MOVE 2" \n
+                                         "" \n
+                                         "_wp = _grp addWaypoint [_pos, 0];" \n
+                                         "_wp setWaypointType ""move"";" \n
+                                         "_wp setWaypointCompletionRadius 40;" \n
+                                         "" \n
+                                         "// MOVE 3" \n
+                                         "" \n
+                                         "_wp = _grp addWaypoint [_pos, 0];" \n
+                                         "_wp setWaypointType ""move"";" \n
+                                         "_wp setWaypointCompletionRadius 40;" \n
+                                         "" \n
+                                         "// MOVE 4" \n
+                                         "" \n
+                                         "_wp = _grp addWaypoint [_pos, 0];" \n
+                                         "_statement = """ \n
+                                         "	if (isServer) then {" \n
+                                         "		this call horde_fnc_renWaypointCompleteBoat" \n
+                                         "    };" \n
+                                         """;" \n
+                                         "_wp setWaypointStatements [""true"",_statement];" \n
+                                         "_wp setWaypointType ""move"";" \n
+                                         "_wp setWaypointCompletionRadius 40;" \n
+                                         "" \n
+                                         "// CYCLE 5 (pointless I think)" \n
+                                         "" \n
+                                         "//_wp = _grp addWaypoint [_pos, 0];" \n
+                                         "//_wp setWaypointType ""CYCLE"";" \n
+                                         "" \n
+                                         "[_grp,_pos,0,500] call horde_fnc_setRenegadeBoatWPs;" \n
+                                         "" \n
+                                         "_grp setVariable [""groupData"",[""ren_boat""]];" \n
+                                         "" \n
+                                         "ncb_gv_renGrps pushBack _grp;" \n
+                                         "" \n
+                                         "[_veh,true] call horde_fnc_allowDamageGlobal;" \n
+                                         "" \n
+                                         "//diag_log format [""ren car ncb_gv_renGrps %1"",ncb_gv_renGrps];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "timeout">*/
+                class timeout
+                {
+                        name = "timeout";
+                        itemno = 17;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "proceed">*/
+                                class proceed
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="Check_Gunners";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_turrets = allTurrets [_veh,true];" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Check_Gunners">*/
+                class Check_Gunners
+                {
+                        name = "Check_Gunners";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "spawn_gunner">*/
+                                class spawn_gunner
+                                {
+                                        itemno = 18;
+                                        priority = 1.000000;
+                                        to="wait_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (_turrets isEqualTo [])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_turret = _turrets deleteAt 0;" \n
+                                         "" \n
+                                         "_unit = ncb_gv_renegadePool deleteAt 0;" \n
+                                         "[_unit] joinSilent _grp;" \n
+                                         "_unit enableSimulationGlobal true;" \n
+                                         "_unit hideObjectGlobal false;" \n
+                                         "_unit assignAsTurret [_veh,_turret];" \n
+                                         "_unit moveInTurret [_veh,_turret];" \n
+                                         "[_unit,true] call horde_fnc_allowDamageGlobal;" \n
+                                         "" \n
+                                         "_unit enableAI ""checkVisible"";" \n
+                                         "" \n
+                                         "_timeout = time + _delay;" \n
+                                         "" \n
+                                         "// turn out if FFV allows (done in ""setup"" cond box)" \n
+                                         "" \n
+                                         "//_cfgTurrets = _cfgVeh >> ""Turrets"";" \n
+                                         "//{" \n
+                                         "//	_cfgTurrets = _cfgTurrets >> configName (_cfgTurrets select _x);" \n
+                                         "//} forEach _turret;" \n
+                                         "//if not (getArray (_cfgTurrets >> ""TurnOut"" >> ""limitsArrayBottom"") isEqualTo []) then {" \n
+                                         "//	_unit action [""TurnOut"",_veh];" \n
+                                         "//};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no_gunners">*/
+                                class no_gunners
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="Check_Cargo";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"// _grp selectLeader effectiveCommander _veh;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "wait_1">*/
+                class wait_1
+                {
+                        name = "wait_1";
+                        itemno = 22;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "proceed">*/
+                                class proceed
+                                {
+                                        itemno = 21;
+                                        priority = 0.000000;
+                                        to="Check_Gunners";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Check_Cargo">*/
+                class Check_Cargo
+                {
+                        name = "Check_Cargo";
+                        itemno = 24;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "allowed">*/
+                                class allowed
+                                {
+                                        itemno = 23;
+                                        priority = 1.000000;
+                                        to="Check_spaces";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (_cargoPoolVarName isEqualTo ""no_passengers"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "setup">*/
+                                class setup
+                                {
+                                        itemno = 29;
+                                        priority = 0.000000;
+                                        to="__2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_grp addVehicle _veh;" \n
+                                         "_grp allowFleeing 0;" \n
+                                         "_veh call _fnc_vehicleDamageAnimSetup;" \n
+                                         "_initScript = getText (_cfgVeh >> ""initScript"");" \n
+                                         "if not (_initScript isEqualTo """") then {" \n
+                                         "	[_veh,""new""] call (missionNamespace getVariable _initScript);" \n
+                                         "};" \n
+                                         "_veh addEventHandler [""GetIn"", {" \n
+                                         "	_this call horde_fnc_getInVehicle" \n
+                                         "}];" \n
+                                         "_veh addEventHandler [""GetOut"", {" \n
+                                         "	_this call horde_fnc_getOutVehicle" \n
+                                         "}];" \n
+                                         "_veh addEventHandler [""reloaded"", {" \n
+                                         "	_this call horde_fnc_autoReloadVehWeap" \n
+                                         "}];" \n
+                                         "_veh call horde_fnc_addExtraVehicleMags;" \n
+                                         "if (ncb_param_lockEnemyVehicles) then {" \n
+                                         "	_veh setVehicleLock ""LOCKED""" \n
+                                         "};" \n
+                                         "if (ncb_param_aiDisableVehicleVisionNV) then {" \n
+                                         "	_veh disableNVGEquipment true" \n
+                                         "};" \n
+                                         "if (ncb_param_aiDisableVehicleVisionTI) then {" \n
+                                         "	_veh disableTIEquipment true" \n
+                                         "};" \n
+                                         "" \n
+                                         "if not (isNull gunner _veh) then {" \n
+                                         "	_veh allowCrewInImmobile true" \n
+                                         "};" \n
+                                         "" \n
+                                         "/*{" \n
+                                         "    _path = _x;" \n
+                                         "    _unit = _veh turretUnit _path;" \n
+                                         "    if not (isNull _unit) then {" \n
+                                         "        " \n
+                                         "        _cfgTurrets = _cfgVeh >> ""Turrets"";" \n
+                                         "        {" \n
+                                         "            _cfgTurrets = _cfgTurrets >> configName (_cfgTurrets select _x);" \n
+                                         "        } forEach _path;" \n
+                                         "        if not (getArray (_cfgTurrets >> ""TurnOut"" >> ""limitsArrayBottom"") isEqualTo []) then {" \n
+                                         "            _unit action [""TurnOut"",_veh];" \n
+                                         "        };" \n
+                                         "    };" \n
+                                         "} forEach (allTurrets [_veh,true]);*/"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Check_spaces">*/
+                class Check_spaces
+                {
+                        name = "Check_spaces";
+                        itemno = 26;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "setup">*/
+                                class setup
+                                {
+                                        itemno = 29;
+                                        priority = 0.000000;
+                                        to="__2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_grp addVehicle _veh;" \n
+                                         "_grp allowFleeing 0;" \n
+                                         "_veh call _fnc_vehicleDamageAnimSetup;" \n
+                                         "_initScript = getText (_cfgVeh >> ""initScript"");" \n
+                                         "if not (_initScript isEqualTo """") then {" \n
+                                         "	[_veh,""new""] call (missionNamespace getVariable _initScript);" \n
+                                         "};" \n
+                                         "_veh addEventHandler [""GetIn"", {" \n
+                                         "	_this call horde_fnc_getInVehicle" \n
+                                         "}];" \n
+                                         "_veh addEventHandler [""GetOut"", {" \n
+                                         "	_this call horde_fnc_getOutVehicle" \n
+                                         "}];" \n
+                                         "_veh addEventHandler [""reloaded"", {" \n
+                                         "	_this call horde_fnc_autoReloadVehWeap" \n
+                                         "}];" \n
+                                         "_veh call horde_fnc_addExtraVehicleMags;" \n
+                                         "if (ncb_param_lockEnemyVehicles) then {" \n
+                                         "	_veh setVehicleLock ""LOCKED""" \n
+                                         "};" \n
+                                         "if (ncb_param_aiDisableVehicleVisionNV) then {" \n
+                                         "	_veh disableNVGEquipment true" \n
+                                         "};" \n
+                                         "if (ncb_param_aiDisableVehicleVisionTI) then {" \n
+                                         "	_veh disableTIEquipment true" \n
+                                         "};" \n
+                                         "" \n
+                                         "if not (isNull gunner _veh) then {" \n
+                                         "	_veh allowCrewInImmobile true" \n
+                                         "};" \n
+                                         "" \n
+                                         "/*{" \n
+                                         "    _path = _x;" \n
+                                         "    _unit = _veh turretUnit _path;" \n
+                                         "    if not (isNull _unit) then {" \n
+                                         "        " \n
+                                         "        _cfgTurrets = _cfgVeh >> ""Turrets"";" \n
+                                         "        {" \n
+                                         "            _cfgTurrets = _cfgTurrets >> configName (_cfgTurrets select _x);" \n
+                                         "        } forEach _path;" \n
+                                         "        if not (getArray (_cfgTurrets >> ""TurnOut"" >> ""limitsArrayBottom"") isEqualTo []) then {" \n
+                                         "            _unit action [""TurnOut"",_veh];" \n
+                                         "        };" \n
+                                         "    };" \n
+                                         "} forEach (allTurrets [_veh,true]);*/"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "add_cargo_unit">*/
+                                class add_cargo_unit
+                                {
+                                        itemno = 25;
+                                        priority = 0.000000;
+                                        to="wait_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (_veh emptyPositions ""cargo"" isEqualTo 0)" \n
+                                         "and {(count units _grp < 8)}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_unit = ncb_gv_renegadePool deleteAt 0;" \n
+                                         "[_unit] joinSilent _grp;" \n
+                                         "_unit enableSimulationGlobal true;" \n
+                                         "_unit hideObjectGlobal false;" \n
+                                         "_unit moveInCargo _veh;" \n
+                                         "[_unit,true] call horde_fnc_allowDamageGlobal;" \n
+                                         "" \n
+                                         "_unit enableAI ""checkVisible"";" \n
+                                         "" \n
+                                         "_timeout = time + _delay;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "wait_2">*/
+                class wait_2
+                {
+                        name = "wait_2";
+                        itemno = 28;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "proceed">*/
+                                class proceed
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="Check_spaces";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Begin";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/

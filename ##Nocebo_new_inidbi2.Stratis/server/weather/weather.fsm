@@ -1,0 +1,432 @@
+/*%FSM<COMPILE "E:\Applications\Poseidon\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, weather">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Begin",0,250,225.000000,100.000000,275.000000,150.000000,0.000000,"Begin"};
+item1[] = {"reached",8,218,150.000000,-200.000000,200.000000,-150.000000,0.000000,"reached"};
+item2[] = {"always",5,4314,225.000000,25.000000,275.000000,75.000000,0.000000,"always"};
+item3[] = {"Check_conds",2,250,225.000000,-200.000000,275.000000,-150.000000,0.000000,"Check" \n "conds"};
+item4[] = {"overcast_not_rea",4,218,300.000000,-200.000000,350.000000,-150.000000,1.000000,"overcast" \n "not" \n "reached"};
+item5[] = {"Set_on_server",2,250,300.000000,-125.000000,350.000000,-75.000000,0.000000,"Set" \n "on" \n "server"};
+item6[] = {"sync",5,218,225.000000,-125.000000,275.000000,-75.000000,0.000000,"sync"};
+item7[] = {"wait",2,250,225.000000,-50.000000,275.000000,0.000000,0.000000,"wait"};
+item8[] = {"_",-1,250,-1250.000000,1025.000000,50.000000,1500.000000,0.000000,""};
+item9[] = {"Weather__it_s_all",-1,250,-275.000000,-375.000000,-50.000000,-75.000000,0.000000,"Weather," \n "it's all" \n "centered" \n "around" \n "overcast!"};
+item10[] = {"cycle",8,218,0.000000,-200.000000,50.000000,-150.000000,0.000000,"cycle"};
+item11[] = {"__1",2,250,75.000000,-200.000000,125.000000,-150.000000,0.000000,""};
+item12[] = {"wait",5,218,75.000000,-125.000000,125.000000,-75.000000,1.000000,"wait"};
+item13[] = {"__2",2,250,0.000000,-125.000000,50.000000,-75.000000,0.000000,""};
+item14[] = {"change_weather",4,218,0.000000,-50.000000,50.000000,0.000000,1.000000,"change" \n "weather"};
+version=1;
+class LayoutItems
+{
+	class Item8
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=17;
+			FontWeight=700;
+			lStyle=1;
+			lColor=-1;
+		};
+	};
+	class Item9
+	{
+		class ItemInfo
+		{
+			FontFace="Franklin Gothic Heavy";
+			FontHeight=36;
+		};
+		BgColor=8454143;
+	};
+};
+link0[] = {0,2};
+link1[] = {1,11};
+link2[] = {2,7};
+link3[] = {3,1};
+link4[] = {3,4};
+link5[] = {4,5};
+link6[] = {5,6};
+link7[] = {6,3};
+link8[] = {7,6};
+link9[] = {10,11};
+link10[] = {11,12};
+link11[] = {12,13};
+link12[] = {13,10};
+link13[] = {13,14};
+link14[] = {14,7};
+globals[] = {0.000000,0,0,0,0,640,480,3,375,6316128,1,-251.464920,495.141998,282.060974,-252.155365,1037,741,1};
+window[] = {0,-1,-1,-1,-1,1017,130,1719,130,1,1055};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "weather";
+        class States
+        {
+                /*%FSM<STATE "Begin">*/
+                class Begin
+                {
+                        name = "Begin";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"params [" \n
+                         "	""_startingWeather""," \n
+                         "	""_startHour""," \n
+                         "	""_startMinute""," \n
+                         "	""_realTimeNumb""," \n
+                         "	""_dayTimeRatio""," \n
+                         "	""_nightTimeRatio""" \n
+                         "];" \n
+                         "" \n
+                         "if (_dayTimeRatio < 0) then {" \n
+                         "	_dayTimeRatio = abs _dayTimeRatio * 0.1" \n
+                         "};" \n
+                         "" \n
+                         "if (_nightTimeRatio < 0) then {" \n
+                         "	_nightTimeRatio = abs _nightTimeRatio * 0.1" \n
+                         "};" \n
+                         "" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "always">*/
+                                class always
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="wait";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_realTime = false;" \n
+                                         "if (_realTimeNumb == 1) then {" \n
+                                         "	setDate (missionStart select [0,5]);" \n
+                                         "	_realTime = true;" \n
+                                         "} else {" \n
+                                         "	setDate [2016,02,31,_startHour,_startMinute]" \n
+                                         "};" \n
+                                         "" \n
+                                         "_startingWeather call horde_fnc_setNewWeather;" \n
+                                         "" \n
+                                         "skipTime -24;" \n
+                                         "86400 setFog (ncb_gv_intendedWeather select 0);" \n
+                                         "86400 setOvercast (ncb_gv_intendedWeather select 1);" \n
+                                         "86400 setRain (ncb_gv_intendedWeather select 2);" \n
+                                         "// 86400 setWaves (ncb_gv_intendedWeather select 4);" \n
+                                         "skipTime 24;" \n
+                                         "setWind (ncb_gv_intendedWeather select 3);" \n
+                                         "setDate (ncb_gv_intendedWeather select 5);" \n
+                                         "0 setRain (ncb_gv_intendedWeather select 2);" \n
+                                         "[" \n
+                                         "	[],{" \n
+                                         "		if (time > 1) then {" \n
+                                         "			forceWeatherChange;" \n
+                                         "			//simulWeatherSync;" \n
+                                         "			call horde_fnc_removeEachFrame" \n
+                                         "		};" \n
+                                         "	}," \n
+                                         "	0.1" \n
+                                         "] call horde_fnc_addEachFrame;" \n
+                                         "" \n
+                                         "ncb_gv_currentWeather = ncb_gv_intendedWeather;" \n
+                                         "" \n
+                                         "publicVariable ""ncb_gv_currentWeather"";" \n
+                                         "" \n
+                                         "_timeOut = time + 60;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Check_conds">*/
+                class Check_conds
+                {
+                        name = "Check_conds";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "overcast_not_rea">*/
+                                class overcast_not_rea
+                                {
+                                        itemno = 4;
+                                        priority = 1.000000;
+                                        to="Set_on_server";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"overcast < (ncb_gv_intendedWeather select 1) - 0.01" \n
+                                         "or {overcast > (ncb_gv_intendedWeather select 1) + 0.01}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"if (fog < (ncb_gv_intendedWeather select 0) - 0.01" \n
+                                         "	or {fog > (ncb_gv_intendedWeather select 0) + 0.01}" \n
+                                         ") then {" \n
+                                         "	60 setFog (ncb_gv_intendedWeather select 0);" \n
+                                         "};" \n
+                                         "// we know overcast needs to change" \n
+                                         "60 setOvercast (ncb_gv_intendedWeather select 1);" \n
+                                         "// IF OVERCAST TOO LOW, THEN DON'T INCREASE RAIN YET!" \n
+                                         "if (overcast < (ncb_gv_intendedWeather select 1) - 0.01) then {" \n
+                                         "	// nothing" \n
+                                         "} else {" \n
+                                         "	if (rain < (ncb_gv_intendedWeather select 2) - 0.01" \n
+                                         "		or {rain > (ncb_gv_intendedWeather select 2) + 0.01}" \n
+                                         "	) then {" \n
+                                         "		60 setRain (ncb_gv_intendedWeather select 2);" \n
+                                         "	};" \n
+                                         "};" \n
+                                         "if (wind select 0 < (ncb_gv_intendedWeather select 3 select 0) - 0.01" \n
+                                         "	or {wind select 0 > (ncb_gv_intendedWeather select 3 select 0) + 0.01}" \n
+                                         "	or {wind select 1 < (ncb_gv_intendedWeather select 3 select 1) - 0.01}" \n
+                                         "	or {wind select 1 > (ncb_gv_intendedWeather select 3 select 1) + 0.01}" \n
+                                         ") then {" \n
+                                         "	setWind (ncb_gv_intendedWeather select 3);" \n
+                                         "};" \n
+                                         "/*if (waves < (ncb_gv_intendedWeather select 4) - 0.01" \n
+                                         "	or {waves > (ncb_gv_intendedWeather select 4) + 0.01}" \n
+                                         ") then {" \n
+                                         "	60 setWaves (ncb_gv_intendedWeather select 4);" \n
+                                         "};*/" \n
+                                         "" \n
+                                         "_timeOut = time + 60;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "reached">*/
+                                class reached
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_maintain = time + (1800 + (random 300));" \n
+                                         "_timeout = time + 60;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Set_on_server">*/
+                class Set_on_server
+                {
+                        name = "Set_on_server";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "sync">*/
+                                class sync
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="Check_conds";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"// send current to clients" \n
+                                         "" \n
+                                         "_wind = [" \n
+                                         "	wind select 0," \n
+                                         "	wind select 1," \n
+                                         "	true" \n
+                                         "];" \n
+                                         "" \n
+                                         "ncb_gv_currentWeather = [" \n
+                                         "	fog," \n
+                                         "	overcast," \n
+                                         "	rain," \n
+                                         "	_wind," \n
+                                         "	waves," \n
+                                         "	date" \n
+                                         "];" \n
+                                         "" \n
+                                         "publicVariable ""ncb_gv_currentWeather"";" \n
+                                         "" \n
+                                         "if not (_realTime) then {" \n
+                                         "	if (sunOrMoon > 0) then {" \n
+                                         "		if (timeMultiplier != _dayTimeRatio) then {" \n
+                                         "			setTimeMultiplier _dayTimeRatio" \n
+                                         "		};" \n
+                                         "	} else {" \n
+                                         "		if (timeMultiplier != _nightTimeRatio) then {" \n
+                                         "			setTimeMultiplier _nightTimeRatio" \n
+                                         "		};" \n
+                                         "	};" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "wait">*/
+                class wait
+                {
+                        name = "wait";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "sync">*/
+                                class sync
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="Check_conds";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"// send current to clients" \n
+                                         "" \n
+                                         "_wind = [" \n
+                                         "	wind select 0," \n
+                                         "	wind select 1," \n
+                                         "	true" \n
+                                         "];" \n
+                                         "" \n
+                                         "ncb_gv_currentWeather = [" \n
+                                         "	fog," \n
+                                         "	overcast," \n
+                                         "	rain," \n
+                                         "	_wind," \n
+                                         "	waves," \n
+                                         "	date" \n
+                                         "];" \n
+                                         "" \n
+                                         "publicVariable ""ncb_gv_currentWeather"";" \n
+                                         "" \n
+                                         "if not (_realTime) then {" \n
+                                         "	if (sunOrMoon > 0) then {" \n
+                                         "		if (timeMultiplier != _dayTimeRatio) then {" \n
+                                         "			setTimeMultiplier _dayTimeRatio" \n
+                                         "		};" \n
+                                         "	} else {" \n
+                                         "		if (timeMultiplier != _nightTimeRatio) then {" \n
+                                         "			setTimeMultiplier _nightTimeRatio" \n
+                                         "		};" \n
+                                         "	};" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__1">*/
+                class __1
+                {
+                        name = "__1";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 12;
+                                        priority = 1.000000;
+                                        to="__2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__2">*/
+                class __2
+                {
+                        name = "__2";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "change_weather">*/
+                                class change_weather
+                                {
+                                        itemno = 14;
+                                        priority = 1.000000;
+                                        to="wait";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _maintain"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_number = floor random 4;" \n
+                                         "_number call horde_fnc_setNewWeather;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "cycle">*/
+                                class cycle
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"if (fog < (ncb_gv_intendedWeather select 0) - 0.01" \n
+                                         "	or {fog > (ncb_gv_intendedWeather select 0) + 0.01}" \n
+                                         ") then {" \n
+                                         "	60 setFog (ncb_gv_intendedWeather select 0);" \n
+                                         "};" \n
+                                         "if (overcast < (ncb_gv_intendedWeather select 1) - 0.01" \n
+                                         "	or {overcast > (ncb_gv_intendedWeather select 1) + 0.01}" \n
+                                         ") then {" \n
+                                         "	60 setOvercast (ncb_gv_intendedWeather select 1);" \n
+                                         "};" \n
+                                         "if (rain < (ncb_gv_intendedWeather select 2) - 0.01" \n
+                                         "	or {rain > (ncb_gv_intendedWeather select 2) + 0.01}" \n
+                                         ") then {" \n
+                                         "	60 setRain (ncb_gv_intendedWeather select 2);" \n
+                                         "};" \n
+                                         "if (wind select 0 < (ncb_gv_intendedWeather select 3 select 0) - 0.01" \n
+                                         "	or {wind select 0 > (ncb_gv_intendedWeather select 3 select 0) + 0.01}" \n
+                                         "	or {wind select 1 < (ncb_gv_intendedWeather select 3 select 1) - 0.01}" \n
+                                         "	or {wind select 1 > (ncb_gv_intendedWeather select 3 select 1) + 0.01}" \n
+                                         ") then {" \n
+                                         "	setWind (ncb_gv_intendedWeather select 3);" \n
+                                         "};" \n
+                                         "/*if (waves < (ncb_gv_intendedWeather select 4) - 0.01" \n
+                                         "	or {waves > (ncb_gv_intendedWeather select 4) + 0.01}" \n
+                                         ") then {" \n
+                                         "	60 setWaves (ncb_gv_intendedWeather select 4);" \n
+                                         "};*/" \n
+                                         "" \n
+                                         "_wind = [" \n
+                                         "	wind select 0," \n
+                                         "	wind select 1," \n
+                                         "	true" \n
+                                         "];" \n
+                                         "" \n
+                                         "ncb_gv_currentWeather = [" \n
+                                         "	fog," \n
+                                         "	overcast," \n
+                                         "	rain," \n
+                                         "	_wind," \n
+                                         "	waves," \n
+                                         "	date" \n
+                                         "];" \n
+                                         "" \n
+                                         "publicVariable ""ncb_gv_currentWeather"";" \n
+                                         "" \n
+                                         "if not (_realTime) then {" \n
+                                         "	if (sunOrMoon > 0) then {" \n
+                                         "		if (timeMultiplier != _dayTimeRatio) then {" \n
+                                         "			setTimeMultiplier _dayTimeRatio" \n
+                                         "		};" \n
+                                         "	} else {" \n
+                                         "		if (timeMultiplier != _nightTimeRatio) then {" \n
+                                         "			setTimeMultiplier _nightTimeRatio" \n
+                                         "		};" \n
+                                         "	};" \n
+                                         "};" \n
+                                         "" \n
+                                         "_timeOut = time + 60;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Begin";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/

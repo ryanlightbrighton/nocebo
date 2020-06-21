@@ -1,0 +1,897 @@
+/*%FSM<COMPILE "E:\Applications\Poseidon\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, Helicopter_Manager">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Begin",0,250,-300.000000,100.000000,-250.000000,150.000000,0.000000,"Begin"};
+item1[] = {"End",1,250,-150.000000,325.000000,-100.000000,375.000000,0.000000,"End"};
+item2[] = {"always",5,218,-225.000000,100.000000,-175.000000,150.000000,0.000000,"always"};
+item3[] = {"wait_",5,218,150.000000,25.000000,200.000000,75.000000,0.000000,"" \n "wait" \n ""};
+item4[] = {"Is_pilot_in_heli",2,250,375.000000,325.000000,425.000000,375.000000,0.000000,"Is pilot" \n "in" \n "heli?"};
+item5[] = {"Heli_alive_",2,250,150.000000,100.000000,200.000000,150.000000,0.000000,"Heli" \n "alive?"};
+item6[] = {"yes",4,218,225.000000,100.000000,275.000000,150.000000,1.000000,"yes"};
+item7[] = {"yes_",4,218,450.000000,325.000000,500.000000,375.000000,1.000000,"" \n "yes" \n ""};
+item8[] = {"Timeout_60_secon",2,250,150.000000,-50.000000,200.000000,0.000000,0.000000,"Timeout" \n "60" \n "seconds"};
+item9[] = {"wait_",5,218,150.000000,550.000000,200.000000,600.000000,0.000000,"" \n "wait" \n ""};
+item10[] = {"Timeout__set_in",2,250,150.000000,475.000000,200.000000,525.000000,0.000000,"Timeout" \n "(set in" \n "params)"};
+item11[] = {"Land_and_Resuppl",2,250,75.000000,-350.000000,125.000000,-300.000000,0.000000,"Land" \n "and" \n "Resupply"};
+item12[] = {"Any_Airbases_Active",2,250,450.000000,-275.000000,500.000000,-225.000000,0.000000,"Any" \n "Airbases" \n "Active?"};
+item13[] = {"yes",4,218,300.000000,175.000000,350.000000,225.000000,1.000000,"yes"};
+item14[] = {"Can_it_move_",2,250,225.000000,175.000000,275.000000,225.000000,0.000000,"Can" \n "it" \n "move?"};
+item15[] = {"Is_pilot_alive",2,250,300.000000,250.000000,350.000000,300.000000,0.000000,"Is" \n "pilot" \n "alive"};
+item16[] = {"yes",4,218,375.000000,250.000000,425.000000,300.000000,1.000000,"yes"};
+item17[] = {"no_",8,218,150.000000,400.000000,200.000000,450.000000,0.000000,"" \n "no" \n ""};
+item18[] = {"yes_",4,218,375.000000,-350.000000,425.000000,-300.000000,1.000000,"" \n "yes" \n ""};
+item19[] = {"Some_fuel_",2,250,450.000000,400.000000,500.000000,450.000000,0.000000,"Some" \n "fuel?"};
+item20[] = {"yes_",4,218,600.000000,400.000000,650.000000,450.000000,1.000000,"" \n "yes" \n ""};
+item21[] = {"Low_fuel_",2,250,525.000000,-125.000000,575.000000,-75.000000,0.000000,"Low" \n "fuel?"};
+item22[] = {"yes_",4,218,525.000000,-200.000000,575.000000,-150.000000,1.000000,"" \n "yes" \n ""};
+item23[] = {"no_",8,218,450.000000,-125.000000,500.000000,-75.000000,0.000000,"" \n "no" \n ""};
+item24[] = {"Gunner_alive_",2,250,225.000000,-125.000000,275.000000,-75.000000,0.000000,"Gunner" \n "alive?"};
+item25[] = {"set_new_patrol_",4,218,150.000000,-125.000000,200.000000,-75.000000,1.000000,"set" \n "new" \n "patrol" \n ""};
+item26[] = {"no_",8,218,225.000000,-200.000000,275.000000,-150.000000,0.000000,"" \n "no" \n ""};
+item27[] = {"no_",8,218,525.000000,-350.000000,575.000000,-300.000000,0.000000,"" \n "no" \n ""};
+item28[] = {"Fly_away",1,250,600.000000,-350.000000,650.000000,-300.000000,0.000000,"Fly" \n "away"};
+item29[] = {"Going_to_Base",2,250,600.000000,-50.000000,650.000000,0.000000,0.000000,"Going" \n "to" \n "Base"};
+item30[] = {"yes_",4,218,225.000000,-50.000000,275.000000,0.000000,1.000000,"" \n "yes" \n ""};
+item31[] = {"no_",8,218,600.000000,-125.000000,650.000000,-75.000000,0.000000,"" \n "no" \n ""};
+item32[] = {"always_",5,218,75.000000,-50.000000,125.000000,0.000000,0.000000,"" \n "always" \n ""};
+item33[] = {"wait_",5,218,75.000000,100.000000,125.000000,150.000000,0.000000,"" \n "wait" \n ""};
+item34[] = {"Setup_heli",2,4346,0.000000,100.000000,50.000000,150.000000,0.000000,"Setup" \n "heli"};
+item35[] = {"Found",4,218,-75.000000,100.000000,-25.000000,150.000000,2.000000,"Found"};
+item36[] = {"Find_free_helipa",2,250,-150.000000,100.000000,-100.000000,150.000000,0.000000,"Find" \n "free" \n "helipad"};
+item37[] = {"None_left",8,218,-150.000000,175.000000,-100.000000,225.000000,0.000000,"None" \n "left"};
+item38[] = {"None_free",4,218,-150.000000,25.000000,-100.000000,75.000000,1.000000,"None" \n "free"};
+item39[] = {"Damaged_",2,250,375.000000,-125.000000,425.000000,-75.000000,0.000000,"Damaged?"};
+item40[] = {"yes_",4,218,375.000000,-200.000000,425.000000,-150.000000,1.000000,"" \n "yes" \n ""};
+item41[] = {"no_",8,218,300.000000,-125.000000,350.000000,-75.000000,0.000000,"" \n "no" \n ""};
+link0[] = {0,2};
+link1[] = {2,36};
+link2[] = {3,5};
+link3[] = {4,7};
+link4[] = {4,17};
+link5[] = {5,6};
+link6[] = {5,17};
+link7[] = {6,14};
+link8[] = {7,19};
+link9[] = {8,3};
+link10[] = {9,1};
+link11[] = {10,9};
+link12[] = {11,32};
+link13[] = {12,18};
+link14[] = {12,27};
+link15[] = {13,15};
+link16[] = {14,13};
+link17[] = {14,17};
+link18[] = {15,16};
+link19[] = {15,17};
+link20[] = {16,4};
+link21[] = {17,10};
+link22[] = {18,11};
+link23[] = {19,17};
+link24[] = {19,20};
+link25[] = {20,29};
+link26[] = {21,22};
+link27[] = {21,23};
+link28[] = {22,12};
+link29[] = {23,39};
+link30[] = {24,25};
+link31[] = {24,26};
+link32[] = {25,8};
+link33[] = {26,12};
+link34[] = {27,28};
+link35[] = {29,30};
+link36[] = {29,31};
+link37[] = {30,8};
+link38[] = {31,21};
+link39[] = {32,8};
+link40[] = {33,5};
+link41[] = {34,33};
+link42[] = {35,34};
+link43[] = {36,35};
+link44[] = {36,37};
+link45[] = {36,38};
+link46[] = {37,1};
+link47[] = {38,36};
+link48[] = {39,40};
+link49[] = {39,41};
+link50[] = {40,12};
+link51[] = {41,24};
+globals[] = {0.000000,0,0,0,0,640,480,1,185,6316128,1,-240.746521,391.651367,563.738586,-252.258713,682,880,1};
+window[] = {2,-1,-1,-1,-1,885,26,1189,26,3,700};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Helicopter_Manager";
+        class States
+        {
+                /*%FSM<STATE "Begin">*/
+                class Begin
+                {
+                        name = "Begin";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"// spawn vehicle and crew" \n
+                         "" \n
+                         "_class  = selectRandom ncb_gv_enemyAttackHeliTypes;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "always">*/
+                                class always
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="Find_free_helipa";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 1;
+                        init = /*%FSM<STATEINIT""">*/"// spawn replacement heli if there are airbases left alive" \n
+                         "" \n
+                         "if not (ncb_gv_missionAirBaseZones isEqualTo []) then {" \n
+                         "	_this execFSM ""server\government\air_patrol\helicopterManager.fsm""" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Is_pilot_in_heli">*/
+                class Is_pilot_in_heli
+                {
+                        name = "Is_pilot_in_heli";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "yes_">*/
+                                class yes_
+                                {
+                                        itemno = 7;
+                                        priority = 1.000000;
+                                        to="Some_fuel_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"vehicle _pilot == _veh"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no_">*/
+                                class no_
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Timeout__set_in";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Heli_alive_">*/
+                class Heli_alive_
+                {
+                        name = "Heli_alive_";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "yes">*/
+                                class yes
+                                {
+                                        itemno = 6;
+                                        priority = 1.000000;
+                                        to="Can_it_move_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"alive _veh"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no_">*/
+                                class no_
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Timeout__set_in";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Timeout_60_secon">*/
+                class Timeout_60_secon
+                {
+                        name = "Timeout_60_secon";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"private [""_timeOut""];" \n
+                         "" \n
+                         "_timeOut = (round time) + 60;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait_">*/
+                                class wait_
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Heli_alive_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Timeout__set_in">*/
+                class Timeout__set_in
+                {
+                        name = "Timeout__set_in";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"{" \n
+                         "	if not (isNull _x) then {" \n
+                         "		_x setDamage 1" \n
+                         "	};" \n
+                         "} count units _grp;" \n
+                         "" \n
+                         "ncb_gv_abandonedVehicles pushBackUnique _veh;" \n
+                         "_veh setVariable [""vehicleAbandonedTime"",round time];" \n
+                         "" \n
+                         "private [""_timeOut""]; " \n
+                         "" \n
+                         "_timeOut = (round time) + ncb_param_heliRespawnDelay;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait_">*/
+                                class wait_
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Land_and_Resuppl">*/
+                class Land_and_Resuppl
+                {
+                        name = "Land_and_Resuppl";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"if (currentWaypoint _grp <7) then {" \n
+                         "	_zone = selectRandom ncb_gv_missionAirBaseZones;" \n
+                         "	_helipads = _zone getVariable ""zoneMapHelipads"";  // each element => [objectID,class,posASL,dir]" \n
+                         "	// diag_log format [""HELIPADS: %1"", _helipads];" \n
+                         "	// _helipadPos = ASLtoATL (_helipads select 0 select 2);" \n
+                         "	_helipadPos = getPosATL (_helipads select 0);" \n
+                         "	_wp = [_grp,7];" \n
+                         "	_wp setWaypointPosition [_helipadPos,0];" \n
+                         "	_grp setCurrentWaypoint _wp;" \n
+                         "	_veh setVariable [""vehicleIsGoingToAirBase"",true];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "always_">*/
+                                class always_
+                                {
+                                        itemno = 32;
+                                        priority = 0.000000;
+                                        to="Timeout_60_secon";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Any_Airbases_Active">*/
+                class Any_Airbases_Active
+                {
+                        name = "Any_Airbases_Active";
+                        itemno = 12;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "yes_">*/
+                                class yes_
+                                {
+                                        itemno = 18;
+                                        priority = 1.000000;
+                                        to="Land_and_Resuppl";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (ncb_gv_missionAirBaseZones isEqualTo [])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no_">*/
+                                class no_
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="Fly_away";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Can_it_move_">*/
+                class Can_it_move_
+                {
+                        name = "Can_it_move_";
+                        itemno = 14;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "yes">*/
+                                class yes
+                                {
+                                        itemno = 13;
+                                        priority = 1.000000;
+                                        to="Is_pilot_alive";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"canMove _veh or {_veh getVariable [""vehicleRefitting"",true]}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no_">*/
+                                class no_
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Timeout__set_in";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Is_pilot_alive">*/
+                class Is_pilot_alive
+                {
+                        name = "Is_pilot_alive";
+                        itemno = 15;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "yes">*/
+                                class yes
+                                {
+                                        itemno = 16;
+                                        priority = 1.000000;
+                                        to="Is_pilot_in_heli";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"alive _pilot"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no_">*/
+                                class no_
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Timeout__set_in";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Some_fuel_">*/
+                class Some_fuel_
+                {
+                        name = "Some_fuel_";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "yes_">*/
+                                class yes_
+                                {
+                                        itemno = 20;
+                                        priority = 1.000000;
+                                        to="Going_to_Base";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"fuel _veh > 0 or {_veh getVariable [""vehicleRefitting"",true]}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no_">*/
+                                class no_
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Timeout__set_in";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Low_fuel_">*/
+                class Low_fuel_
+                {
+                        name = "Low_fuel_";
+                        itemno = 21;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "yes_">*/
+                                class yes_
+                                {
+                                        itemno = 22;
+                                        priority = 1.000000;
+                                        to="Any_Airbases_Active";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"fuel _veh < 0.2"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no_">*/
+                                class no_
+                                {
+                                        itemno = 23;
+                                        priority = 0.000000;
+                                        to="Damaged_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Gunner_alive_">*/
+                class Gunner_alive_
+                {
+                        name = "Gunner_alive_";
+                        itemno = 24;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "set_new_patrol_">*/
+                                class set_new_patrol_
+                                {
+                                        itemno = 25;
+                                        priority = 1.000000;
+                                        to="Timeout_60_secon";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (isNull (_veh turretUnit [0])) and {alive (_veh turretUnit [0])}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"call {" \n
+                                         "	diag_log format [""HM check casdata %1"",_grp getVariable [""casData"",""nil""]];" \n
+                                         "    if (not isNil {_grp getVariable ""casData""}) exitWith {" \n
+                                         "        (_grp getVariable ""casData"") params [""_calledZone"",""_timeout""];" \n
+                                         "        diag_log format [""HM called zone: %1 and timeout: %2"",_calledZone,_timeout];" \n
+                                         "        _casZone = _grp getVariable [""casZone"",objNull];" \n
+                                         "        if (isNull _casZone) then {" \n
+                                         "            _grp setVariable [""casZone"",_calledZone];" \n
+                                         "            _zonePos = getPosATL _calledZone;" \n
+                                         "            _zonePos set [2,100];" \n
+                                         "            [_grp,1] setWaypointPosition [_zonePos,0];" \n
+                                         "            _ang = random 359;" \n
+                                         "            _inc = 90;" \n
+                                         "            _rad = 500;" \n
+                                         "            if (random 2 > 1) then {" \n
+                                         "                _inc = _inc * -1;" \n
+                                         "            };" \n
+                                         "            for ""_i"" from 2 to 5 step 1 do {" \n
+                                         "                _wpPos = [" \n
+                                         "                    (_zonePos select 0) + _rad * sin _ang," \n
+                                         "                    (_zonePos select 1) + _rad * cos _ang," \n
+                                         "                    100" \n
+                                         "                ];" \n
+                                         "                [_grp,_i] setWaypointPosition [_wpPos,0];" \n
+                                         "                if (_i == 2) then {" \n
+                                         "                    [_grp,6] setWaypointPosition [_wpPos,0];" \n
+                                         "                };" \n
+                                         "                _ang = _ang + _inc;" \n
+                                         "                _ang = _ang call horde_fnc_normalDir;" \n
+                                         "            };" \n
+                                         "            _grp setCurrentWaypoint [_grp,1];" \n
+                                         "        } else {" \n
+                                         "            // compare how long on the job" \n
+                                         "            if (time > _timeout) then {" \n
+                                         "				// _casZone setVariable [""casPilot"",nil];" \n
+                                         "                _grp setVariable [""casZone"",objNull];" \n
+                                         "                _grp setVariable [""casData"",nil];" \n
+                                         "            };" \n
+                                         "        };" \n
+                                         "    };" \n
+                                         "    if (time > _grp getVariable [""groupZonePatrolTimeout"",0]" \n
+                                         "        // and {isNull (_pilot findNearestEnemy (getPos vehicle _pilot))}" \n
+                                         "    ) then {" \n
+                                         "        // find new zone to patrol" \n
+                                         "        _zone = selectRandom ncb_gv_zoneList;" \n
+                                         "        _zonePos = getPosATL _zone;" \n
+                                         "        _zonePos set [2,100];" \n
+                                         "        [_grp,1] setWaypointPosition [_zonePos,0];" \n
+                                         "        _ang = random 359;" \n
+                                         "        _inc = 90;" \n
+                                         "        _rad = 500;" \n
+                                         "        if (random 2 > 1) then {" \n
+                                         "            _inc = _inc * -1;" \n
+                                         "        };" \n
+                                         "        for ""_i"" from 2 to 5 step 1 do {" \n
+                                         "            _wpPos = [" \n
+                                         "                (_zonePos select 0) + _rad * sin _ang," \n
+                                         "                (_zonePos select 1) + _rad * cos _ang," \n
+                                         "                100" \n
+                                         "            ];" \n
+                                         "            [_grp,_i] setWaypointPosition [_wpPos,0];" \n
+                                         "            if (_i == 2) then {" \n
+                                         "                [_grp,6] setWaypointPosition [_wpPos,0];" \n
+                                         "            };" \n
+                                         "            _ang = _ang + _inc;" \n
+                                         "            _ang = _ang call horde_fnc_normalDir;" \n
+                                         "        };" \n
+                                         "        _grp setVariable [""groupZonePatrolTimeout"",(round time) + 300];" \n
+                                         "" \n
+                                         "        _grp setCurrentWaypoint [_grp,1];" \n
+                                         "    };" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no_">*/
+                                class no_
+                                {
+                                        itemno = 26;
+                                        priority = 0.000000;
+                                        to="Any_Airbases_Active";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Fly_away">*/
+                class Fly_away
+                {
+                        name = "Fly_away";
+                        itemno = 28;
+                        init = /*%FSM<STATEINIT""">*/"// send to edge of map and delete" \n
+                         "" \n
+                         "_wp = [_grp,7];" \n
+                         "_wp setWaypointPosition [[0,0,100],0];" \n
+                         "_statement = format [""if (isServer) then {%1 call horde_fnc_cacheGroup;deleteVehicle %2}"",_grp,_veh];" \n
+                         "_wp setWaypointStatements _statement;" \n
+                         "_grp setCurrentWaypoint _wp;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Going_to_Base">*/
+                class Going_to_Base
+                {
+                        name = "Going_to_Base";
+                        itemno = 29;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "yes_">*/
+                                class yes_
+                                {
+                                        itemno = 30;
+                                        priority = 1.000000;
+                                        to="Timeout_60_secon";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_veh getVariable ""vehicleIsGoingToAirBase""" \n
+                                         "or {_veh getVariable ""vehicleRefitting""}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no_">*/
+                                class no_
+                                {
+                                        itemno = 31;
+                                        priority = 0.000000;
+                                        to="Low_fuel_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Setup_heli">*/
+                class Setup_heli
+                {
+                        name = "Setup_heli";
+                        itemno = 34;
+                        init = /*%FSM<STATEINIT""">*/"private [""_timeOut""];" \n
+                         "" \n
+                         "_grp = createGroup east;" \n
+                         "" \n
+                         "_veh = createVehicle [_class,_helipadPos,[],0,""can_collide""];" \n
+                         "_veh call horde_fnc_addExtraVehicleMags;" \n
+                         "_veh addEventHandler [""reloaded"", {" \n
+                         "	_this call horde_fnc_autoReloadVehWeap" \n
+                         "}];" \n
+                         "_unit = ncb_gv_enemyUnitPool deleteAt 0;" \n
+                         "[_unit] joinSilent _grp;" \n
+                         "_unit enableSimulationGlobal true;" \n
+                         "_unit hideObjectGlobal false;" \n
+                         "//_unit = _grp createUnit [""o_soldier_f"",_heliPadPos,[],0,""none""];" \n
+                         "_unit moveInDriver _veh;" \n
+                         "[_unit,true] call horde_fnc_allowDamageGlobal;" \n
+                         "_unit enableAI ""checkVisible"";" \n
+                         "" \n
+                         "// now turrets" \n
+                         "" \n
+                         "{" \n
+                         "	_unit = ncb_gv_enemyUnitPool deleteAt 0;" \n
+                         "	[_unit] joinSilent _grp;" \n
+                         "	_unit enableSimulationGlobal true;" \n
+                         "	_unit hideObjectGlobal false;" \n
+                         "	//_unit = _grp createUnit [""o_soldier_f"",_heliPadPos,[],0,""none""];" \n
+                         "	_unit moveInTurret [_veh,_x];" \n
+                         "	[_unit,true] call horde_fnc_allowDamageGlobal;" \n
+                         "	_unit enableAI ""checkVisible"";" \n
+                         "} count allTurrets [_veh,true];" \n
+                         "" \n
+                         "_grp addVehicle _veh;" \n
+                         "_grp allowFleeing 0;" \n
+                         "" \n
+                         "_veh call horde_fnc_vehicleDamageAnimSetup;" \n
+                         "_initScript = getText (configFile >> ""CfgVehicles"" >> _class >> ""initScript"");" \n
+                         "if (_initScript != """") then {" \n
+                         "	[_veh,""new""] remoteExecCall [" \n
+                         "		_initScript," \n
+                         "		2" \n
+                         "	];" \n
+                         "};" \n
+                         "_veh addEventHandler [""GetIn"", {" \n
+                         "	_this call horde_fnc_getInVehicle" \n
+                         "}];" \n
+                         "_veh addEventHandler [""GetOut"", {" \n
+                         "	_this call horde_fnc_getOutVehicle" \n
+                         "}];" \n
+                         "_veh addEventHandler [""handleDamage"", {" \n
+                         "	_this call horde_fnc_handleDamageAIHeli" \n
+                         "}];" \n
+                         "if (ncb_param_lockEnemyVehicles) then {" \n
+                         "	_veh setVehicleLock ""LOCKED""" \n
+                         "};" \n
+                         "if (ncb_param_aiDisableVehicleVisionNV) then {" \n
+                         "	_veh disableNVGEquipment true" \n
+                         "};" \n
+                         "if (ncb_param_aiDisableVehicleVisionTI) then {" \n
+                         "	_veh disableTIEquipment true" \n
+                         "};" \n
+                         "" \n
+                         "_pilot = driver _veh;" \n
+                         "_var = [""patrolHeli"",_veh,9999,2,-1,""del_me"",""noZone""];" \n
+                         "_grp setVariable [""groupData"",_var];" \n
+                         "" \n
+                         "_veh addEventHandler [""engine"", {" \n
+                         "	_this call horde_fnc_patrolHeliLanded" \n
+                         "}];" \n
+                         "" \n
+                         "_veh setVariable [""vehicleIsGoingToAirBase"",false];" \n
+                         "_veh setVariable [""vehicleRefitting"",false];" \n
+                         "" \n
+                         "//_veh setVehicleRadar 2;" \n
+                         "//_veh setVehicleReportRemoteTargets false;" \n
+                         "//_veh setVehicleReceiveRemoteTargets false;" \n
+                         "//_veh setVehicleReportOwnPosition false;" \n
+                         "" \n
+                         "// MOVE 1" \n
+                         "" \n
+                         "_wp = _grp addWaypoint [_helipadPos, 100];" \n
+                         "_wp setWaypointBehaviour ""aware"";" \n
+                         "_wp setWaypointCombatMode ""red"";" \n
+                         "_wp setWaypointCompletionRadius 100;" \n
+                         "_wp setWaypointFormation ""wedge"";" \n
+                         "_wp setWaypointSpeed ""full"";" \n
+                         "_wp setWaypointStatements [""true"",""""];" \n
+                         "_wp setWaypointTimeout [0,0,0];" \n
+                         "_wp setWaypointType ""move"";" \n
+                         "" \n
+                         "// PATROL 2" \n
+                         "" \n
+                         "_wp = _grp addWaypoint [_helipadPos, 100];" \n
+                         "_wp setWaypointSpeed ""limited"";" \n
+                         "_wp setWaypointType ""move"";//""sad"";" \n
+                         "" \n
+                         "// PATROL 3" \n
+                         "" \n
+                         "_wp = _grp addWaypoint [_helipadPos, 100];" \n
+                         "_wp setWaypointType ""move"";//""sad"";" \n
+                         "" \n
+                         "// PATROL 4" \n
+                         "" \n
+                         "_wp = _grp addWaypoint [_helipadPos, 100];" \n
+                         "_wp setWaypointType ""move"";//""sad"";" \n
+                         "" \n
+                         "// PATROL 5" \n
+                         "" \n
+                         "_wp = _grp addWaypoint [_helipadPos, 100];" \n
+                         "_wp setWaypointType ""move"";//""sad"";" \n
+                         "" \n
+                         "// CYCLE 6" \n
+                         "" \n
+                         "_wp = _grp addWaypoint [_helipadPos, 100];" \n
+                         "_wp setWaypointType ""cycle"";" \n
+                         "" \n
+                         "// LAND 7" \n
+                         "" \n
+                         "_wp = _grp addWaypoint [_helipadPos, 0];" \n
+                         "_wp setWaypointCombatMode ""blue"";" \n
+                         "_wp setWaypointSpeed ""normal"";" \n
+                         "_wp setWaypointType ""move"";" \n
+                         "_statement = ""if (isServer) then {0 = this spawn {scriptName 'heliManagerLand';sleep 0.1;vehicle _this land 'land'}}"";" \n
+                         "_wp setWaypointStatements [""true"",_statement];" \n
+                         "" \n
+                         "_grp setGroupIDGlobal [format [""patrol_heli_%1"",_grp]];" \n
+                         "" \n
+                         "_timeOut = (round time) + 5;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait_">*/
+                                class wait_
+                                {
+                                        itemno = 33;
+                                        priority = 0.000000;
+                                        to="Heli_alive_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Find_free_helipa">*/
+                class Find_free_helipa
+                {
+                        name = "Find_free_helipa";
+                        itemno = 36;
+                        init = /*%FSM<STATEINIT""">*/"private [""_helipadPos""];" \n
+                         "" \n
+                         "_found = false;" \n
+                         "_someBases = false;" \n
+                         "" \n
+                         "if (not (ncb_gv_missionAirBaseZones isEqualTo [])) then {" \n
+                         "	_someBases = true;" \n
+                         "	_zone = selectRandom ncb_gv_missionAirBaseZones;" \n
+                         "	_helipads = _zone getVariable ""zoneMapHelipads"";  // each element => [objectID,class,posASL,dir]" \n
+                         "	// _helipadPos = ASLtoATL (_helipads select 0 select 2);" \n
+                         "	_helipadPos = getPosATL (_helipads select 0);" \n
+                         "	if ((nearestObjects [_helipadPos,[""AllVehicles""],6]) isEqualTo []" \n
+                         "		and {isNil {_zone getVariable ""zoneHeliAtAirBase""}}" \n
+                         "		and {not ([_helipadPos,1000] call horde_fnc_playerIsNear)}" \n
+                         "	) then {" \n
+                         "		_found = true;" \n
+                         "		_zone setVariable [""zoneHeliAtAirBase"",true];" \n
+                         "		_zone spawn {" \n
+                         "			scriptName ""heliManagerHeliAtAirBase"";" \n
+                         "			sleep 60;" \n
+                         "			_this setVariable [""zoneHeliAtAirBase"",nil];" \n
+                         "		};" \n
+                         "	};" \n
+                         "};" \n
+                         "" \n
+                         "_timeOut = (round time) + 5;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Found">*/
+                                class Found
+                                {
+                                        itemno = 35;
+                                        priority = 2.000000;
+                                        to="Setup_heli";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut and {_found}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "None_free">*/
+                                class None_free
+                                {
+                                        itemno = 38;
+                                        priority = 1.000000;
+                                        to="Find_free_helipa";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut and {not _found} and {_someBases}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "None_left">*/
+                                class None_left
+                                {
+                                        itemno = 37;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Damaged_">*/
+                class Damaged_
+                {
+                        name = "Damaged_";
+                        itemno = 39;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "yes_">*/
+                                class yes_
+                                {
+                                        itemno = 40;
+                                        priority = 1.000000;
+                                        to="Any_Airbases_Active";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"damage _veh > 0.25"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no_">*/
+                                class no_
+                                {
+                                        itemno = 41;
+                                        priority = 0.000000;
+                                        to="Gunner_alive_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Begin";
+        finalStates[] =
+        {
+                "End",
+                "Fly_away",
+        };
+};
+/*%FSM</COMPILE>*/

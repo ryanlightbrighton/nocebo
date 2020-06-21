@@ -1,0 +1,234 @@
+/*%FSM<COMPILE "E:\Applications\Poseidon\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, look_around">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"init_",0,250,-325.000000,300.000000,-275.000000,350.000000,0.000000,"" \n "init" \n ""};
+item1[] = {"end",1,250,125.000000,300.000000,175.000000,350.000000,0.000000,"end"};
+item2[] = {"first_timeout",5,218,-250.000000,300.000000,-200.000000,350.000000,0.000000,"first" \n "timeout"};
+item3[] = {"check_dead_combat",2,250,-25.000000,300.000000,25.000000,350.000000,0.000000,"check" \n "dead" \n "combat" \n "safe"};
+item4[] = {"COMBAT",4,218,-100.000000,225.000000,-50.000000,275.000000,1.000000,"COMBAT"};
+item5[] = {"SAFE__look__",8,218,-100.000000,375.000000,-50.000000,425.000000,0.000000,"" \n "SAFE" \n "(look)" \n ""};
+item6[] = {"all_dead",4,218,50.000000,300.000000,100.000000,350.000000,2.000000,"all" \n "dead"};
+item7[] = {"direct_to_wait",2,250,-175.000000,300.000000,-125.000000,350.000000,0.000000,"direct" \n "to" \n "wait"};
+item8[] = {"wait_",5,218,-100.000000,300.000000,-50.000000,350.000000,0.000000,"" \n "wait" \n ""};
+link0[] = {0,2};
+link1[] = {2,7};
+link2[] = {3,4};
+link3[] = {3,5};
+link4[] = {3,6};
+link5[] = {4,7};
+link6[] = {5,7};
+link7[] = {6,1};
+link8[] = {7,8};
+link9[] = {8,3};
+globals[] = {0.000000,0,0,0,0,640,480,1,32,6316128,1,-205.565491,243.381775,905.935425,73.087067,352,653,1};
+window[] = {0,-1,-1,-1,-1,939,466,1707,140,1,370};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "look_around";
+        class States
+        {
+                /*%FSM<STATE "init_">*/
+                class init_
+                {
+                        name = "init_";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"params [""_zone"",""_grp""];" \n
+                         "" \n
+                         "_zonePos = getPos _zone;" \n
+                         "" \n
+                         "_artyTarget = _zone getPos [3000 + (random 1000),random 360];" \n
+                         "_lookPos = _zonePos vectorFromTo _artyTarget;" \n
+                         "_lookPos set [2,0.9];" \n
+                         "_lookPos = _lookPos vectorMultiply 100;" \n
+                         "" \n
+                         "{" \n
+                         "	if (vehicle _x == _x) then {" \n
+                         "		_x selectWeapon primaryWeapon _x" \n
+                         "	};" \n
+                         "} forEach units _grp;" \n
+                         "" \n
+                         "_timeOut = time +  3 + (random 5);"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "first_timeout">*/
+                                class first_timeout
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="direct_to_wait";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "end">*/
+                class end
+                {
+                        name = "end";
+                        itemno = 1;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "check_dead_combat">*/
+                class check_dead_combat
+                {
+                        name = "check_dead_combat";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "all_dead">*/
+                                class all_dead
+                                {
+                                        itemno = 6;
+                                        priority = 2.000000;
+                                        to="end";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (_zone getVariable ""zoneIsActive"")" \n
+                                         "or {{if (alive _x) exitWith {1}} count units _grp isEqualTo 0}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "COMBAT">*/
+                                class COMBAT
+                                {
+                                        itemno = 4;
+                                        priority = 1.000000;
+                                        to="direct_to_wait";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not isNull ((leader _grp) findNearestEnemy (leader _grp))"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timeOut = time +  60;" \n
+                                         "" \n
+                                         "// _zone getVariable [""zoneMortarData"",[objNull,objNull]] params [""_mortar"",""_unit""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "SAFE__look__">*/
+                                class SAFE__look__
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="direct_to_wait";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"// common target if multiple arty units firing at same time" \n
+                                         "if (random 1 > 0.97) then {" \n
+                                         "	_artyTarget = _zone getPos [3000 + (random 1000),random 360];" \n
+                                         "	_lookPos = _zonePos vectorFromTo _artyTarget;" \n
+                                         "	_lookPos set [2,0.9];" \n
+                                         "	_lookPos = _lookPos vectorMultiply 100;" \n
+                                         "};" \n
+                                         "" \n
+                                         "{" \n
+                                         "	if (alive _x) then {" \n
+                                         "		_x getVariable [""lookAroundData"",["""",[],[]]] params [""_type"",""_data"",""_data2""];" \n
+                                         "		call {" \n
+                                         "			if (_type == ""sniper"") exitWith {" \n
+                                         "				if (random 3 > 2) then {" \n
+                                         "					(selectRandom _data2) params [""_wp"",""_stance""];" \n
+                                         "					_x doWatch _wp;" \n
+                                         "					_x setUnitPos _stance" \n
+                                         "				}" \n
+                                         "			};" \n
+                                         "			if (_type == ""static"") exitWith {" \n
+                                         "				if (random 3 > 2) then {" \n
+                                         "					_x doWatch ((selectRandom _data2) vectorAdd [0,0,10 - random 30])" \n
+                                         "				}" \n
+                                         "			};" \n
+                                         "			if (_type == ""artillery"") exitWith {" \n
+                                         "				_data params [""_veh"",""_turretPath"",""_timeNextSalvo""];" \n
+                                         "				if (not isNull _veh" \n
+                                         "				    and {alive _veh}" \n
+                                         "				) then {" \n
+                                         "					if (_x == gunner _veh) then {" \n
+                                         "						if (time > _timeNextSalvo) then {" \n
+                                         "							_salvoCount = floor random [2,6,6];" \n
+                                         "							_veh setVariable [""salvoCount"", [(getPosATL _veh) vectorAdd _lookPos,1,_salvoCount]];" \n
+                                         "							// (commander _veh) doWatch objNull;" \n
+                                         "							_veh doArtilleryFire [" \n
+                                         "								_artyTarget," \n
+                                         "								""32Rnd_155mm_Mo_shells""," \n
+                                         "								_salvoCount" \n
+                                         "							];" \n
+                                         "							_reloadTime  = getNumber (configfile >> ""CfgWeapons"" >> ""mortar_155mm_AMOS"" >> ""reloadTime"");" \n
+                                         "							_data set [2,round (time + (_reloadTime * _salvoCount) + 10 + (random 20))]; // update variable" \n
+                                         "						}" \n
+                                         "					}" \n
+                                         "				}" \n
+                                         "			};" \n
+                                         "			/*if (_type == ""antiair"") exitWith {" \n
+                                         "				_data params [""_veh"",""_path""];" \n
+                                         "				if (not isNull _veh" \n
+                                         "				    and {alive _veh}" \n
+                                         "				) then {" \n
+                                         "					if (_x == gunner _veh) then {" \n
+                                         "						if (random 1 > 0.6) then {" \n
+                                         "							_aim = _veh getPos [1000,random 360];" \n
+                                         "							_aim set [2,600 + random 600];" \n
+                                         "							_x doWatch _aim;" \n
+                                         "							private _weapons = _veh weaponsTurret _path;" \n
+                                         "							_weap = _weapons select 0;" \n
+                                         "							// _veh action [""UseWeapon"",_veh,_x,0];" \n
+                                         "							[_x,_weap] spawn {" \n
+                                         "								scriptName ""look_around"";" \n
+                                         "								params [""_unit"",""_weap""];" \n
+                                         "								sleep 3;" \n
+                                         "								for ""_i"" from 1 to 15 do {" \n
+                                         "									_unit forceWeaponFire [_weap,_weap];" \n
+                                         "									sleep 0.15" \n
+                                         "								}" \n
+                                         "							}" \n
+                                         "						}" \n
+                                         "					}" \n
+                                         "				}" \n
+                                         "			}*/" \n
+                                         "		}" \n
+                                         "	}" \n
+                                         "} count units _grp;" \n
+                                         "" \n
+                                         "_timeOut = time +  3 + (random 5);"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "direct_to_wait">*/
+                class direct_to_wait
+                {
+                        name = "direct_to_wait";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait_">*/
+                                class wait_
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="check_dead_combat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="init_";
+        finalStates[] =
+        {
+                "end",
+        };
+};
+/*%FSM</COMPILE>*/

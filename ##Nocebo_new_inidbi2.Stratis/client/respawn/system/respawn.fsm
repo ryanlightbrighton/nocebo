@@ -1,0 +1,1859 @@
+/*%FSM<COMPILE "E:\Applications\Poseidon\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, respawn">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Begin",0,250,-75.000000,25.000000,-25.000000,75.000000,0.000000,"Begin"};
+item1[] = {"Coast",4,218,75.000000,-325.000000,125.000000,-275.000000,4.000000,"Coast"};
+item2[] = {"wait",5,218,-75.000000,-50.000000,-25.000000,0.000000,0.000000,"wait"};
+item3[] = {"_",2,250,-75.000000,-125.000000,-25.000000,-75.000000,0.000000,""};
+item4[] = {"Revive",4,218,-375.000000,-325.000000,-325.000000,-275.000000,5.000000,"Revive"};
+item5[] = {"End",1,250,-250.000000,-850.000000,-200.000000,-800.000000,0.000000,"End"};
+item6[] = {"Login",8,218,-100.000000,-275.000000,-50.000000,-225.000000,0.000000,"Login"};
+item7[] = {"Para_Drop",4,218,375.000000,-325.000000,425.000000,-275.000000,3.000000,"Para" \n "Drop"};
+item8[] = {"__1",-1,250,-1250.000000,1025.000000,50.000000,1500.000000,0.000000,""};
+item9[] = {"Respawn",-1,250,50.000000,-100.000000,275.000000,100.000000,0.000000,"Respawn"};
+item10[] = {"__2",2,250,-375.000000,-400.000000,-325.000000,-350.000000,0.000000,""};
+item11[] = {"Tent",4,218,175.000000,-325.000000,225.000000,-275.000000,2.000000,"Tent"};
+item12[] = {"No_Revive",4,218,-275.000000,-325.000000,-225.000000,-275.000000,1.000000,"No" \n "Revive"};
+item13[] = {"__3",2,250,-100.000000,-350.000000,-50.000000,-300.000000,0.000000,""};
+item14[] = {"wait",5,218,-175.000000,-350.000000,-125.000000,-300.000000,0.000000,"wait"};
+item15[] = {"__4",2,250,-175.000000,-425.000000,-125.000000,-375.000000,0.000000,""};
+item16[] = {"wait",5,218,-25.000000,-500.000000,25.000000,-450.000000,0.000000,"wait"};
+item17[] = {"__5",2,250,75.000000,-400.000000,125.000000,-350.000000,0.000000,""};
+item18[] = {"wait",5,218,75.000000,-475.000000,125.000000,-425.000000,0.000000,"wait"};
+item19[] = {"__6",2,250,175.000000,-400.000000,225.000000,-350.000000,0.000000,""};
+item20[] = {"wait",5,218,175.000000,-475.000000,225.000000,-425.000000,0.000000,"wait"};
+item21[] = {"__7",2,250,375.000000,-400.000000,425.000000,-350.000000,0.000000,""};
+item22[] = {"wait",5,218,375.000000,-475.000000,425.000000,-425.000000,0.000000,"wait"};
+item23[] = {"__8",2,250,375.000000,-550.000000,425.000000,-500.000000,0.000000,""};
+item24[] = {"wait",5,218,375.000000,-625.000000,425.000000,-575.000000,0.000000,"wait"};
+item25[] = {"timer",2,250,375.000000,-700.000000,425.000000,-650.000000,0.000000,"timer"};
+item26[] = {"finished",8,218,450.000000,-700.000000,500.000000,-650.000000,0.000000,"finished"};
+item27[] = {"__9",2,250,450.000000,-775.000000,500.000000,-725.000000,0.000000,""};
+item28[] = {"wait",5,218,450.000000,-850.000000,500.000000,-800.000000,0.000000,"wait"};
+item29[] = {"__10",2,250,375.000000,-850.000000,425.000000,-800.000000,0.000000,""};
+item30[] = {"near_ground",5,218,300.000000,-850.000000,350.000000,-800.000000,0.000000,"near" \n "ground"};
+item31[] = {"wait",5,218,-375.000000,-475.000000,-325.000000,-425.000000,0.000000,"wait"};
+item32[] = {"revive_cam",2,250,-450.000000,-475.000000,-400.000000,-425.000000,0.000000,"revive" \n "cam"};
+item33[] = {"Rotate",4,218,-525.000000,-475.000000,-475.000000,-425.000000,5.000000,"Rotate"};
+item34[] = {"Conscious",8,218,-450.000000,-550.000000,-400.000000,-500.000000,0.000000,"Conscious"};
+item35[] = {"__11",2,250,-525.000000,-400.000000,-475.000000,-350.000000,0.000000,""};
+item36[] = {"wait",5,218,-450.000000,-400.000000,-400.000000,-350.000000,0.000000,"wait"};
+item37[] = {"__12",2,250,-450.000000,-625.000000,-400.000000,-575.000000,0.000000,""};
+item38[] = {"Alive",4,218,-450.000000,-700.000000,-400.000000,-650.000000,1.000000,"Alive"};
+item39[] = {"Dead",8,218,-375.000000,-625.000000,-325.000000,-575.000000,0.000000,"Dead"};
+item40[] = {"__13",2,250,-450.000000,-775.000000,-400.000000,-725.000000,0.000000,""};
+item41[] = {"wait",5,218,-450.000000,-850.000000,-400.000000,-800.000000,0.000000,"wait"};
+item42[] = {"__14",2,250,-25.000000,-575.000000,25.000000,-525.000000,0.000000,""};
+item43[] = {"wait",5,218,-25.000000,-650.000000,25.000000,-600.000000,0.000000,"wait"};
+item44[] = {"side_not_west",4,218,50.000000,-725.000000,100.000000,-675.000000,1.000000,"side" \n "not" \n "west"};
+item45[] = {"side_is_west",8,218,175.000000,-850.000000,225.000000,-800.000000,0.000000,"side" \n "is" \n "west"};
+item46[] = {"__15",2,250,-25.000000,-725.000000,25.000000,-675.000000,0.000000,""};
+item47[] = {"wait",5,218,-100.000000,-725.000000,-50.000000,-675.000000,0.000000,"wait"};
+item48[] = {"__16",2,250,175.000000,-650.000000,225.000000,-600.000000,0.000000,""};
+item49[] = {"New_game",8,218,-100.000000,-425.000000,-50.000000,-375.000000,0.000000,"New" \n "game"};
+item50[] = {"Load_Saved_Info",4,218,-175.000000,-500.000000,-125.000000,-450.000000,1.000000,"Load" \n "Saved" \n "Info"};
+item51[] = {"__17",2,250,-100.000000,-500.000000,-50.000000,-450.000000,0.000000,""};
+version=1;
+class LayoutItems
+{
+	class Item8
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=17;
+			FontWeight=700;
+			lStyle=1;
+			lColor=-1;
+		};
+	};
+	class Item9
+	{
+		class ItemInfo
+		{
+			FontFace="Franklin Gothic Heavy";
+			FontHeight=36;
+		};
+		BgColor=8454143;
+	};
+};
+link0[] = {0,2};
+link1[] = {1,17};
+link2[] = {2,3};
+link3[] = {3,1};
+link4[] = {3,4};
+link5[] = {3,6};
+link6[] = {3,7};
+link7[] = {3,11};
+link8[] = {3,12};
+link9[] = {4,10};
+link10[] = {6,13};
+link11[] = {7,21};
+link12[] = {10,31};
+link13[] = {11,19};
+link14[] = {12,5};
+link15[] = {13,14};
+link16[] = {14,15};
+link17[] = {15,49};
+link18[] = {15,50};
+link19[] = {16,42};
+link20[] = {17,18};
+link21[] = {18,48};
+link22[] = {19,20};
+link23[] = {20,48};
+link24[] = {21,22};
+link25[] = {22,23};
+link26[] = {23,24};
+link27[] = {24,25};
+link28[] = {25,26};
+link29[] = {26,27};
+link30[] = {27,28};
+link31[] = {28,29};
+link32[] = {29,30};
+link33[] = {30,48};
+link34[] = {31,32};
+link35[] = {32,33};
+link36[] = {32,34};
+link37[] = {33,35};
+link38[] = {34,37};
+link39[] = {35,36};
+link40[] = {36,32};
+link41[] = {37,38};
+link42[] = {37,39};
+link43[] = {38,40};
+link44[] = {39,5};
+link45[] = {40,41};
+link46[] = {41,5};
+link47[] = {42,43};
+link48[] = {43,48};
+link49[] = {44,46};
+link50[] = {45,5};
+link51[] = {46,47};
+link52[] = {47,5};
+link53[] = {48,44};
+link54[] = {48,45};
+link55[] = {49,51};
+link56[] = {50,51};
+link57[] = {51,16};
+globals[] = {0.000000,0,0,0,0,640,480,3,446,6316128,1,-1053.648926,999.473877,162.436523,-908.511597,1087,567,1};
+window[] = {0,-1,-1,-32000,-32000,771,1706,2899,58,1,1105};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "respawn";
+        class States
+        {
+                /*%FSM<STATE "Begin">*/
+                class Begin
+                {
+                        name = "Begin";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_unit = _this select 0;" \n
+                         "_body = _this select 1;" \n
+                         "" \n
+                         "_unit getVariable [""lastRespawnPosData"",[[0,0,0],0,0]] params [""_lastPos"",""_lastDir"",""_lastTime""];" \n
+                         "" \n
+                         "_timeout = time + 1;" \n
+                         "" \n
+                         "// define" \n
+                         "" \n
+                         "_equipCoast = {" \n
+                         "    // equip" \n
+                         "" \n
+                         "    removeAllContainers player;" \n
+                         "    removeAllWeapons player;" \n
+                         "    removeHeadgear player;" \n
+                         "    removeGoggles player;" \n
+                         "    removeAllAssignedItems player;" \n
+                         "    player forceAddUniform ""U_B_survival_uniform"";" \n
+                         "    //player addBackpackGlobal ""Diver_Pack"";" \n
+                         "    _cfgWeapons = configFile >> ""cfgWeapons"";" \n
+                         "    _cfgMagazines = configFile >> ""cfgMagazines"";" \n
+                         "" \n
+                         "    if (ncb_param_playerStartPrimaryWeapon) then {" \n
+                         "        if (sunOrMoon == 1) then {" \n
+                         "            // filter by slots" \n
+                         "            _weapons = [];" \n
+                         "            _slotsMax = 99;" \n
+                         "            {" \n
+                         "                if (count getArray (_cfgWeapons >>  _x >> ""muzzles"") < 2" \n
+                         "                    and {not (isClass (_cfgWeapons >>  _x >> ""opticsmodes""))}" \n
+                         "                ) then {" \n
+                         "                    _slots = 0;" \n
+                         "                    {" \n
+                         "                        _cfgCompatibleItems = _x >> ""compatibleItems"";" \n
+                         "                        if (isArray _cfgCompatibleItems) then {" \n
+                         "                            if not (getArray (_cfgCompatibleItems) isEqualTo []) then {" \n
+                         "                                _slots = _slots + 1;" \n
+                         "                            };" \n
+                         "                        } else {" \n
+                         "                            if (isClass _cfgCompatibleItems) then {" \n
+                         "                                if not (configProperties [_cfgCompatibleItems,""isNumber _x""] isEqualTo []) then {" \n
+                         "                                    _slots = _slots + 1;" \n
+                         "                                };" \n
+                         "                            };" \n
+                         "                        };" \n
+                         "                    } forEach configProperties [" \n
+                         "                        _cfgWeapons >>  _x >> ""WeaponSlotsInfo""," \n
+                         "                        ""isClass _x""," \n
+                         "                        true" \n
+                         "                    ];" \n
+                         "                    if (_slots < _slotsMax) then {" \n
+                         "                        _weapons = [_x];" \n
+                         "                        _slotsMax = _slots;" \n
+                         "                    } else {" \n
+                         "                        if (_slots == _slotsMax) then {" \n
+                         "                            _weapons pushBack _x" \n
+                         "                        }" \n
+                         "                    }" \n
+                         "                };" \n
+                         "            } forEach ncb_gv_crateRiflesTier_1;" \n
+                         "            // now filter by ammo count" \n
+                         "            _weapons2 = [];" \n
+                         "            _currentCount = 999999;" \n
+                         "            {" \n
+                         "                _ct = getNumber (_cfgMagazines >> (getArray (_cfgWeapons >>  _x >> ""magazines"") select 0) >> ""count"");" \n
+                         "                if (_ct < _currentCount) then {" \n
+                         "                    _currentCount  = _ct;" \n
+                         "                    _weapons2 = [_x]" \n
+                         "                } else {" \n
+                         "                    if (_ct == _currentCount) then {" \n
+                         "                        _weapons2 pushBack _x" \n
+                         "                    }" \n
+                         "                }" \n
+                         "            } forEach _weapons;" \n
+                         "            _weapon = selectRandom _weapons2;" \n
+                         "            _mags = getArray (_cfgWeapons >>  _weapon >> ""magazines"");" \n
+                         "            _mags = _mags select {getText (configFile >> ""CfgAmmo"" >> (getText (configFile >> ""CfgMagazines"" >> _x >> ""ammo"")) >> ""effectFly"") != ""AmmoUnderwater""};" \n
+                         "            player addMagazines [_mags select 0,3];" \n
+                         "            player addWeapon _weapon;" \n
+                         "        } else {" \n
+                         "            // filter by slots (but make sure pointerslot is there)" \n
+                         "            _weapons = [];" \n
+                         "            _slotsMax = 99;" \n
+                         "            {" \n
+                         "            	private _weapon = _x;" \n
+                         "                if (count getArray (_cfgWeapons >>  _weapon >> ""muzzles"") < 2" \n
+                         "                    and {not (isClass (_cfgWeapons >>  _weapon >> ""opticsmodes""))}" \n
+                         "                ) then {" \n
+                         "                    _slots = 0;" \n
+                         "                    _hasPointer = false;" \n
+                         "                    {" \n
+                         "                        _cfgCompatibleItems = _x >> ""compatibleItems"";" \n
+                         "                        if (isArray _cfgCompatibleItems) then {" \n
+                         "                            if not (getArray (_cfgCompatibleItems) isEqualTo []) then {" \n
+                         "                                _slots = _slots + 1;" \n
+                         "                                if (configName _x == ""PointerSlot"") then {" \n
+                         "		                            _hasPointer = true;" \n
+                         "		                        };" \n
+                         "                            };" \n
+                         "                        } else {" \n
+                         "                            if (isClass _cfgCompatibleItems) then {" \n
+                         "                                if not (configProperties [_cfgCompatibleItems,""isNumber _x""] isEqualTo []) then {" \n
+                         "                                    _slots = _slots + 1;" \n
+                         "                                    if (configName _x == ""PointerSlot"") then {" \n
+                         "			                            _hasPointer = true;" \n
+                         "			                        };" \n
+                         "                                };" \n
+                         "                            };" \n
+                         "                        };" \n
+                         "                    } forEach configProperties [" \n
+                         "                        _cfgWeapons >>_weapon >> ""WeaponSlotsInfo""," \n
+                         "                        ""isClass _x""," \n
+                         "                        true" \n
+                         "                    ];" \n
+                         "                    if (_hasPointer) then {" \n
+                         "                        if (_slots < _slotsMax) then {" \n
+                         "                            _weapons = [_weapon];" \n
+                         "                            _slotsMax = _slots;" \n
+                         "                        } else {" \n
+                         "                            if (_slots == _slotsMax) then {" \n
+                         "                                _weapons pushBack _weapon" \n
+                         "                            }" \n
+                         "                        }" \n
+                         "                    };" \n
+                         "                };" \n
+                         "            } forEach ncb_gv_crateRiflesTier_0;" \n
+                         "            // now filter by ammo count" \n
+                         "            _weapons2 = [];" \n
+                         "            _currentCount = 999999;" \n
+                         "            {" \n
+                         "                _ct = getNumber (_cfgMagazines >> (getArray (_cfgWeapons >>  _x >> ""magazines"") select 0) >> ""count"");" \n
+                         "                if (_ct < _currentCount) then {" \n
+                         "                    _currentCount  = _ct;" \n
+                         "                    _weapons2 = [_x]" \n
+                         "                } else {" \n
+                         "                    if (_ct == _currentCount) then {" \n
+                         "                        _weapons2 pushBack _x" \n
+                         "                    }" \n
+                         "                }" \n
+                         "            } forEach _weapons;" \n
+                         "            _weapon = selectRandom _weapons2;" \n
+                         "            _mags = getArray (_cfgWeapons >>  _weapon >> ""magazines"");" \n
+                         "            _mags = _mags select {getText (configFile >> ""CfgAmmo"" >> (getText (configFile >> ""CfgMagazines"" >> _x >> ""ammo"")) >> ""effectFly"") != ""AmmoUnderwater""};" \n
+                         "            player addMagazines [_mags select 0,3];" \n
+                         "            player addWeapon _weapon;" \n
+                         "            player addPrimaryWeaponItem ((getArray (configfile >> ""CfgWeapons"" >> _weapon >> ""WeaponSlotsInfo"" >> ""PointerSlot"" >> ""compatibleItems"")) select 0);" \n
+                         "        };" \n
+                         "    };" \n
+                         "" \n
+                         "    if (ncb_param_playerStartHandgunWeapon) then {" \n
+                         "		if (sunOrMoon == 1) then {" \n
+                         "			// filter by slots" \n
+                         "			_weapons = [];" \n
+                         "			_slotsMax = 99;" \n
+                         "			{" \n
+                         "				if (count getArray (_cfgWeapons >>  _x >> ""muzzles"") < 2" \n
+                         "					and {not (isClass (_cfgWeapons >>  _x >> ""opticsmodes""))}" \n
+                         "				) then {" \n
+                         "					_slots = 0;" \n
+                         "					{" \n
+                         "						_cfgCompatibleItems = _x >> ""compatibleItems"";" \n
+                         "						if (isArray _cfgCompatibleItems) then {" \n
+                         "							if not (getArray _cfgCompatibleItems isEqualTo []) then {" \n
+                         "								_slots = _slots + 1;" \n
+                         "							};" \n
+                         "						} else {" \n
+                         "							if (isClass _cfgCompatibleItems) then {" \n
+                         "								if not (configProperties [_cfgCompatibleItems,""isNumber _x""] isEqualTo []) then {" \n
+                         "									_slots = _slots + 1;" \n
+                         "								};" \n
+                         "							};" \n
+                         "						};" \n
+                         "					} forEach configProperties [" \n
+                         "						_cfgWeapons >>  _x >> ""WeaponSlotsInfo""," \n
+                         "						""isClass _x""," \n
+                         "						true" \n
+                         "					];" \n
+                         "					if (_slots < _slotsMax) then {" \n
+                         "						_weapons = [_x];" \n
+                         "						_slotsMax = _slots;" \n
+                         "					} else {" \n
+                         "						if (_slots == _slotsMax) then {" \n
+                         "							_weapons pushBack _x" \n
+                         "						}" \n
+                         "					}" \n
+                         "				};" \n
+                         "			} forEach ncb_gv_cratePistolsTier_0;" \n
+                         "			// now filter by ammo count" \n
+                         "			_weapons2 = [];" \n
+                         "			_currentCount = 999999;" \n
+                         "			{" \n
+                         "				_ct = getNumber (_cfgMagazines >> (getArray (_cfgWeapons >>  _x >> ""magazines"") select 0) >> ""count"");" \n
+                         "				if (_ct < _currentCount) then {" \n
+                         "					_currentCount  = _ct;" \n
+                         "					_weapons2 = [_x]" \n
+                         "				} else {" \n
+                         "					if (_ct == _currentCount) then {" \n
+                         "						_weapons2 pushBack _x" \n
+                         "					}" \n
+                         "				}" \n
+                         "			} forEach _weapons;" \n
+                         "			_weapon = selectRandom _weapons2;" \n
+                         "			_mags = getArray (_cfgWeapons >>  _weapon >> ""magazines"");" \n
+                         "			_mags = _mags select {getText (configFile >> ""CfgAmmo"" >> (getText (configFile >> ""CfgMagazines"" >> _x >> ""ammo"")) >> ""effectFly"") != ""AmmoUnderwater""};" \n
+                         "			player addMagazines [_mags select 0,if (ncb_param_playerStartPrimaryWeapon) then {2} else {4}];" \n
+                         "			player addWeapon _weapon;" \n
+                         "		} else {" \n
+                         "			// filter by slots (but make sure pointerslot is there)" \n
+                         "			_weapons = [];" \n
+                         "			_slotsMax = 99;" \n
+                         "			{" \n
+                         "				if (count getArray (_cfgWeapons >>  _x >> ""muzzles"") < 2" \n
+                         "					and {not (isClass (_cfgWeapons >>  _x >> ""opticsmodes""))}" \n
+                         "				) then {" \n
+                         "					_slots = 0;" \n
+                         "					_hasPointer = false;" \n
+                         "					{" \n
+                         "						_cfgCompatibleItems = _x >> ""compatibleItems"";" \n
+                         "						if (isArray _cfgCompatibleItems) then {" \n
+                         "							if not (getArray _cfgCompatibleItems isEqualTo []) then {" \n
+                         "								_slots = _slots + 1;" \n
+                         "								if (configName _x == ""PointerSlot"") then {" \n
+                         "		                            _hasPointer = true;" \n
+                         "		                        };" \n
+                         "							};" \n
+                         "						} else {" \n
+                         "							if (isClass _cfgCompatibleItems) then {" \n
+                         "								if not (configProperties [_cfgCompatibleItems,""isNumber _x""] isEqualTo []) then {" \n
+                         "									_slots = _slots + 1;" \n
+                         "									if (configName _x == ""PointerSlot"") then {" \n
+                         "			                            _hasPointer = true;" \n
+                         "			                        };" \n
+                         "								};" \n
+                         "							};" \n
+                         "						};" \n
+                         "					} forEach configProperties [" \n
+                         "						_cfgWeapons >>  _x >> ""WeaponSlotsInfo""," \n
+                         "						""isClass _x""," \n
+                         "						true" \n
+                         "					];" \n
+                         "					if (_hasPointer) then {" \n
+                         "						if (_slots < _slotsMax) then {" \n
+                         "							_weapons = [_x];" \n
+                         "							_slotsMax = _slots;" \n
+                         "						} else {" \n
+                         "							if (_slots == _slotsMax) then {" \n
+                         "								_weapons pushBack _x" \n
+                         "							}" \n
+                         "						}" \n
+                         "					};" \n
+                         "				};" \n
+                         "			} forEach ncb_gv_cratePistolsTier_0;" \n
+                         "			// now filter by ammo count" \n
+                         "			_weapons2 = [];" \n
+                         "			_currentCount = 999999;" \n
+                         "			{" \n
+                         "				_ct = getNumber (_cfgMagazines >> (getArray (_cfgWeapons >>  _x >> ""magazines"") select 0) >> ""count"");" \n
+                         "				if (_ct < _currentCount) then {" \n
+                         "					_currentCount  = _ct;" \n
+                         "					_weapons2 = [_x]" \n
+                         "				} else {" \n
+                         "					if (_ct == _currentCount) then {" \n
+                         "						_weapons2 pushBack _x" \n
+                         "					}" \n
+                         "				}" \n
+                         "			} forEach _weapons;" \n
+                         "			private _default = false;" \n
+                         "			if ([] isEqualTo _weapons2) then {" \n
+                         "				// default to p07" \n
+                         "				_weapons2 = [ncb_gv_cratePistolsTier_0 select 0];" \n
+                         "				_default = true" \n
+                         "			};" \n
+                         "			_weapon = selectRandom _weapons2;" \n
+                         "			_mags = getArray (_cfgWeapons >>  _weapon >> ""magazines"");" \n
+                         "			_mags = _mags select {getText (configFile >> ""CfgAmmo"" >> (getText (configFile >> ""CfgMagazines"" >> _x >> ""ammo"")) >> ""effectFly"") != ""AmmoUnderwater""};" \n
+                         "			player addMagazines [_mags select 0,if (ncb_param_playerStartPrimaryWeapon) then {2} else {4}];" \n
+                         "			player addWeapon _weapon;" \n
+                         "			if not (_default) then {" \n
+                         "				player addHandgunItem ((getArray (configfile >> ""CfgWeapons"" >> _weapon >> ""WeaponSlotsInfo"" >> ""PointerSlot"" >> ""compatibleItems"")) select 0);" \n
+                         "			};" \n
+                         "		};" \n
+                         "	};" \n
+                         "	private _canAdd = {" \n
+                         "        params [""_item"",""_qty""];" \n
+                         "        for ""_i"" from 1 to _qty do {" \n
+                         "            if (player canAddItemToUniform _item) then {" \n
+                         "                player addItemToUniform _item" \n
+                         "            }" \n
+                         "        }" \n
+                         "    };" \n
+                         "    [""ItemBandage"",3] call _canAdd;" \n
+                         "    [""ItemMedPack"",1] call _canAdd;" \n
+                         "    [""MiniGrenade"",5] call _canAdd;" \n
+                         "	[selectRandom [""chemlight_green"",""chemlight_blue"",""chemlight_yellow"",""chemlight_red""],3] call _canAdd;" \n
+                         "    player addVest ""V_RebreatherB"";" \n
+                         "    // player addGoggles ""G_O_Diving"";" \n
+                         "    if (ncb_param_playerStartMap == 1) then {" \n
+                         "        player linkItem ""ItemMap"";" \n
+                         "    };" \n
+                         "    if (ncb_param_playerStartNVG == 1) then {" \n
+                         "        player linkItem ""NVGoggles"";" \n
+                         "    };" \n
+                         "    if (ncb_param_playerStartRadio == 1) then {" \n
+                         "        player linkItem ""ItemRadio"";" \n
+                         "    };" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not isNil ""ncb_gv_playerInitDone""" \n
+                                         "and {not isNull player}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"player allowDamage false;" \n
+                                         "" \n
+                                         "{" \n
+                                         "	if (not isNull (findDisplay 46 displayCtrl _x)) then {" \n
+                                         "		ctrlDelete (findDisplay 46 displayCtrl _x)" \n
+                                         "	};" \n
+                                         "} forEach [1929,1930,1931];" \n
+                                         "" \n
+                                         "playerPerformingAction = nil;" \n
+                                         "" \n
+                                         "player setCustomAimCoef ncb_param_playerAimingSwayCoef;" \n
+                                         "player setUnitRecoilCoefficient ncb_param_playerRecoilCoef;" \n
+                                         "if (ncb_param_playerStaminaEnabled == 0) then {" \n
+                                         "	player enableStamina false" \n
+                                         "} else {" \n
+                                         "	player enableStamina true" \n
+                                         "};" \n
+                                         "" \n
+                                         "4 enableChannel false;" \n
+                                         "" \n
+                                         "if (not isNil ""ncb_obj_camera""" \n
+                                         "	and {not isNull ncb_obj_camera}" \n
+                                         ") then {" \n
+                                         "	player cameraEffect [""TERMINATE"", ""BACK""];" \n
+                                         "	camDestroy ncb_obj_camera;" \n
+                                         "	ncb_obj_camera = objNull;" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Revive">*/
+                                class Revive
+                                {
+                                        itemno = 4;
+                                        priority = 5.000000;
+                                        to="__2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isNil ""playerRespawnType"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"playerReviveNotAllowed = nil;" \n
+                                         "playerRespawnType = nil;" \n
+                                         "" \n
+                                         "playerLastRespawnTime = time;" \n
+                                         "ncb_gv_playerBleedingRate = 0;" \n
+                                         "ncb_gv_playerLastBullet = objNull;" \n
+                                         "ncb_gv_playerCharges = [[],[]];" \n
+                                         "playerOnTruckerPills = nil;" \n
+                                         "" \n
+                                         "_timeout = time + 1;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Coast">*/
+                                class Coast
+                                {
+                                        itemno = 1;
+                                        priority = 4.000000;
+                                        to="__5";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"playerRespawnType == ""coast"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"playerReviveNotAllowed = nil;" \n
+                                         "playerRespawnType = nil;" \n
+                                         "simulWeatherSync;" \n
+                                         "" \n
+                                         "0 call horde_fnc_selectRespawnPos params [""_respawnPos"",""_respawnDir""];" \n
+                                         "if (_body distance2D _lastPos < 1000 and {_lastTime + 180 > time}) then {" \n
+                                         "	// respawn them at last pos to stop them trying to get somewhere more favourable" \n
+                                         "	_respawnPos = _lastPos;" \n
+                                         "	_respawnDir = _lastDir;" \n
+                                         "};" \n
+                                         "_unit setVariable [""lastRespawnPosData"",[_respawnPos,_respawnDir,time]];" \n
+                                         "" \n
+                                         "call _equipCoast;" \n
+                                         "" \n
+                                         "// new bit spawn in water" \n
+                                         "" \n
+                                         "_spawnPos = _respawnPos;" \n
+                                         "_anim = if (ncb_param_playerStartPrimaryWeapon) then {" \n
+                                         "	""AbdvPercMstpSnonWrflDnon""" \n
+                                         "} else {" \n
+                                         "	""AbdvPercMstpSnonWnonDnon""" \n
+                                         "};" \n
+                                         "" \n
+                                         "_seaDir = (_respawnDir + 180) % 360;" \n
+                                         "for ""_i"" from 10 to 200 step 10 do {" \n
+                                         "	_spawnPos = _respawnPos getPos [_i,_seaDir];" \n
+                                         "	if (getTerrainHeightASL _spawnPos < -3 or {_i == 200}) exitWith {" \n
+                                         "		_spawnPos set [2,-2];" \n
+                                         "		//_anim = ""AsdvPercMstpSnonWnonDnon_relax"";" \n
+                                         "	};" \n
+                                         "};" \n
+                                         "" \n
+                                         "player setPosATL _spawnPos;" \n
+                                         "player setDir _respawnDir;" \n
+                                         "" \n
+                                         "[player,_anim] remoteExecCall [" \n
+                                         "	""horde_fnc_switchMoveGlobal""," \n
+                                         "	0" \n
+                                         "];" \n
+                                         "" \n
+                                         "{" \n
+                                         "	player reveal [_x,4];" \n
+                                         "} count (nearestObjects [player,[""All""],50]);" \n
+                                         "" \n
+                                         "7 fadeSound 1;" \n
+                                         "ncb_layer_blackOutScreen cutText ["""", ""BLACK IN"", 3];" \n
+                                         "_blur = ppEffectCreate [""dynamicBlur"", 666];" \n
+                                         "_blur ppEffectEnable true;" \n
+                                         "_blur ppEffectAdjust [5];" \n
+                                         "_blur ppEffectCommit 0;" \n
+                                         "_blur ppEffectAdjust [0];" \n
+                                         "_blur ppEffectCommit 3;" \n
+                                         "" \n
+                                         "_timeout = time + 3;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Para_Drop">*/
+                                class Para_Drop
+                                {
+                                        itemno = 7;
+                                        priority = 3.000000;
+                                        to="__7";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"playerRespawnType == ""paradrop"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"playerReviveNotAllowed = nil;" \n
+                                         "playerRespawnType = nil;" \n
+                                         "simulWeatherSync;" \n
+                                         "" \n
+                                         "5 fadeSound 0;" \n
+                                         "[player,false,true] remoteExecCall [" \n
+                                         "	""horde_fnc_playerRequestSimAndHide""," \n
+                                         "	2" \n
+                                         "];" \n
+                                         "0 call horde_fnc_selectRespawnPos params [""_respawnPos"",""_respawnDir""];" \n
+                                         "" \n
+                                         "// new bit to let paras spawn over nearby villages/towns" \n
+                                         "_oldRespawnPos = +_respawnPos;" \n
+                                         "_respawnPos = [0,0,0];" \n
+                                         "{" \n
+                                         "	_locs = nearestLocations [_oldRespawnPos,[_x],5000] apply {locationPosition _x};" \n
+                                         "	if not ([] isEqualTo _locs) then {" \n
+                                         "		{" \n
+                                         "			if (_x distance2D _oldRespawnPos < _respawnPos distance2D _oldRespawnPos) then {" \n
+                                         "				_respawnPos  = _x getPos [800,(_respawnDir + 180) % 360]" \n
+                                         "			};" \n
+                                         "		} forEach _locs;" \n
+                                         "	};" \n
+                                         "} forEach [" \n
+                                         "	""NameCityCapital""," \n
+                                         "	""CityCenter""," \n
+                                         "	""NameCity""," \n
+                                         "	""NameVillage""" \n
+                                         "];" \n
+                                         "" \n
+                                         "" \n
+                                         "if (_body distance2D _lastPos < 1000 and {_lastTime + 180 > time}) then {" \n
+                                         "	// respawn them at last pos to stop them trying to get somewhere more favourable" \n
+                                         "	_respawnPos = _lastPos;" \n
+                                         "	_respawnDir = _lastDir;" \n
+                                         "};" \n
+                                         "_unit setVariable [""lastRespawnPosData"",[_respawnPos,_respawnDir,time]];" \n
+                                         "" \n
+                                         "if (not isNull (missionNamespace getVariable [""playerParaRespawnBeacon"",objNull])) then {" \n
+                                         "	_respawnPos = getPos playerParaRespawnBeacon;" \n
+                                         "	_respawnDir = getDir playerParaRespawnBeacon;" \n
+                                         "	_respawnPos = _respawnPos getPos [1200,(_respawnDir + 180) % 360];" \n
+                                         "};" \n
+                                         "" \n
+                                         "_class = ""B_Heli_Transport_01_camo_F"";" \n
+                                         "if (sunOrMoon < 1) then {" \n
+                                         "	_class = ""B_Heli_Transport_01_F"";" \n
+                                         "};" \n
+                                         "{" \n
+                                         "	if (isClass (configFile >> ""cfgVehicles"" >> _x)) exitWith {" \n
+                                         "		_class = _x" \n
+                                         "	};" \n
+                                         "} forEach [""CUP_B_C130J_USMC"",""RHS_C130J""];" \n
+                                         "" \n
+                                         "_heli = _class createVehicleLocal [(_respawnPos select 0),(_respawnPos select 1),5000];" \n
+                                         "" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Tent">*/
+                                class Tent
+                                {
+                                        itemno = 11;
+                                        priority = 2.000000;
+                                        to="__6";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"playerRespawnType == ""tent"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"playerReviveNotAllowed = nil;" \n
+                                         "playerRespawnType = nil;" \n
+                                         "simulWeatherSync;" \n
+                                         "" \n
+                                         "removeAllContainers player;" \n
+                                         "removeAllWeapons player;" \n
+                                         "removeHeadgear player;" \n
+                                         "removeGoggles player;" \n
+                                         "removeAllAssignedItems player;" \n
+                                         "player forceAddUniform ""U_B_survival_uniform"";" \n
+                                         "player addVest ""V_Rangemaster_belt"";" \n
+                                         "if (ncb_param_playerStartPrimaryWeapon) then {" \n
+                                         "	for ""_i"" from 1 to 3 do {player addItemToVest ""30Rnd_9x21_Mag""};" \n
+                                         "	player addWeapon ""SMG_02_F"";" \n
+                                         "};" \n
+                                         "if (ncb_param_playerStartHandgunWeapon) then {" \n
+                                         "	for ""_i"" from 1 to 2 do {player addItemToUniform ""9Rnd_45ACP_Mag""};" \n
+                                         "	for ""_i"" from 1 to 3 do {player addItemToVest ""9Rnd_45ACP_Mag""};" \n
+                                         "	player addWeapon ""hgun_ACPC2_F"";" \n
+                                         "};" \n
+                                         "" \n
+                                         "if (ncb_param_playerStartMap == 1) then {" \n
+                                         "	player linkItem ""ItemMap"";" \n
+                                         "};" \n
+                                         "if (ncb_param_playerStartNVG == 1) then {" \n
+                                         "	player linkItem ""NVGoggles"";" \n
+                                         "};" \n
+                                         "if (ncb_param_playerStartRadio == 1) then {" \n
+                                         "	player linkItem ""ItemRadio"";" \n
+                                         "};" \n
+                                         "" \n
+                                         "player setPosASL playerTentRespawnPosASL;" \n
+                                         "player setVectorUp surfaceNormal playerTentRespawnPosASL;" \n
+                                         "player setDir random 360;" \n
+                                         "" \n
+                                         "[player,""AmovPpneMstpSrasWpstDnon""] remoteExecCall [" \n
+                                         "	""horde_fnc_switchMoveGlobal""," \n
+                                         "	0" \n
+                                         "];" \n
+                                         "" \n
+                                         "{" \n
+                                         "	player reveal [_x,4];" \n
+                                         "} count (nearestObjects [player,[""All""],50]);" \n
+                                         "" \n
+                                         "7 fadeSound 1;" \n
+                                         "ncb_layer_blackOutScreen cutText ["""", ""BLACK IN"", 3];" \n
+                                         "_blur = ppEffectCreate [""dynamicBlur"", 666];" \n
+                                         "_blur ppEffectEnable true;" \n
+                                         "_blur ppEffectAdjust [5];" \n
+                                         "_blur ppEffectCommit 0;" \n
+                                         "_blur ppEffectAdjust [0];" \n
+                                         "_blur ppEffectCommit 3;" \n
+                                         "" \n
+                                         "_timeout = time + 3;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "No_Revive">*/
+                                class No_Revive
+                                {
+                                        itemno = 12;
+                                        priority = 1.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"playerRespawnType == ""no_revive"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"/*if (_body distance2D _lastPos < 1000 and {_lastTime + 180 > time}) then {" \n
+                                         "	// respawn them at last pos to stop them trying to get somewhere more favourable" \n
+                                         "	_unit setVariable [""lastRespawnPosData"",[_lastPos,_lastDir,round time]];" \n
+                                         "};*/" \n
+                                         "" \n
+                                         "" \n
+                                         "playerReviveNotAllowed = true;" \n
+                                         "createDialog ""Horde_respawnMenu"";"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Login">*/
+                                class Login
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="__3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"playerRespawnType == ""login"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"playerReviveNotAllowed = nil;" \n
+                                         "playerRespawnType = nil;" \n
+                                         "" \n
+                                         "// setup HUD" \n
+                                         "" \n
+                                         "/*showHud [" \n
+                                         "	ncb_param_showActionMenu," \n
+                                         "	ncb_param_showVehUnitAndWeaponInfo, // and cursors" \n
+                                         "	ncb_param_showVehRadar," \n
+                                         "	ncb_param_showVehCompass," \n
+                                         "	ncb_param_showTankDirIndicator," \n
+                                         "	false," \n
+                                         "	ncb_param_showGroupInfoBar," \n
+                                         "	ncb_param_showWeaponCursors," \n
+                                         "	ncb_param_showVehiclePanels" \n
+                                         "];*/" \n
+                                         "" \n
+                                         "// remove U key to open group interface" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__2">*/
+                class __2
+                {
+                        name = "__2";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 31;
+                                        priority = 0.000000;
+                                        to="revive_cam";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"enableRadio true;" \n
+                                         "ncb_gv_camAngle = aSin (10/15);" \n
+                                         "ncb_gv_camDir = ((getDir player) + 180) % 360;" \n
+                                         "ncb_gv_camDistance = 15;" \n
+                                         "" \n
+                                         "ncb_obj_camera = ""camera"" camCreate (eyePos player);" \n
+                                         "ncb_obj_camera camSetTarget vehicle player;" \n
+                                         "ncb_obj_camera camPrepareTarget getPos vehicle player;" \n
+                                         "ncb_obj_camera camPreparePos ((vehicle player getPos [15,((getDir player) + 180) % 360]) vectorAdd [0,0,10]);" \n
+                                         "ncb_obj_camera cameraEffect [""internal"",""back""];" \n
+                                         "ncb_obj_camera camCommitPrepared 1;" \n
+                                         "" \n
+                                         "_first = true;" \n
+                                         "" \n
+                                         "// define functions here (move later)" \n
+                                         "" \n
+                                         "ncb_fnc_rotateVector = {" \n
+                                         "	params[""_vector"",""_rotations""];" \n
+                                         "	_vector params [""_dirX"",""_dirY"",""_dirZ""];" \n
+                                         "	_rotations params [""_aroundX"",""_aroundY"",""_aroundZ""];" \n
+                                         "	_aroundZ = (360 - _aroundZ) - 360;" \n
+                                         "" \n
+                                         "	if (_aroundX != 0) then {" \n
+                                         "		_dirY = cos _aroundX;" \n
+                                         "		_dirZ = sin _aroundX;" \n
+                                         "	};" \n
+                                         "	if (_aroundY != 0) then {" \n
+                                         "		_dirX = _dirZ * sin _aroundY;" \n
+                                         "		_dirZ = _dirZ * cos _aroundY;" \n
+                                         "	};" \n
+                                         "	if (_aroundZ != 0) then {" \n
+                                         "		_dirXTemp = _dirX;" \n
+                                         "		_dirX = (_dirXTemp* cos _aroundZ) - (_dirY * sin _aroundZ);" \n
+                                         "		_dirY = (_dirY * cos _aroundZ) + (_dirXTemp * sin _aroundZ);" \n
+                                         "	};" \n
+                                         "	[_dirX,_dirY,_dirZ]" \n
+                                         "};" \n
+                                         "" \n
+                                         "ncb_fnc_mouseMove = {" \n
+                                         "	params [""_display"",""_x"",""_y""];" \n
+                                         "" \n
+                                         "	ncb_gv_camAngle = ncb_gv_camAngle + _y * 0.5;" \n
+                                         "	ncb_gv_camDir = ncb_gv_camDir + _x * 0.9;" \n
+                                         "" \n
+                                         "	ncb_gv_camAngle = (ncb_gv_camAngle max 5) min 85;" \n
+                                         "" \n
+                                         "	if(ncb_gv_camDir >= 360) then {" \n
+                                         "		ncb_gv_camDir = ncb_gv_camDir % 360;" \n
+                                         "	};" \n
+                                         "	if(ncb_gv_camDir <- 360) then {" \n
+                                         "		ncb_gv_camDir = ncb_gv_camDir % 360;" \n
+                                         "	};" \n
+                                         "	ncb_obj_camera camSetTarget vehicle player;" \n
+                                         "	private _camVector = [[0,1,0],[ncb_gv_camAngle,0,ncb_gv_camDir]] call ncb_fnc_rotateVector;" \n
+                                         "	ncb_obj_camera camSetPos ((getPosATL vehicle player) vectorAdd (_camVector vectorMultiply ncb_gv_camDistance));" \n
+                                         "	ncb_obj_camera cameraEffect [""internal"", ""back""];" \n
+                                         "	ncb_obj_camera camCommit 0.05;" \n
+                                         "};" \n
+                                         "" \n
+                                         "ncb_fnc_mouseZMove = {" \n
+                                         "	params[""_display"",""_d""];" \n
+                                         "" \n
+                                         "	ncb_gv_camDistance = (ncb_gv_camDistance - _d max 2) min 25;" \n
+                                         "	ncb_obj_camera camSetTarget vehicle player;" \n
+                                         "	private _camVector = [[0,1,0],[ncb_gv_camAngle,0,ncb_gv_camDir]] call ncb_fnc_rotateVector;" \n
+                                         "	ncb_obj_camera camSetPos ((getPosATL vehicle player) vectorAdd (_camVector vectorMultiply ncb_gv_camDistance));" \n
+                                         "	ncb_obj_camera cameraEffect [""internal"", ""back""];" \n
+                                         "	ncb_obj_camera camCommit 0.05;" \n
+                                         "};" \n
+                                         "" \n
+                                         "//ncb_fnc_keydown = {};  // not sure what to do here yet" \n
+                                         "" \n
+                                         "//ncb_gv_keyDownHandler = (findDisplay 46) displayAddEventHandler [""KeyDown"", ""_this call ncb_fnc_keydown""];" \n
+                                         "ncb_gv_mouseHandler = (findDisplay 46) displayAddEventHandler [""MouseMoving"", ""_this call ncb_fnc_mouseMove""];" \n
+                                         "ncb_gv_mouseZHandler = (findDisplay 46) displayAddEventHandler [""MouseZChanged"", ""_this call ncb_fnc_mouseZMove""];" \n
+                                         "" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__3">*/
+                class __3
+                {
+                        name = "__3";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="__4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not isNil ""ncb_pv_playerSpawnPlaces""" \n
+                                         "and {not isNil ""ncb_gv_crateRiflesTier_0""}" \n
+                                         "and {not isNil ""ncb_gv_crateRiflesTier_1""}" \n
+                                         "and {not isNil ""ncb_gv_cratePistolsTier_0""}" \n
+                                         "and {not isNil ""ncb_pv_playerPersistenceInfo""}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__4">*/
+                class __4
+                {
+                        name = "__4";
+                        itemno = 15;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Load_Saved_Info">*/
+                                class Load_Saved_Info
+                                {
+                                        itemno = 50;
+                                        priority = 1.000000;
+                                        to="__17";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (ncb_pv_playerPersistenceInfo select 0 isEqualTo [0,0,0])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"ncb_pv_playerPersistenceInfo params [""_position"",""_direction"",""_stance"",""_currentMuzzle"",""_playerKills"",""_aiKills"",""_uniformData"",""_vestData"",""_backpackData"",""_weapons"",""_assignedItems"",""_headgear"",""_goggles"",""_food"",""_water"",""_bleeding"",""_lodgedBullets"",""_damage"",""_hitPoints"",""_skillCook"",""_skillEngineer"",""_skillFuelling"",""_skillLogistics"",""_skillSurgeon"",""_skillTyreFitter"",""_skillMagazineFitter"",""_skillWeaponFitter"",""_distanceData""];" \n
+                                         "" \n
+                                         "// vars" \n
+                                         "" \n
+                                         "playerAntiButtonSpam = 0;" \n
+                                         "playerLastRespawnTime = 0;" \n
+                                         "ncb_gv_playerCharges = [[],[]];" \n
+                                         "playerOnTruckerPills = nil;" \n
+                                         "ncb_gv_playerLastBullet = objNull;" \n
+                                         "" \n
+                                         "// equip" \n
+                                         "" \n
+                                         "removeAllContainers player;" \n
+                                         "removeAllWeapons player;" \n
+                                         "removeHeadgear player;" \n
+                                         "removeGoggles player;" \n
+                                         "removeAllAssignedItems player;" \n
+                                         "" \n
+                                         "_uniformData params [""_class"",""_contents""];" \n
+                                         "if not (_class isEqualTo """") then {" \n
+                                         "	player forceAddUniform _class;" \n
+                                         "	_uniform = uniformContainer player;" \n
+                                         "	{" \n
+                                         "		call {" \n
+                                         "			if (_forEachIndex isEqualTo 0) exitWith {" \n
+                                         "				{" \n
+                                         "					player addItemToUniform _x;" \n
+                                         "				} count (_contents select 0);" \n
+                                         "			};" \n
+                                         "			if (_forEachIndex isEqualTo 1) then {" \n
+                                         "				{" \n
+                                         "					_uniform addMagazineAmmoCargo [(_x select 0),1,(_x select 1)];" \n
+                                         "				} count (_contents select 1);" \n
+                                         "			} else {" \n
+                                         "				[_uniform,_contents select 2] call horde_fnc_addWeaponsWithItems;" \n
+                                         "			};" \n
+                                         "		};" \n
+                                         "	} forEach _contents;" \n
+                                         "};" \n
+                                         "" \n
+                                         "_vestData params [""_class"",""_contents""];" \n
+                                         "if not (_class isEqualTo """") then {" \n
+                                         "	player addVest _class;" \n
+                                         "	_vest = vestContainer player;" \n
+                                         "	{" \n
+                                         "		call {" \n
+                                         "			if (_forEachIndex isEqualTo 0) exitWith {" \n
+                                         "				{" \n
+                                         "					player addItemToVest _x;" \n
+                                         "				} count (_contents select 0);" \n
+                                         "			};" \n
+                                         "			if (_forEachIndex isEqualTo 1) then {" \n
+                                         "				{" \n
+                                         "					_vest addMagazineAmmoCargo [(_x select 0),1,(_x select 1)];" \n
+                                         "				} count (_contents select 1);" \n
+                                         "			} else {" \n
+                                         "				[_vest,(_contents select 2)] call horde_fnc_addWeaponsWithItems;" \n
+                                         "			};" \n
+                                         "		};" \n
+                                         "	} forEach _contents;" \n
+                                         "};" \n
+                                         "" \n
+                                         "_backpackData params [""_class"",""_contents""];" \n
+                                         "if not (_class isEqualTo """") then {" \n
+                                         "	player addBackpackGlobal _class;" \n
+                                         "	_backpack = backpackContainer player;" \n
+                                         "	clearItemCargoGlobal _backpack;" \n
+                                         "	clearMagazineCargoGlobal _backpack;" \n
+                                         "	clearWeaponCargoGlobal _backpack;" \n
+                                         "	{" \n
+                                         "		call {" \n
+                                         "			if (_forEachIndex isEqualTo 0) exitWith {" \n
+                                         "				{" \n
+                                         "					player addItemToBackpack _x;" \n
+                                         "				} count (_contents select 0);" \n
+                                         "			};" \n
+                                         "			if (_forEachIndex isEqualTo 1) then {" \n
+                                         "				{" \n
+                                         "					_backpack addMagazineAmmoCargo [(_x select 0),1,(_x select 1)];" \n
+                                         "				} count (_contents select 1);" \n
+                                         "			} else {" \n
+                                         "				[_backpack,(_contents select 2)] call horde_fnc_addWeaponsWithItems;" \n
+                                         "			};" \n
+                                         "		};" \n
+                                         "	} forEach _contents;" \n
+                                         "};" \n
+                                         "" \n
+                                         "{" \n
+                                         "	player addMagazine (_x select 4);" \n
+                                         "	player addWeapon (_x select 0);" \n
+                                         "	call {" \n
+                                         "		if ((weapons _unit select _forEachIndex) isEqualTo primaryWeapon _unit) exitWith {" \n
+                                         "			for ""_i"" from 1 to 3 do {" \n
+                                         "				if not ((_x select _i) isEqualTo """") then {" \n
+                                         "					_unit addPrimaryWeaponItem (_x select _i);" \n
+                                         "				};" \n
+                                         "			};" \n
+                                         "		};" \n
+                                         "		if ((weapons _unit select _forEachIndex) isEqualTo secondaryWeapon _unit) exitWith {" \n
+                                         "			for ""_i"" from 1 to 3 do {" \n
+                                         "				if not ((_x select _i) isEqualTo """") then {" \n
+                                         "					_unit addSecondaryWeaponItem (_x select _i);" \n
+                                         "				};" \n
+                                         "			};" \n
+                                         "		};" \n
+                                         "		if ((weapons _unit select _forEachIndex) isEqualTo handgunWeapon _unit) exitWith {" \n
+                                         "			for ""_i"" from 1 to 3 do {" \n
+                                         "				if not ((_x select _i) isEqualTo """") then {" \n
+                                         "					_unit addHandgunItem (_x select _i);" \n
+                                         "				};" \n
+                                         "			};" \n
+                                         "		};" \n
+                                         "	};" \n
+                                         "} forEach _weapons;" \n
+                                         "" \n
+                                         "{" \n
+                                         "	player linkItem _x;" \n
+                                         "} count _assignedItems;" \n
+                                         "" \n
+                                         "if (_headgear != """") then {" \n
+                                         "	player addHeadgear _headgear;" \n
+                                         "};" \n
+                                         "" \n
+                                         "if (_goggles != """") then {" \n
+                                         "	player addGoggles _goggles;" \n
+                                         "};" \n
+                                         "" \n
+                                         "player selectWeapon _currentMuzzle;" \n
+                                         "" \n
+                                         "// spawn pos" \n
+                                         "" \n
+                                         "player setPosWorld _position;" \n
+                                         "player setDir _direction;" \n
+                                         "[player,_stance] remoteExecCall [" \n
+                                         "	""horde_fnc_switchMoveGlobal""," \n
+                                         "	0" \n
+                                         "];" \n
+                                         "" \n
+                                         "// survival" \n
+                                         "" \n
+                                         "ncb_gv_playerFood = _food;" \n
+                                         "ncb_gv_playerWater = _water;" \n
+                                         "ncb_gv_playerBleedingRate = _bleeding;" \n
+                                         "ncb_gv_playerLodgedBullets = _lodgedBullets;" \n
+                                         "ncb_gv_distanceData = _distanceData;" \n
+                                         "" \n
+                                         "// damage" \n
+                                         "" \n
+                                         "player setDamage _damage;" \n
+                                         "{" \n
+                                         "	player setHitPointDamage _x" \n
+                                         "} count _hitPoints;" \n
+                                         "" \n
+                                         "// kills are set serverside" \n
+                                         "" \n
+                                         "// skills" \n
+                                         "" \n
+                                         "player setVariable [""skillCook"",_skillCook];" \n
+                                         "player setVariable [""skillEngineer"",_skillEngineer];" \n
+                                         "player setVariable [""skillFuelling"",_skillFuelling];" \n
+                                         "player setVariable [""skillLogistics"",_skillLogistics];" \n
+                                         "player setVariable [""skillSurgeon"",_skillSurgeon];" \n
+                                         "player setVariable [""skillTyreFitter"",_skillTyreFitter];" \n
+                                         "player setVariable [""skillMagazineFitter"",_skillMagazineFitter];" \n
+                                         "player setVariable [""skillWeaponFitter"",_skillWeaponFitter];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "New_game">*/
+                                class New_game
+                                {
+                                        itemno = 49;
+                                        priority = 0.000000;
+                                        to="__17";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"// vars" \n
+                                         "" \n
+                                         "playerAntiButtonSpam = 0;" \n
+                                         "playerLastRespawnTime = 0;" \n
+                                         "ncb_gv_playerCharges = [[],[]];" \n
+                                         "playerOnTruckerPills = nil;" \n
+                                         "ncb_gv_playerBleedingRate = 0;" \n
+                                         "ncb_gv_playerLastBullet = objNull;" \n
+                                         "ncb_gv_playerLodgedBullets = 0;" \n
+                                         "ncb_gv_playerFood = 100;" \n
+                                         "ncb_gv_playerWater = 100;" \n
+                                         "" \n
+                                         "// skills" \n
+                                         "" \n
+                                         "player setVariable [""skillCook"",[0,0]];" \n
+                                         "player setVariable [""skillEngineer"",[0,0]];" \n
+                                         "player setVariable [""skillFuelling"",[0,0]];" \n
+                                         "player setVariable [""skillLogistics"",[0,0]];" \n
+                                         "player setVariable [""skillSurgeon"",[0,0]];" \n
+                                         "player setVariable [""skillTyreFitter"",[0,0]];" \n
+                                         "player setVariable [""skillMagazineFitter"",[0,0]];" \n
+                                         "player setVariable [""skillWeaponFitter"",[0,0]];" \n
+                                         "" \n
+                                         "// equip" \n
+                                         "" \n
+                                         "call _equipCoast;" \n
+                                         "" \n
+                                         "// spawn pos" \n
+                                         "" \n
+                                         "0 call horde_fnc_selectRespawnPos params [""_respawnPos"",""_respawnDir""];" \n
+                                         "" \n
+                                         "_unit setVariable [""lastRespawnPosData"",[_respawnPos,_respawnDir,time]];" \n
+                                         "" \n
+                                         "player setDir _respawnDir;" \n
+                                         "player setVectorUp surfaceNormal _respawnPos;" \n
+                                         "player setPosATL _respawnPos;" \n
+                                         "" \n
+                                         "// select anim" \n
+                                         "" \n
+                                         "_anim = ""AmovPpneMstpSrasWrflDnon"";" \n
+                                         "if not (ncb_param_playerStartPrimaryWeapon) then {" \n
+                                         "    if (ncb_param_playerStartHandgunWeapon) then {" \n
+                                         "        _anim = ""AmovPpneMstpSrasWpstDnon"";" \n
+                                         "    } else {" \n
+                                         "        _anim = ""AmovPpneMstpSrasWnonDnon"";" \n
+                                         "    }" \n
+                                         "};" \n
+                                         "" \n
+                                         "[player,_anim] remoteExecCall [" \n
+                                         "    ""horde_fnc_switchMoveGlobal""," \n
+                                         "    0" \n
+                                         "];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__5">*/
+                class __5
+                {
+                        name = "__5";
+                        itemno = 17;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 18;
+                                        priority = 0.000000;
+                                        to="__16";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"player allowDamage true;" \n
+                                         "player setCaptive false;" \n
+                                         "ppEffectDestroy _blur;" \n
+                                         "" \n
+                                         "playerLastRespawnTime = time;" \n
+                                         "ncb_gv_playerBleedingRate = 0;" \n
+                                         "ncb_gv_playerLastBullet = objNull;" \n
+                                         "ncb_gv_playerLodgedBullets = 0;" \n
+                                         "ncb_gv_playerCharges = [[],[]];" \n
+                                         "playerOnTruckerPills = nil;" \n
+                                         "ncb_gv_playerFood = 100;" \n
+                                         "ncb_gv_playerWater = 100;" \n
+                                         "player setUnitTrait [""loadCoef"",1];" \n
+                                         "player setUnitTrait [""audibleCoef"",1];" \n
+                                         "player setUnitTrait [""camouflageCoef"",1];" \n
+                                         "" \n
+                                         "ncb_layer_playerMonitor cutRsc [""playerMonitor"",""PLAIN""];" \n
+                                         "" \n
+                                         "player setVariable [""skillCook"",[0,0]];" \n
+                                         "player setVariable [""skillEngineer"",[0,0]];" \n
+                                         "player setVariable [""skillFuelling"",[0,0]];" \n
+                                         "player setVariable [""skillLogistics"",[0,0]];" \n
+                                         "player setVariable [""skillSurgeon"",[0,0]];" \n
+                                         "player setVariable [""skillTyreFitter"",[0,0]];" \n
+                                         "player setVariable [""skillMagazineFitter"",[0,0]];" \n
+                                         "player setVariable [""skillWeaponFitter"",[0,0]];" \n
+                                         "" \n
+                                         "enableRadio true;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__6">*/
+                class __6
+                {
+                        name = "__6";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="__16";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"player allowDamage true;" \n
+                                         "player setCaptive false;" \n
+                                         "ppEffectDestroy _blur;" \n
+                                         "" \n
+                                         "playerLastRespawnTime = time;" \n
+                                         "ncb_gv_playerBleedingRate = 0;" \n
+                                         "ncb_gv_playerLastBullet = objNull;" \n
+                                         "ncb_gv_playerLodgedBullets = 0;" \n
+                                         "ncb_gv_playerCharges = [[],[]];" \n
+                                         "playerOnTruckerPills = nil;" \n
+                                         "ncb_gv_playerFood  = 100;" \n
+                                         "ncb_gv_playerWater = 100;" \n
+                                         "" \n
+                                         "ncb_layer_playerMonitor cutRsc [""playerMonitor"",""PLAIN""];" \n
+                                         "" \n
+                                         "enableRadio true;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__7">*/
+                class __7
+                {
+                        name = "__7";
+                        itemno = 21;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 22;
+                                        priority = 0.000000;
+                                        to="__8";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not isNull _heli"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_heli allowDamage false;" \n
+                                         "_heli addEventHandler [""handleDamage"", {0}];" \n
+                                         "_pilot = createAgent [""B_Helipilot_F"",[0,0,0], [], 0, ""NONE""];" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__8">*/
+                class __8
+                {
+                        name = "__8";
+                        itemno = 23;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 24;
+                                        priority = 0.000000;
+                                        to="timer";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not isNull _pilot"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_pilot disableAI ""FSM"";" \n
+                                         "_pilot assignAsDriver _heli;" \n
+                                         "_pilot moveInDriver _heli;" \n
+                                         "_heli engineOn true;" \n
+                                         "_pilot action [""EngineOn"",_heli];" \n
+                                         "if (sunOrMoon < 1) then {" \n
+                                         "	_pilot action [""LightOn"",_heli];" \n
+                                         "	_pilot action [""CollisionLightOn"",_heli];" \n
+                                         "};" \n
+                                         "" \n
+                                         "_pilot moveTo [0,0,150];" \n
+                                         "" \n
+                                         "[player,true,false] remoteExecCall [" \n
+                                         "	""horde_fnc_playerRequestSimAndHide""," \n
+                                         "	2" \n
+                                         "];" \n
+                                         "" \n
+                                         "removeAllContainers player;" \n
+                                         "removeAllWeapons player;" \n
+                                         "removeHeadgear player;" \n
+                                         "removeGoggles player;" \n
+                                         "removeAllAssignedItems player;" \n
+                                         "player forceAddUniform ""U_C_WorkerCoveralls"";" \n
+                                         "player addVest ""V_Rangemaster_belt"";" \n
+                                         "player addBackpack ""B_Parachute"";" \n
+                                         "player addHeadgear ""H_PilotHelmetFighter_I"";" \n
+                                         "if (ncb_param_playerStartMap == 1) then {" \n
+                                         "	player linkItem ""ItemMap"";" \n
+                                         "};" \n
+                                         "if (ncb_param_playerStartNVG == 1) then {" \n
+                                         "	player linkItem ""NVGoggles"";" \n
+                                         "};" \n
+                                         "if (ncb_param_playerStartRadio == 1) then {" \n
+                                         "	player linkItem ""ItemRadio"";" \n
+                                         "};" \n
+                                         "" \n
+                                         "playerLastRespawnTime = time;" \n
+                                         "ncb_gv_playerBleedingRate = 0;" \n
+                                         "ncb_gv_playerLastBullet = objNull;" \n
+                                         "ncb_gv_playerLodgedBullets = 0;" \n
+                                         "ncb_gv_playerCharges = [[],[]];" \n
+                                         "playerOnTruckerPills = nil;" \n
+                                         "ncb_gv_playerFood  = 100;" \n
+                                         "ncb_gv_playerWater = 100;" \n
+                                         "player setUnitTrait [""loadCoef"",1];" \n
+                                         "player setUnitTrait [""audibleCoef"",1];" \n
+                                         "player setUnitTrait [""camouflageCoef"",1];" \n
+                                         "" \n
+                                         "player setVariable [""skillCook"",[0,0]];" \n
+                                         "player setVariable [""skillEngineer"",[0,0]];" \n
+                                         "player setVariable [""skillFuelling"",[0,0]];" \n
+                                         "player setVariable [""skillLogistics"",[0,0]];" \n
+                                         "player setVariable [""skillSurgeon"",[0,0]];" \n
+                                         "player setVariable [""skillTyreFitter"",[0,0]];" \n
+                                         "player setVariable [""skillMagazineFitter"",[0,0]];" \n
+                                         "player setVariable [""skillWeaponFitter"",[0,0]];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "timer">*/
+                class timer
+                {
+                        name = "timer";
+                        itemno = 25;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "finished">*/
+                                class finished
+                                {
+                                        itemno = 26;
+                                        priority = 0.000000;
+                                        to="__9";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"player setPosATL [" \n
+                                         "	_respawnPos select 0," \n
+                                         "	_respawnPos select 1," \n
+                                         "	1800" \n
+                                         "];" \n
+                                         "" \n
+                                         "player setDir _respawnDir;" \n
+                                         "" \n
+                                         "[player,""HaloFreeFall_F""] remoteExecCall [" \n
+                                         "	""horde_fnc_switchMoveGlobal""," \n
+                                         "	0" \n
+                                         "];" \n
+                                         "" \n
+                                         "_velocity = velocity player;" \n
+                                         "_boost = 150;" \n
+                                         "_newVel = [" \n
+                                         "	(_velocity select 0) + _boost * sin _respawnDir," \n
+                                         "	(_velocity select 1) + _boost * cos _respawnDir," \n
+                                         "	(_velocity select 2)" \n
+                                         "];" \n
+                                         "player setVelocity _newVel;" \n
+                                         "// player execFSM ""common\general\paraSafe.fsm"";" \n
+                                         "setViewDistance 4000;" \n
+                                         "setObjectViewDistance [3500,800];" \n
+                                         "" \n
+                                         "0 spawn {" \n
+                                         "	scriptName ""respawnParaShake"";" \n
+                                         "	waitUntil {" \n
+                                         "		addCamShake [5,2,3];" \n
+                                         "		uiSleep 1;" \n
+                                         "		lifeState player == ""incapacitated"" or {not isNull objectParent player}" \n
+                                         "	};" \n
+                                         "	if (lifeState player != ""incapacitated"") then {" \n
+                                         "		if (ncb_param_playerStartPrimaryWeapon) then {" \n
+                                         "			_weapon = ncb_gv_crateRiflesTier_0 select 0;" \n
+                                         "			player addMagazines [getArray (configFile >> ""CfgWeapons"" >> _weapon >> ""magazines"") select 0,3];" \n
+                                         "			player addWeapon _weapon;" \n
+                                         "		};" \n
+                                         "		if (ncb_param_playerStartHandgunWeapon) then {" \n
+                                         "			_weapon = ncb_gv_cratePistolsTier_0 select 0;" \n
+                                         "			player addMagazines [" \n
+                                         "				getArray (configFile >> ""CfgWeapons"" >>  _weapon >> ""magazines"") select 0," \n
+                                         "				if (ncb_param_playerStartPrimaryWeapon) then {3} else {5}" \n
+                                         "			];" \n
+                                         "			player addWeapon _weapon;" \n
+                                         "		};" \n
+                                         "		for ""_i"" from 1 to 3 do {player addItem ""ItemBandage""};" \n
+                                         "		player addItem ""ItemMedPack"";" \n
+                                         "	};" \n
+                                         "};" \n
+                                         "" \n
+                                         "0 spawn {" \n
+                                         "	// adapted from this : https://forums.bistudio.com/topic/166592-object-tracking-device-script-ideas/?p=3061493" \n
+                                         "    scriptName ""respawnParaTracker"";" \n
+                                         "	while {" \n
+                                         "        alive player" \n
+                                         "		and {lifeState player != ""incapacitated""}" \n
+                                         "		and {not isNil {playerParaRespawnBeacon}}" \n
+                                         "		and {not isNull playerParaRespawnBeacon}" \n
+                                         "		and {alive playerParaRespawnBeacon}" \n
+                                         "        and {not (isTouchingGround vehicle player)}" \n
+                                         "    } do {" \n
+                                         "        _pPlayer = getPosASL vehicle player;" \n
+                                         "        _v1 = vectorDir vehicle player;" \n
+                                         "        _v1 set [2,0];" \n
+                                         "        _v2 = _pPlayer vectorFromTo getPosASL playerParaRespawnBeacon;" \n
+                                         "        _v2 set [2,0];" \n
+                                         "        _offset = vectorMagnitude (" \n
+                                         "            _v1 vectorAdd _v2" \n
+                                         "        ) / 20;" \n
+                                         "        playSound3D [" \n
+                                         "            ""a3\sounds_f\sfx\Beep_Target.wss""," \n
+                                         "            vehicle player," \n
+                                         "            false," \n
+                                         "            _pPlayer," \n
+                                         "            0.5 + _offset," \n
+                                         "            0.8 + _offset," \n
+                                         "            0" \n
+                                         "        ];" \n
+                                         "        uiSleep ((" \n
+                                         "            sqrt (_pPlayer distance2D playerParaRespawnBeacon) / 15 - _offset" \n
+                                         "        ) max 0.05);" \n
+                                         "    };" \n
+                                         "	playerParaRespawnBeacon = nil" \n
+                                         "};" \n
+                                         "_heli setVehiclePosition [position player, [], 0, ""FLY""];" \n
+                                         "ncb_layer_blackOutScreen cutText ["""", ""BLACK IN"", 3];" \n
+                                         "_blur = ppEffectCreate [""dynamicBlur"", 666];" \n
+                                         "_blur ppEffectEnable true;" \n
+                                         "_blur ppEffectAdjust [5];" \n
+                                         "_blur ppEffectCommit 0;" \n
+                                         "_blur ppEffectAdjust [0];" \n
+                                         "_blur ppEffectCommit 2;" \n
+                                         "_heli setPos (player modelToWorld [0,-2,3.5]);" \n
+                                         "_heli setDir _respawnDir;" \n
+                                         "_boost = 20;" \n
+                                         "_newVel = [" \n
+                                         "	(velocity player select 0) + _boost * sin _respawnDir," \n
+                                         "	(velocity player select 1) + _boost * cos _respawnDir," \n
+                                         "	0" \n
+                                         "];" \n
+                                         "_heli setVelocity _newVel;" \n
+                                         "" \n
+                                         "" \n
+                                         "2 fadeSound 1;" \n
+                                         "" \n
+                                         "_timeout = 1;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__9">*/
+                class __9
+                {
+                        name = "__9";
+                        itemno = 27;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 28;
+                                        priority = 0.000000;
+                                        to="__10";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"player allowDamage true;" \n
+                                         "player setCaptive false;" \n
+                                         "ppEffectDestroy _blur;" \n
+                                         "" \n
+                                         "ncb_layer_playerMonitor cutRsc [""playerMonitor"",""PLAIN""];" \n
+                                         "" \n
+                                         "enableRadio true;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__10">*/
+                class __10
+                {
+                        name = "__10";
+                        itemno = 29;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "near_ground">*/
+                                class near_ground
+                                {
+                                        itemno = 30;
+                                        priority = 0.000000;
+                                        to="__16";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(getPos player) select 2 < 50"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"setViewDistance 1500;" \n
+                                         "setObjectViewDistance [1500,ncb_param_shadowRenderDistance];" \n
+                                         "" \n
+                                         "deleteVehicle _pilot;" \n
+                                         "deleteVehicle _heli;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "revive_cam">*/
+                class revive_cam
+                {
+                        name = "revive_cam";
+                        itemno = 32;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Rotate">*/
+                                class Rotate
+                                {
+                                        itemno = 33;
+                                        priority = 5.000000;
+                                        to="__11";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"lifeState player == ""INCAPACITATED"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"if (sunOrMoon < 0.15) then {" \n
+                                         "	camUseNVG true;" \n
+                                         "} else {" \n
+                                         "	camUseNVG false;" \n
+                                         "};" \n
+                                         "" \n
+                                         "_wait = diag_fps / 10;" \n
+                                         "if (_first) then {" \n
+                                         "	_first = false;" \n
+                                         "	_wait = 3;" \n
+                                         "	[" \n
+                                         "		[],{" \n
+                                         "			createDialog ""Horde_RespawnMenu"";" \n
+                                         "			0 call horde_fnc_reviveBleedoutTimer;" \n
+                                         "			call horde_fnc_removeEachFrame" \n
+                                         "		}," \n
+                                         "		3" \n
+                                         "	] call horde_fnc_addEachFrame;" \n
+                                         "};" \n
+                                         "" \n
+                                         "_timeout = time + _wait;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Conscious">*/
+                                class Conscious
+                                {
+                                        itemno = 34;
+                                        priority = 0.000000;
+                                        to="__12";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"missionNameSpace setVariable ['playerOkToCloseRespawnMenu',true];" \n
+                                         "closeDialog 0;" \n
+                                         "// (findDisplay 46) displayRemoveEventHandler [""KeyDown"", ncb_gv_keyDownHandler];" \n
+                                         "(findDisplay 46) displayRemoveEventHandler [""MouseMoving"", ncb_gv_mouseHandler];" \n
+                                         "(findDisplay 46) displayRemoveEventHandler [""MouseZChanged"", ncb_gv_mouseZHandler];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__11">*/
+                class __11
+                {
+                        name = "__11";
+                        itemno = 35;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 36;
+                                        priority = 0.000000;
+                                        to="revive_cam";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__12">*/
+                class __12
+                {
+                        name = "__12";
+                        itemno = 37;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Alive">*/
+                                class Alive
+                                {
+                                        itemno = 38;
+                                        priority = 1.000000;
+                                        to="__13";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isNil {(missionNamespace getVariable ""playerRespawnType"")}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"ncb_obj_camera camPreparePos ASLtoATL eyePos player;" \n
+                                         "ncb_obj_camera camCommitPrepared 1;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Dead">*/
+                                class Dead
+                                {
+                                        itemno = 39;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__13">*/
+                class __13
+                {
+                        name = "__13";
+                        itemno = 40;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 41;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"camCommitted ncb_obj_camera"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"player cameraEffect [""terminate"",""back""];" \n
+                                         "camDestroy ncb_obj_camera;" \n
+                                         "player allowDamage true;" \n
+                                         "player setCaptive false;" \n
+                                         "" \n
+                                         "ncb_layer_playerMonitor cutRsc [""playerMonitor"",""plain""];" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__14">*/
+                class __14
+                {
+                        name = "__14";
+                        itemno = 42;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 43;
+                                        priority = 0.000000;
+                                        to="__16";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"scriptDone _handle"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"ncb_layer_playerMonitor cutRsc [""playerMonitor"",""PLAIN""];" \n
+                                         "" \n
+                                         "enableRadio true;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__15">*/
+                class __15
+                {
+                        name = "__15";
+                        itemno = 46;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 47;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/"_heli setPosASL [0,0,5000];"/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not isNull _newGrp"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"[player] joinSilent _newGrp;" \n
+                                         "_newGrp selectLeader player;" \n
+                                         "_grp call horde_fnc_deleteGroupGlobal;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__16">*/
+                class __16
+                {
+                        name = "__16";
+                        itemno = 48;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "side_not_west">*/
+                                class side_not_west
+                                {
+                                        itemno = 44;
+                                        priority = 1.000000;
+                                        to="__15";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"playerSide != west"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"if (rating player < 2000) then {" \n
+                                         "	[player,5000] call horde_fnc_setUnitRatingGlobal;" \n
+                                         "};" \n
+                                         "_grp = group player;" \n
+                                         "_newGrp = createGroup west;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "side_is_west">*/
+                                class side_is_west
+                                {
+                                        itemno = 45;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__17">*/
+                class __17
+                {
+                        name = "__17";
+                        itemno = 51;
+                        init = /*%FSM<STATEINIT""">*/"{" \n
+                         "	player reveal [_x,4];" \n
+                         "} count (nearestObjects [player,[""All""],50]);" \n
+                         "" \n
+                         "15 fadeSound 1;" \n
+                         "ncb_layer_blackOutScreen cutText ["""", ""BLACK IN"", 3];" \n
+                         "_blur = ppEffectCreate [""dynamicBlur"", 666];" \n
+                         "_blur ppEffectEnable true;" \n
+                         "_blur ppEffectAdjust [5];" \n
+                         "_blur ppEffectCommit 0;" \n
+                         "_blur ppEffectAdjust [0];" \n
+                         "_blur ppEffectCommit 7;" \n
+                         "" \n
+                         "_timeout = time + 8;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="__14";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"player allowDamage true;" \n
+                                         "" \n
+                                         "ppEffectDestroy _blur;" \n
+                                         "_cap = worldName select [0,1];" \n
+                                         "_small = worldName select [1,99];" \n
+                                         "_cap = toUpper _cap;" \n
+                                         "_worldName = _cap + _small;" \n
+                                         "// _handle = [format [""%1"", _worldName], format [""%1"",name player],str (date select 2) + ""/"" + str (date select 1) + ""/"" + str (date select 0)] spawn BIS_fnc_infoText;" \n
+                                         "" \n
+                                         "" \n
+                                         "_handle = [" \n
+                                         "	" \n
+                                         "	[ " \n
+                                         "		[format [""%1"", _worldName],""align = 'center' shadow = '2' size = '1.2' font='PuristaBold'""], " \n
+                                         "		["""",""<br/>""], " \n
+                                         "		[format [""%1"",name player],""align = 'center' shadow = '2' size = '1.2'""], " \n
+                                         "		["""",""<br/>""]," \n
+                                         "		[(if (ncb_param_fullMoon) then {str (ncb_pv_originalDate select 2)} else {str (date select 2)}) + ""/"" + (if (ncb_param_fullMoon) then {str (ncb_pv_originalDate select 1)} else {str (date select 1)}) + ""/"" + (if (ncb_param_fullMoon) then {str (ncb_pv_originalDate select 0)} else {str (date select 0)}),""align = 'center' shadow = '2' size = '1.2'""] " \n
+                                         "  		//[str (date select 2) + ""/"" + str (date select 1) + ""/"" + str (date select 0),""align = 'center' shadow = '2' size = '1.2'""] " \n
+                                         " 	]," \n
+                                         "	0.3," \n
+                                         "	1" \n
+                                         " 	// safeZoneW * 0.2, " \n
+                                         " 	// safeZoneH * 0.8" \n
+                                         "] spawn horde_fnc_typeText2;" \n
+                                         "" \n
+                                         "// https://forums.bistudio.com/topic/191961-datetimestamp-in-mission/?p=3057482" \n
+                                         "" \n
+                                         "/*_handle = [" \n
+                                         "	[" \n
+                                         "		format [""%1"", worldName]" \n
+                                         "	]," \n
+                                         "	[" \n
+                                         "		format [""%1"",name player]," \n
+                                         "		1," \n
+                                         "		5" \n
+                                         "	]," \n
+                                         "	[" \n
+                                         "		str (date select 2) + ""/"" + str (date select 1) + ""/"" + str (date select 0), " \n
+                                         "		1, " \n
+                                         "		1, " \n
+                                         "		4" \n
+                                         "	]" \n
+                                         "] spawn BIS_fnc_EXP_camp_SITREP;*/" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Begin";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/

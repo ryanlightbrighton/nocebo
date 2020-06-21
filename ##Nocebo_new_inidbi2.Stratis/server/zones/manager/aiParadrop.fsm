@@ -1,0 +1,175 @@
+/*%FSM<COMPILE "E:\Applications\Poseidon\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, aiParadrop">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Begin",0,250,-75.000000,25.000000,-25.000000,75.000000,0.000000,"Begin"};
+item1[] = {"on_ground",4,218,-150.000000,-125.000000,-100.000000,-75.000000,1.000000,"on" \n "ground"};
+item2[] = {"spawn_chute",5,218,-75.000000,-50.000000,-25.000000,0.000000,0.000000,"spawn" \n "chute"};
+item3[] = {"_",2,250,-75.000000,-125.000000,-25.000000,-75.000000,0.000000,""};
+item4[] = {"dead",4,218,0.000000,-125.000000,50.000000,-75.000000,2.000000,"dead"};
+item5[] = {"End",1,250,0.000000,-275.000000,50.000000,-225.000000,0.000000,"End"};
+item6[] = {"on_object",8,218,-75.000000,-200.000000,-25.000000,-150.000000,0.000000,"on" \n "object"};
+item7[] = {"__1",2,250,-150.000000,-200.000000,-100.000000,-150.000000,0.000000,""};
+item8[] = {"__2",-1,250,-1250.000000,1025.000000,50.000000,1500.000000,0.000000,""};
+item9[] = {"Paradrop",-1,250,-425.000000,-275.000000,-200.000000,-75.000000,0.000000,"Paradrop"};
+item10[] = {"invincible_landi",5,218,-150.000000,-275.000000,-100.000000,-225.000000,0.000000,"invincible" \n "landing"};
+version=1;
+class LayoutItems
+{
+	class Item8
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=17;
+			FontWeight=700;
+			lStyle=1;
+			lColor=-1;
+		};
+	};
+	class Item9
+	{
+		class ItemInfo
+		{
+			FontFace="Franklin Gothic Heavy";
+			FontHeight=36;
+		};
+		BgColor=8454143;
+	};
+};
+link0[] = {0,2};
+link1[] = {1,7};
+link2[] = {2,3};
+link3[] = {3,1};
+link4[] = {3,4};
+link5[] = {3,6};
+link6[] = {4,5};
+link7[] = {6,7};
+link8[] = {7,10};
+link9[] = {10,5};
+globals[] = {0.000000,0,0,0,0,640,480,3,373,6316128,1,-215.869019,25.595673,167.265106,-400.828186,241,567,1};
+window[] = {0,-1,-1,-1,-1,739,26,1095,26,1,259};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "aiParadrop";
+        class States
+        {
+                /*%FSM<STATE "Begin">*/
+                class Begin
+                {
+                        name = "Begin";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_timeout = time + 1"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "spawn_chute">*/
+                                class spawn_chute
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"getPos _this select 2 < 100" \n
+                                         "and {time > _timeout}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_pos = getPosATL _this;" \n
+                                         "_dir = getDir _this;" \n
+                                         "_vel = velocity _this;" \n
+                                         "_chute = createVehicle [""Steerable_Parachute_F"",_pos,[],0,""can_collide""];" \n
+                                         "_this action [""getInDriver"",_chute];" \n
+                                         "//_chute setPosATL _pos;" \n
+                                         "_chute setDir _dir;" \n
+                                         "[_chute,_vel] call horde_fnc_setVelocityGlobal;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "dead">*/
+                                class dead
+                                {
+                                        itemno = 4;
+                                        priority = 2.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not alive _this"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "on_ground">*/
+                                class on_ground
+                                {
+                                        itemno = 1;
+                                        priority = 1.000000;
+                                        to="__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"getPos _chute select 2 < 2"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"[_this,false] call horde_fnc_allowDamageGlobal;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "on_object">*/
+                                class on_object
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"lineIntersects [getPosASL _chute,(getPosASL _chute) vectorAdd [0,0,-2],_chute]"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"[_this,false] call horde_fnc_allowDamageGlobal;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__1">*/
+                class __1
+                {
+                        name = "__1";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "invincible_landi">*/
+                                class invincible_landi
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"vehicle _this == _this"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"[_this,true] call horde_fnc_allowDamageGlobal;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Begin";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/

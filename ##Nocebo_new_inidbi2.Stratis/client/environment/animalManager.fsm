@@ -1,0 +1,530 @@
+/*%FSM<COMPILE "E:\Applications\Poseidon\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, animalManager">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"define_functions",0,4346,-225.000000,-125.000000,-175.000000,-75.000000,0.000000,"define" \n "functions" \n "etc"};
+item1[] = {"animals_nearby",8,218,-75.000000,-200.000000,-25.000000,-150.000000,0.000000,"animals" \n "nearby"};
+item2[] = {"always",5,218,-225.000000,-50.000000,-175.000000,0.000000,0.000000,"always"};
+item3[] = {"check_for_near_a",2,250,-75.000000,-125.000000,-25.000000,-75.000000,0.000000,"check" \n "for near" \n "animals"};
+item4[] = {"create_animal",4,218,0.000000,-125.000000,50.000000,-75.000000,1.000000,"create" \n "animal"};
+item5[] = {"always",5,218,-75.000000,-50.000000,-25.000000,0.000000,0.000000,"always"};
+item6[] = {"_",2,250,-150.000000,-50.000000,-100.000000,0.000000,0.000000,""};
+item7[] = {"__1",-1,250,-1250.000000,1025.000000,50.000000,1500.000000,0.000000,""};
+item8[] = {"Animal_manager_",-1,250,-475.000000,-625.000000,-250.000000,-425.000000,0.000000,"Animal" \n "manager" \n "(client)"};
+item9[] = {"timeout",5,218,0.000000,-275.000000,50.000000,-225.000000,0.000000,"timeout"};
+item10[] = {"__2",2,250,0.000000,-200.000000,50.000000,-150.000000,0.000000,""};
+item11[] = {"__3",2,250,-75.000000,-275.000000,-25.000000,-225.000000,0.000000,""};
+item12[] = {"control_all_anim",5,218,-75.000000,-350.000000,-25.000000,-300.000000,0.000000,"control" \n "all" \n "animals"};
+item13[] = {"No_more_animals",8,218,-150.000000,-275.000000,-100.000000,-225.000000,0.000000,"No" \n "more" \n "animals"};
+item14[] = {"__4",2,250,-150.000000,-350.000000,-100.000000,-300.000000,0.000000,""};
+item15[] = {"Another_animal",4,218,-225.000000,-350.000000,-175.000000,-300.000000,1.000000,"Another" \n "animal"};
+item16[] = {"control_animal",5,218,-150.000000,-425.000000,-100.000000,-375.000000,0.000000,"control" \n "animal"};
+item17[] = {"Wait",2,250,-225.000000,-425.000000,-175.000000,-375.000000,0.000000,"Wait"};
+version=1;
+class LayoutItems
+{
+	class Item7
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=17;
+			FontWeight=700;
+			lStyle=1;
+			lColor=-1;
+		};
+	};
+	class Item8
+	{
+		class ItemInfo
+		{
+			FontFace="Franklin Gothic Heavy";
+			FontHeight=36;
+		};
+		BgColor=8454143;
+	};
+};
+link0[] = {0,2};
+link1[] = {1,11};
+link2[] = {2,6};
+link3[] = {3,1};
+link4[] = {3,4};
+link5[] = {4,10};
+link6[] = {5,3};
+link7[] = {6,5};
+link8[] = {9,11};
+link9[] = {10,9};
+link10[] = {11,12};
+link11[] = {12,14};
+link12[] = {13,6};
+link13[] = {14,13};
+link14[] = {14,15};
+link15[] = {15,17};
+link16[] = {16,14};
+link17[] = {17,16};
+globals[] = {0.000000,0,0,0,0,640,480,3,445,6316128,1,-260.027802,130.059860,203.435516,-475.930664,445,775,1};
+window[] = {0,-1,-1,-1,-1,1051,130,1451,130,1,463};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "animalManager";
+        class States
+        {
+                /*%FSM<STATE "define_functions">*/
+                class define_functions
+                {
+                        name = "define_functions";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"// define types of animals" \n
+                         "" \n
+                         "_animalSea = [" \n
+                         "	// condition" \n
+                         "	""sea + (waterDepth interpolate [3,30,0,1]) * (1 - houses) * (1 - forest) * (1 - trees) * (1 - meadow)""," \n
+                         "	// animal types found in expression" \n
+                         "	[" \n
+                         "		[""Fish_Base_F"",true]," \n
+                         "		[""Turtle_F"",false]" \n
+                         "		//""Fish_Base_F""" \n
+                         "	]" \n
+                         "];" \n
+                         "" \n
+                         "_animalMeadow = [" \n
+                         "	""meadow * (1 - houses) * (1 - forest) * (1 - trees) * (1 - sea) * (1 - rain)""," \n
+                         "	[" \n
+                         "		[""Rabbit_F"",false]," \n
+                         "		[""Goat_Base_F"",true]," \n
+                         "		[""Sheep_random_F"",true]," \n
+                         "		[""Snake_random_F"",false]," \n
+                         "		[""Fowl_Base_F"",true]" \n
+                         "	]" \n
+                         "];" \n
+                         "" \n
+                         "_animalTrees = [" \n
+                         "	""trees * (1 - houses) * (1 - meadow) * (1 - sea)""," \n
+                         "	[" \n
+                         "		[""Rabbit_F"",false]," \n
+                         "		[""Goat_Base_F"",true]," \n
+                         "		[""Dog_Base_F"",false]," \n
+                         "		[""Snake_random_F"",false]" \n
+                         "	]" \n
+                         "];" \n
+                         "" \n
+                         "_animalForest = [" \n
+                         "	""forest * (1 - houses) * (1 - sea) * (1 - meadow)""," \n
+                         "	[" \n
+                         "		[""Dog_Base_F"",false]," \n
+                         "		[""Snake_random_F"",false]" \n
+                         "	]" \n
+                         "];" \n
+                         "" \n
+                         "_animalHouses = [" \n
+                         "	""houses * (1 - forest) * (1 - sea) * (1 - meadow) * (1 - trees) * (1 - rain)""," \n
+                         "	[" \n
+                         "		[""Dog_Base_F"",false]," \n
+                         "		[""Snake_random_F"",false]," \n
+                         "		[""Fowl_Base_F"",true]" \n
+                         "	]" \n
+                         "];" \n
+                         "" \n
+                         "{" \n
+                         "    _x params [""_expression"",""_classData""];" \n
+                         "    {" \n
+                         "		_x params [""_baseClass"",""_herd""];" \n
+                         "        _classes = ""configName _x isKindOf _baseClass and {getNumber (_x >> 'scope') > 0} and {getText (_x >> 'model') != ''}"" configClasses (configFile >> ""CfgVehicles"");" \n
+                         "        _classes  = _classes apply {configName _x};" \n
+                         "        _classData set [_forEachIndex,[_classes,_herd]]" \n
+                         "    } forEach _classData;" \n
+                         "    _x = [_expression,_classData];" \n
+                         "} forEach [" \n
+                         "    _animalSea," \n
+                         "    _animalMeadow," \n
+                         "    _animalTrees," \n
+                         "    _animalForest," \n
+                         "    _animalHouses" \n
+                         "];" \n
+                         "" \n
+                         "//diag_log format [""xx %1"",_animalSea];" \n
+                         "//diag_log format [""xx %1"",_animalMeadow];" \n
+                         "//diag_log format [""xx %1"",_animalTrees];" \n
+                         "//diag_log format [""xx %1"",_animalForest];" \n
+                         "//diag_log format [""xx %1"",_animalHouses];" \n
+                         "" \n
+                         "_myAnimals = [];" \n
+                         "" \n
+                         "_nearbyAnimalDist = 150;" \n
+                         "" \n
+                         "_spawnDist = [100,200,300];" \n
+                         "_shuffleDist = [10,50,100];" \n
+                         "_loopTimeout = 20;" \n
+                         "" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "always">*/
+                                class always
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timeout = time + 10;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "check_for_near_a">*/
+                class check_for_near_a
+                {
+                        name = "check_for_near_a";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "create_animal">*/
+                                class create_animal
+                                {
+                                        itemno = 4;
+                                        priority = 1.000000;
+                                        to="__2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((ASLtoAGL getPosWorld player) nearEntities [" \n
+                                         "	""animal""," \n
+                                         "	_nearbyAnimalDist" \n
+                                         "]) isEqualTo []" \n
+                                         "and {count _myAnimals < 5}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_animal = objNull;" \n
+                                         "_animals = [];" \n
+                                         "_playerPos = ASLtoAGL getPosWorld player;" \n
+                                         "_samplePos = (vehicle player) getPos [random _spawnDist,random 360];" \n
+                                         "" \n
+                                         "if (surfaceIsWater _samplePos) then {" \n
+                                         "	{" \n
+                                         "		_x params [""_expression"",""_typeData""];" \n
+                                         "		selectRandom _typeData params [""_types"",""_herd""];" \n
+                                         "		//diag_log format [""array sea %1"", _x];" \n
+                                         "		_bestPlaces = selectBestPlaces [" \n
+                                         "			_samplePos," \n
+                                         "			30," \n
+                                         "			_expression," \n
+                                         "			50," \n
+                                         "			3" \n
+                                         "		];" \n
+                                         "		// diag_log format [""bestPlaces %1"", _bestPlaces];" \n
+                                         "		if not (_bestPlaces isEqualTo []) exitWith {" \n
+                                         "			{" \n
+                                         "				_x params [""_position2D"",""_cost""];" \n
+                                         "				if (_cost > 0.5) exitWith {" \n
+                                         "					if (surfaceIsWater _position2D) then {" \n
+                                         "						_position2D set [2,(_playerPos select 2) min -1.5];" \n
+                                         "						_numbAnimals = if (_herd) then {1 + floor random 5} else {1};" \n
+                                         "						for ""_i"" from 1 to _numbAnimals do {" \n
+                                         "							_animal = createAgent [selectRandom _types,_position2D, [], 0, ""NONE""];" \n
+                                         "							_animal setVariable [""BIS_fnc_animalBehaviour_disable"", true];" \n
+                                         "							_animal setVariable [""moveExpression"",_expression];" \n
+                                         "							_animals pushBack _animal;" \n
+                                         "							if (ncb_param_debugMode == 1) then {" \n
+                                         "								_animal spawn {" \n
+                                         "									_mkr = createMarker [str _this, getPos _this];" \n
+                                         "									_mkr setMarkerType ""mil_arrow"";" \n
+                                         "									_mkr setMarkerColor ""ColorBlue"";" \n
+                                         "									_mkr setMarkerAlpha 1;" \n
+                                         "									_mkr setMarkerText (typeOf _this);" \n
+                                         "									while {alive _this} do {" \n
+                                         "										_mkr setMarkerDir getDir _this;" \n
+                                         "										_mkr setMarkerPos getPos _this;" \n
+                                         "										uiSleep 1;" \n
+                                         "									};" \n
+                                         "									deleteMarker _mkr" \n
+                                         "								};" \n
+                                         "							};" \n
+                                         "						};" \n
+                                         "					};" \n
+                                         "				};" \n
+                                         "			} forEach _bestPlaces;" \n
+                                         "		};" \n
+                                         "	} forEach [" \n
+                                         "		_animalSea" \n
+                                         "	];" \n
+                                         "} else {" \n
+                                         "	{" \n
+                                         "		_x params [""_expression"",""_typeData""];" \n
+                                         "		selectRandom _typeData params [""_types"",""_herd""];" \n
+                                         "		//diag_log format [""array land %1"", _x];" \n
+                                         "		_bestPlaces = selectBestPlaces [" \n
+                                         "			_samplePos," \n
+                                         "			30," \n
+                                         "			_expression," \n
+                                         "			50," \n
+                                         "			3" \n
+                                         "		];" \n
+                                         "		// diag_log format [""bestPlaces %1"", _bestPlaces];" \n
+                                         "		if (not (_bestPlaces isEqualTo [])" \n
+                                         "			and {{if (_x select 1 > 0.5) exitWith {1}} count _bestPlaces > 0}" \n
+                                         "		) exitWith {" \n
+                                         "			{" \n
+                                         "				_x params [""_position2D"",""_cost""];" \n
+                                         "				if (_cost > 0.5) exitWith {" \n
+                                         "					if not (surfaceIsWater _position2D) then {" \n
+                                         "						_position2D set [2,0];" \n
+                                         "						_numbAnimals = if (_herd) then {1 + floor random 5} else {1};" \n
+                                         "						for ""_i"" from 1 to _numbAnimals do {" \n
+                                         "							_animal = createAgent [selectRandom _types,_position2D, [], 0, ""NONE""];" \n
+                                         "							_animal setVariable [""BIS_fnc_animalBehaviour_disable"", true];" \n
+                                         "							_animal setVariable [""moveExpression"",_expression];" \n
+                                         "							_animals pushBack _animal;" \n
+                                         "							if (ncb_param_debugMode == 1) then {" \n
+                                         "							_animal spawn {" \n
+                                         "									_mkr = createMarker [str _this, getPos _this];" \n
+                                         "									_mkr setMarkerType ""mil_arrow"";" \n
+                                         "									_mkr setMarkerColor ""ColorGreen"";" \n
+                                         "									_mkr setMarkerAlpha 1;" \n
+                                         "									_mkr setMarkerText (typeOf _this);" \n
+                                         "									while {alive _this} do {" \n
+                                         "										_mkr setMarkerDir getDir _this;" \n
+                                         "										_mkr setMarkerPos getPos _this;" \n
+                                         "										uiSleep 1;" \n
+                                         "									};" \n
+                                         "									deleteMarker _mkr" \n
+                                         "								};" \n
+                                         "							};" \n
+                                         "						};" \n
+                                         "					};" \n
+                                         "				};" \n
+                                         "			} forEach _bestPlaces;" \n
+                                         "		};" \n
+                                         "	} forEach [" \n
+                                         "		_animalMeadow," \n
+                                         "		_animalTrees," \n
+                                         "		_animalForest," \n
+                                         "		_animalHouses" \n
+                                         "	];" \n
+                                         "};" \n
+                                         "" \n
+                                         "_timeout = time + 1;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "animals_nearby">*/
+                                class animals_nearby
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="__3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "always">*/
+                                class always
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="check_for_near_a";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__2">*/
+                class __2
+                {
+                        name = "__2";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "timeout">*/
+                                class timeout
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="__3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"{" \n
+                                         "	[_x,""local"",""{if (alive (_this select 0)) then {(_this select 0) setDamage 1}}""] call horde_fnc_addServerEventHandler;" \n
+                                         "	_x disableAI ""checkvisible"";" \n
+                                         "} forEach _animals;" \n
+                                         "" \n
+                                         "_myAnimals pushBack _animals;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__3">*/
+                class __3
+                {
+                        name = "__3";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "control_all_anim">*/
+                                class control_all_anim
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="__4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_max = count _myAnimals;" \n
+                                         "_index = 0;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__4">*/
+                class __4
+                {
+                        name = "__4";
+                        itemno = 14;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Another_animal">*/
+                                class Another_animal
+                                {
+                                        itemno = 15;
+                                        priority = 1.000000;
+                                        to="Wait";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_max > _index"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_animals = _myAnimals select _index;" \n
+                                         "_aliveAnimals = _animals select {not isNull _x and {alive _x}};" \n
+                                         "_animal = objNull;" \n
+                                         "if not (_aliveAnimals isEqualTo []) then {" \n
+                                         "	_animal = _aliveAnimals select 0;" \n
+                                         "} else {" \n
+                                         "	_myAnimals set [_index,objNull];" \n
+                                         "};" \n
+                                         "" \n
+                                         "if (not isNull _animal" \n
+                                         "	and {alive _animal}" \n
+                                         "	and {random 1 <= 0.3}" \n
+                                         ") then {" \n
+                                         "	if ([_animal,if (surfaceIsWater getPosWorld _animal) then {300} else {500}] call horde_fnc_playerIsNear) then {" \n
+                                         "		_samplePos = _animal getPos [random _shuffleDist,random 360];" \n
+                                         "		// diag_log format [""_samplePos %1"",_samplePos];" \n
+                                         "		// diag_log format [""_animal getVariable moveExpression %1"",_animal getVariable ""moveExpression""];" \n
+                                         "		_bestPlaces = selectBestPlaces [" \n
+                                         "			_samplePos," \n
+                                         "			30," \n
+                                         "			_animal getVariable ""moveExpression""," \n
+                                         "			50," \n
+                                         "			3" \n
+                                         "		];" \n
+                                         "		// diag_log format [""_bestPlaces %1"",_bestPlaces];" \n
+                                         "		if (not (_bestPlaces isEqualTo [])" \n
+                                         "			and {{if (_x select 1 > 0.5) exitWith {1}} count _bestPlaces > 0}" \n
+                                         "		) exitWith {" \n
+                                         "			{" \n
+                                         "				_x params [""_position2D"",""_cost""];" \n
+                                         "				// diag_log format [""pos2d and cost %1"",_x];" \n
+                                         "				if (_cost > 0.5) exitWith {" \n
+                                         "					if (surfaceIsWater _position2D) then {" \n
+                                         "						_depth = getTerrainHeightASL _position2D;" \n
+                                         "						_position2D set [2,random [-0.5,_depth * 0.5,_depth]];" \n
+                                         "						// diag_log format [""_position2D water %1"",_position2D];" \n
+                                         "						_animal forceSpeed (_animal getSpeed selectRandom [""AUTO"",""SLOW"",""NORMAL"",""FAST""]);" \n
+                                         "						//_animal moveTo _position2D;" \n
+                                         "						_animal setDestination [_position2D,""LEADER DIRECT"",true];" \n
+                                         "					} else {" \n
+                                         "						_position2D set [2,0];" \n
+                                         "						// diag_log format [""_position2D land %1"",_position2D];" \n
+                                         "						_animal forceSpeed (_animal getSpeed selectRandom [""AUTO"",""SLOW"",""NORMAL"",""FAST""]);" \n
+                                         "						//_animal moveTo _position2D;" \n
+                                         "						_animal setDestination [_position2D,""LEADER DIRECT"",true];" \n
+                                         "					};" \n
+                                         "					{" \n
+                                         "						if not (_x isEqualTo _animal) then {" \n
+                                         "							_x setDestination [_position2D,""LEADER DIRECT"",true];" \n
+                                         "						};" \n
+                                         "					} forEach _aliveAnimals" \n
+                                         "				};" \n
+                                         "			} forEach _bestPlaces;" \n
+                                         "		};" \n
+                                         "	} else {" \n
+                                         "		{" \n
+                                         "			deleteVehicle _x" \n
+                                         "		} count _aliveAnimals;" \n
+                                         "		_myAnimals set [_index,objNull];" \n
+                                         "	};" \n
+                                         "};" \n
+                                         "" \n
+                                         "_index = _index + 1;" \n
+                                         "" \n
+                                         "_timeout = time + 0.05;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "No_more_animals">*/
+                                class No_more_animals
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timeout = time + _loopTimeout;" \n
+                                         "" \n
+                                         "_myAnimals = _myAnimals - [objNull];" \n
+                                         "" \n
+                                         "// diag_log format [""_myAnimals (loop) %1"", _myAnimals];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Wait">*/
+                class Wait
+                {
+                        name = "Wait";
+                        itemno = 17;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "control_animal">*/
+                                class control_animal
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="__4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="define_functions";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/

@@ -1,0 +1,638 @@
+/*%FSM<COMPILE "E:\Applications\Poseidon\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, clearGarbage">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"START",0,250,225.000000,450.000000,275.000000,500.000000,0.000000,"START"};
+item1[] = {"Men",5,218,150.000000,450.000000,200.000000,500.000000,0.000000,"Men"};
+item2[] = {"_",2,250,150.000000,525.000000,200.000000,575.000000,0.000000,""};
+item3[] = {"another_body",4,218,225.000000,675.000000,275.000000,725.000000,1.000000,"another" \n "body"};
+item4[] = {"__1",2,250,150.000000,675.000000,200.000000,725.000000,0.000000,""};
+item5[] = {"wait",5,218,150.000000,600.000000,200.000000,650.000000,0.000000,"wait"};
+item6[] = {"__2",2,250,225.000000,600.000000,275.000000,650.000000,0.000000,""};
+item7[] = {"Dead_Men__no_need",-1,250,300.000000,525.000000,525.000000,725.000000,0.000000,"Dead" \n "Men" \n "(no need)" \n "disabled"};
+item8[] = {"all_checked",8,218,150.000000,750.000000,200.000000,800.000000,0.000000,"all" \n "checked"};
+item9[] = {"__3",2,250,75.000000,750.000000,125.000000,800.000000,0.000000,""};
+item10[] = {"another_wreck",4,218,-75.000000,825.000000,-25.000000,875.000000,1.000000,"another" \n "wreck"};
+item11[] = {"__4",2,250,-75.000000,750.000000,-25.000000,800.000000,0.000000,""};
+item12[] = {"wait",5,218,0.000000,750.000000,50.000000,800.000000,0.000000,"wait"};
+item13[] = {"__5",2,250,0.000000,825.000000,50.000000,875.000000,0.000000,""};
+item14[] = {"Destroyed_objects",-1,250,-150.000000,900.000000,75.000000,1100.000000,0.000000,"Destroyed" \n "objects" \n "(AllDead)"};
+item15[] = {"all_checked",8,218,-150.000000,750.000000,-100.000000,800.000000,0.000000,"all" \n "checked"};
+item16[] = {"__6",2,250,-150.000000,675.000000,-100.000000,725.000000,0.000000,""};
+item17[] = {"wait",4,218,-225.000000,525.000000,-175.000000,575.000000,1.000000,"wait"};
+item18[] = {"__7",2,250,-150.000000,525.000000,-100.000000,575.000000,0.000000,""};
+item19[] = {"wait",5,218,-150.000000,600.000000,-100.000000,650.000000,0.000000,"wait"};
+item20[] = {"__8",2,250,-225.000000,600.000000,-175.000000,650.000000,0.000000,""};
+item21[] = {"Abandoned_vehicl",-1,250,-475.000000,525.000000,-250.000000,725.000000,0.000000,"Abandoned" \n "vehicles"};
+item22[] = {"all_checked",8,218,75.000000,375.000000,125.000000,425.000000,0.000000,"all" \n "checked"};
+item23[] = {"Garbage_holders",-1,250,-100.000000,75.000000,125.000000,275.000000,0.000000,"Garbage" \n "holders" \n "tents" \n "etc"};
+item24[] = {"garbage",8,218,-150.000000,450.000000,-100.000000,500.000000,0.000000,"garbage"};
+item25[] = {"__9",2,250,-75.000000,450.000000,-25.000000,500.000000,0.000000,""};
+item26[] = {"wait",4,4314,0.000000,300.000000,50.000000,350.000000,1.000000,"wait"};
+item27[] = {"__10",2,250,0.000000,375.000000,50.000000,425.000000,0.000000,""};
+item28[] = {"wait",5,218,-75.000000,375.000000,-25.000000,425.000000,0.000000,"wait"};
+item29[] = {"__11",2,250,-75.000000,300.000000,-25.000000,350.000000,0.000000,""};
+item30[] = {"__12",2,250,75.000000,450.000000,125.000000,500.000000,0.000000,""};
+item31[] = {"Check_for_issues",-1,250,125.000000,900.000000,500.000000,1100.000000,0.000000,"Check for issues on HC" \n "If bodies aren't getting counted," \n "then go back to ncb_gv_garbageContents" \n "" \n "Uncomment in:" \n "addNewUnitToPool" \n "vehicleKilled"};
+version=1;
+class LayoutItems
+{
+	class Item7
+	{
+		class ItemInfo
+		{
+			FontFace="Franklin Gothic Heavy";
+			FontHeight=36;
+		};
+		BgColor=8454143;
+	};
+	class Item14
+	{
+		class ItemInfo
+		{
+			FontFace="Franklin Gothic Heavy";
+			FontHeight=36;
+		};
+		BgColor=8454143;
+	};
+	class Item21
+	{
+		class ItemInfo
+		{
+			FontFace="Franklin Gothic Heavy";
+			FontHeight=36;
+		};
+		BgColor=8454143;
+	};
+	class Item23
+	{
+		class ItemInfo
+		{
+			FontFace="Franklin Gothic Heavy";
+			FontHeight=36;
+		};
+		BgColor=8454143;
+	};
+	class Item31
+	{
+		class ItemInfo
+		{
+			FontFace="Franklin Gothic Medium";
+			FontHeight=17;
+		};
+		BgColor=8454143;
+	};
+};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,5};
+link3[] = {3,6};
+link4[] = {4,3};
+link5[] = {4,8};
+link6[] = {5,4};
+link7[] = {6,5};
+link8[] = {8,9};
+link9[] = {9,12};
+link10[] = {10,13};
+link11[] = {11,10};
+link12[] = {11,15};
+link13[] = {12,11};
+link14[] = {13,12};
+link15[] = {15,16};
+link16[] = {16,19};
+link17[] = {17,20};
+link18[] = {18,17};
+link19[] = {18,24};
+link20[] = {19,18};
+link21[] = {20,19};
+link22[] = {22,30};
+link23[] = {24,25};
+link24[] = {25,28};
+link25[] = {26,29};
+link26[] = {27,22};
+link27[] = {27,26};
+link28[] = {28,27};
+link29[] = {29,28};
+link30[] = {30,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,77,6316128,1,-403.028412,315.485138,809.907532,194.771042,841,720,1};
+window[] = {0,-1,-1,-1,-1,962,49,1564,96,1,859};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "clearGarbage";
+        class States
+        {
+                /*%FSM<STATE "START">*/
+                class START
+                {
+                        name = "START";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_removeDeadTimeout = _this select 0;" \n
+                         "_removeAbandonedVehTimeout = _this select 1;" \n
+                         "_removeAbandonedBoatTimeout = _this select 2;" \n
+                         "" \n
+                         "_timeOut = 5;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Men">*/
+                                class Men
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_index = 0;" \n
+                                         "//_copy = +allDeadMen;" \n
+                                         "_maxDead = 0; //_maxDead = count _copy;" \n
+                                         "" \n
+                                         "" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__1">*/
+                class __1
+                {
+                        name = "__1";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "another_body">*/
+                                class another_body
+                                {
+                                        itemno = 3;
+                                        priority = 1.000000;
+                                        to="__2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_index < _maxDead"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_body = _copy select _index;" \n
+                                         "" \n
+                                         "_delTime = _body getVariable [""deadDeleteTime"",-1];" \n
+                                         "" \n
+                                         "if (_delTime isEqualTo -1) then {" \n
+                                         "	// set new time" \n
+                                         "	if (_body isKindOf ""ncb_player_base"") then {" \n
+                                         "		_body setVariable [""deadDeleteTime"",(round time) + ncb_param_removeDeadPlayerTimeout];" \n
+                                         "	} else {" \n
+                                         "		_body setVariable [""deadDeleteTime"",(round time) + _removeDeadTimeout];" \n
+                                         "	}" \n
+                                         "} else {" \n
+                                         "	if (time > _delTime) then {" \n
+                                         "		// no players near" \n
+                                         "		if not([_body,15] call horde_fnc_playerIsNear) then {" \n
+                                         "			/*_flies = _body getVariable ""deadBodyFliesSoundSource"";" \n
+                                         "			if not (isNil ""_flies"") then {" \n
+                                         "				deleteVehicle _flies" \n
+                                         "			};*/" \n
+                                         "			deleteVehicle _body" \n
+                                         "		};" \n
+                                         "	};" \n
+                                         "};" \n
+                                         "_index = _index + 1;" \n
+                                         "" \n
+                                         "_timeOut = time + 0.05;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "all_checked">*/
+                                class all_checked
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="__3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_index = 0;" \n
+                                         "_copy = +allDead;" \n
+                                         "_maxDead = count _copy;" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__2">*/
+                class __2
+                {
+                        name = "__2";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__3">*/
+                class __3
+                {
+                        name = "__3";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="__4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__4">*/
+                class __4
+                {
+                        name = "__4";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "another_wreck">*/
+                                class another_wreck
+                                {
+                                        itemno = 10;
+                                        priority = 1.000000;
+                                        to="__5";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_index < _maxDead"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_thing = _copy select _index;" \n
+                                         "// diag_log _thing;" \n
+                                         "_delTime = _thing getVariable [""deadDeleteTime"",-1];" \n
+                                         "// diag_log _delTime;" \n
+                                         "// diag_log time;" \n
+                                         "if (_delTime isEqualTo -1) then {" \n
+                                         "	// set new time" \n
+                                         "	if (_thing isKindOf ""ncb_player_base"") then {" \n
+                                         "		_thing setVariable [""deadDeleteTime"",(round time) + ncb_param_removeDeadPlayerTimeout];" \n
+                                         "	} else {" \n
+                                         "		_thing setVariable [""deadDeleteTime"",(round time) + _removeDeadTimeout];" \n
+                                         "	}" \n
+                                         "} else {" \n
+                                         "	private _tooManyDead = count allDead > ncb_param_deadObjectLimit;" \n
+                                         "	if (_thing isKindOf ""ncb_player_base"") then {_tooManyDead = false};" \n
+                                         "	if (time > _delTime" \n
+                                         "		or {_tooManyDead}" \n
+                                         "	) then {" \n
+                                         "		// no players near" \n
+                                         "		if (not ([_thing,15] call horde_fnc_playerIsNear)" \n
+                                         "			or {_tooManyDead}" \n
+                                         "		) then {" \n
+                                         "			/*_flies = _thing getVariable ""deadBodyFliesSoundSource"";" \n
+                                         "			if not (isNil ""_flies"") then {" \n
+                                         "				deleteVehicle _flies" \n
+                                         "			};*/" \n
+                                         "			deleteVehicle _thing;" \n
+                                         "		};" \n
+                                         "	};" \n
+                                         "};" \n
+                                         "_index = _index + 1;" \n
+                                         "" \n
+                                         "_timeOut = time + 0.05;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "all_checked">*/
+                                class all_checked
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="__6";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_index = 0;" \n
+                                         "_maxLost = count ncb_gv_abandonedVehicles;" \n
+                                         "_vehsToRemove = [objNull];" \n
+                                         "diag_log ""/****garbage script****/"";" \n
+                                         "diag_log format [""time now: %1"",round time];" \n
+                                         "diag_log format [""ncb_gv_abandonedVehicles: %1"",ncb_gv_abandonedVehicles];" \n
+                                         "diag_log format [""types: %1"",ncb_gv_abandonedVehicles apply {typeOf _x}];" \n
+                                         "diag_log format [""time abandoned: %1"",ncb_gv_abandonedVehicles apply {_x getVariable [""vehicleAbandonedTime"",-1]}];" \n
+                                         "diag_log format [""count: %1"",count ncb_gv_abandonedVehicles];" \n
+                                         "diag_log ""/*******************/"";" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__5">*/
+                class __5
+                {
+                        name = "__5";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="__4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__6">*/
+                class __6
+                {
+                        name = "__6";
+                        itemno = 16;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="__7";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__7">*/
+                class __7
+                {
+                        name = "__7";
+                        itemno = 18;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 17;
+                                        priority = 1.000000;
+                                        to="__8";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_index < _maxLost"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_veh = ncb_gv_abandonedVehicles select _index;" \n
+                                         "" \n
+                                         "if (not isNil ""_veh"" and {not isNull _veh}) then {" \n
+                                         "	_abandonedTime = _veh getVariable [""vehicleAbandonedTime"",-1];" \n
+                                         "	if (_abandonedTime isEqualTo -1" \n
+                                         "		or {not alive _veh}" \n
+                                         "		or {_veh getVariable [""ncb_garbageExcluded"",false]}" \n
+                                         "	) then {" \n
+                                         "		// veh is repopulated,destroyed or excluded from deletion - remove from array" \n
+                                         "		_vehsToRemove pushBack _veh;" \n
+                                         "		diag_log format [""garbage - removing vehicle from abandoned queue: %1"",_veh];" \n
+                                         "		diag_log format [""garbage - abandonedTime variable: %1"",_abandonedTime];" \n
+                                         "		diag_log format [""garbage - alive vehicle: %1"",alive _veh];" \n
+                                         "		diag_log format [""garbage - garbageExcluded variable: %1"",_veh getVariable [""ncb_garbageExcluded"",false]];" \n
+                                         "	} else {" \n
+                                         "		_isBoat = if (_veh isKindOf ""Ship_F"") then {true} else {false};" \n
+                                         "		_threshold = if (_isBoat) then {_removeAbandonedBoatTimeout} else {_removeAbandonedVehTimeout};" \n
+                                         "		if (time > _abandonedTime + _threshold) then {" \n
+                                         "			// exit if players or tents are near" \n
+                                         "			if not (isNull (getPosATL _veh nearestObject ""ncb_obj_tent_dome"")) exitWith {};" \n
+                                         "			if ([_veh,500] call horde_fnc_playerIsNear) exitWith {};" \n
+                                         "			// ok to delete" \n
+                                         "			{" \n
+                                         "				deleteVehicle _x" \n
+                                         "			} count attachedObjects _veh;" \n
+                                         "			deleteVehicle _veh" \n
+                                         "		}" \n
+                                         "	}" \n
+                                         "};" \n
+                                         "_index = _index + 1;" \n
+                                         "_timeOut = time + 0.05;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "garbage">*/
+                                class garbage
+                                {
+                                        itemno = 24;
+                                        priority = 0.000000;
+                                        to="__9";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"{" \n
+                                         "	ncb_gv_abandonedVehicles = ncb_gv_abandonedVehicles - [_x]" \n
+                                         "} forEach _vehsToRemove;" \n
+                                         "" \n
+                                         "{" \n
+                                         "	if (_x distance [0,0,0] < 1) then {" \n
+                                         "		diag_log format [""deleting trigger: %1 - %2"", _x,time];" \n
+                                         "		deleteVehicle _x" \n
+                                         "	}" \n
+                                         "} count (allMissionObjects ""EmptyDetector"");" \n
+                                         "" \n
+                                         "_index = 0;" \n
+                                         "_maxGarb = count ncb_gv_garbageContents;" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__8">*/
+                class __8
+                {
+                        name = "__8";
+                        itemno = 20;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="__7";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__9">*/
+                class __9
+                {
+                        name = "__9";
+                        itemno = 25;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 28;
+                                        priority = 0.000000;
+                                        to="__10";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__10">*/
+                class __10
+                {
+                        name = "__10";
+                        itemno = 27;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 26;
+                                        priority = 1.000000;
+                                        to="__11";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_index < _maxGarb"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_veh = ncb_gv_garbageContents select _index;" \n
+                                         "" \n
+                                         "if not (isNull _veh) then {" \n
+                                         "	_delTime = _veh getVariable [""deadDeleteTime"",-1];" \n
+                                         "	if (_delTime isEqualTo -1) then {" \n
+                                         "		_veh setVariable [""deadDeleteTime"",(round time) + _removeDeadTimeout];" \n
+                                         "	} else {" \n
+                                         "		if (time > _delTime) then {" \n
+                                         "			deleteVehicle _veh" \n
+                                         "		};	" \n
+                                         "	};" \n
+                                         "};" \n
+                                         "_index = _index + 1;" \n
+                                         "_timeOut = time + 0.05;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "all_checked">*/
+                                class all_checked
+                                {
+                                        itemno = 22;
+                                        priority = 0.000000;
+                                        to="__12";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"ncb_gv_garbageContents = ncb_gv_garbageContents - [objNull];" \n
+                                         "" \n
+                                         "_timeOut = time + 60;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__11">*/
+                class __11
+                {
+                        name = "__11";
+                        itemno = 29;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 28;
+                                        priority = 0.000000;
+                                        to="__10";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__12">*/
+                class __12
+                {
+                        name = "__12";
+                        itemno = 30;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Men">*/
+                                class Men
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_index = 0;" \n
+                                         "//_copy = +allDeadMen;" \n
+                                         "_maxDead = 0; //_maxDead = count _copy;" \n
+                                         "" \n
+                                         "" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="START";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/

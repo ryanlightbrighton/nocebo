@@ -1,0 +1,419 @@
+/*%FSM<COMPILE "E:\Applications\Poseidon\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, loading">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Begin",0,250,-150.000000,-50.000000,-100.000000,0.000000,0.000000,"Begin"};
+item1[] = {"_",2,250,0.000000,-200.000000,50.000000,-150.000000,0.000000,""};
+item2[] = {"player_init",5,218,-150.000000,-125.000000,-100.000000,-75.000000,0.000000,"player" \n "init"};
+item3[] = {"End",1,250,150.000000,-625.000000,200.000000,-575.000000,0.000000,"End"};
+item4[] = {"display_46",5,218,-75.000000,-200.000000,-25.000000,-150.000000,0.000000,"display" \n "46"};
+item5[] = {"__1",2,250,-75.000000,-125.000000,-25.000000,-75.000000,0.000000,""};
+item6[] = {"__2",-1,250,-1250.000000,1025.000000,50.000000,1500.000000,0.000000,""};
+item7[] = {"Loading_Screens",-1,250,-375.000000,-375.000000,-150.000000,-175.000000,0.000000,"Loading" \n "Screens"};
+item8[] = {"mssg_1",8,218,75.000000,-200.000000,125.000000,-150.000000,0.000000,"mssg 1"};
+item9[] = {"__3",2,250,150.000000,-200.000000,200.000000,-150.000000,0.000000,""};
+item10[] = {"server_done",4,218,0.000000,-275.000000,50.000000,-225.000000,1.000000,"server" \n "done"};
+item11[] = {"mssg_2",5,218,150.000000,-125.000000,200.000000,-75.000000,1.000000,"mssg 2"};
+item12[] = {"__4",2,250,75.000000,-125.000000,125.000000,-75.000000,0.000000,""};
+item13[] = {"mssg_3",5,218,0.000000,-125.000000,50.000000,-75.000000,1.000000,"mssg 3"};
+item14[] = {"finish_loading",5,4314,75.000000,-625.000000,125.000000,-575.000000,1.000000,"finish" \n "loading"};
+item15[] = {"__5",2,250,0.000000,-625.000000,50.000000,-575.000000,0.000000,""};
+version=1;
+class LayoutItems
+{
+	class Item6
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=17;
+			FontWeight=700;
+			lStyle=1;
+			lColor=-1;
+		};
+	};
+	class Item7
+	{
+		class ItemInfo
+		{
+			FontFace="Franklin Gothic Heavy";
+			FontHeight=36;
+		};
+		BgColor=8454143;
+	};
+};
+link0[] = {0,2};
+link1[] = {1,8};
+link2[] = {1,10};
+link3[] = {2,5};
+link4[] = {4,1};
+link5[] = {5,4};
+link6[] = {8,9};
+link7[] = {9,11};
+link8[] = {10,15};
+link9[] = {11,12};
+link10[] = {12,13};
+link11[] = {13,1};
+link12[] = {14,3};
+link13[] = {15,14};
+globals[] = {0.000000,0,0,0,0,640,480,3,377,6316128,1,-283.467346,504.374329,86.837341,-745.653503,547,578,1};
+window[] = {0,-1,-1,-32000,-32000,861,22,1611,137,1,565};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "loading";
+        class States
+        {
+                /*%FSM<STATE "Begin">*/
+                class Begin
+                {
+                        name = "Begin";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"ncb_layer_staticScreen cutRsc [""RscNoise"",""black""];" \n
+                         "" \n
+                         "// workaround (not using this var PV'd anymore so set it to loading" \n
+                         "" \n
+                         "_mssg = ""Loading"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "player_init">*/
+                                class player_init
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not isNil ""bis_fnc_init""" \n
+                                         "and {not isNil ""ncb_fnc_init""}" \n
+                                         "and {not isNull player}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"0 fadesound 0;" \n
+                                         "[player,false,true] remoteExecCall [" \n
+                                         "	""horde_fnc_playerRequestSimAndHide""," \n
+                                         "	2" \n
+                                         "];" \n
+                                         "player allowDamage false;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 1;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "server_done">*/
+                                class server_done
+                                {
+                                        itemno = 10;
+                                        priority = 1.000000;
+                                        to="__5";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not isNil ""ncb_pv_paramsArray"" and {ncb_pv_paramsArray isEqualType []}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timeOut = time + 3;" \n
+                                         "" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "mssg_1">*/
+                                class mssg_1
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="__3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"disableSerialization;" \n
+                                         "_msg = parseText format [" \n
+                                         "	""<t size='3.5'color='#00EB00'align='center'shadow='2'>- %1 -</t>""," \n
+                                         "	_mssg" \n
+                                         "];" \n
+                                         "(findDisplay 46 displayCtrl 1930) ctrlSetStructuredText _msg;" \n
+                                         "(findDisplay 46 displayCtrl 1930) ctrlCommit 0;" \n
+                                         "" \n
+                                         "_timeOut = time + 0.1;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/"0 = 0 execFSM ""client\environment\animalManager.fsm"";" \n
+                         "simulWeatherSync;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__1">*/
+                class __1
+                {
+                        name = "__1";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "display_46">*/
+                                class display_46
+                                {
+                                        itemno = 4;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not isNull (findDisplay 46)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"{" \n
+                                         "	if (not isNull (findDisplay 46 displayCtrl _x)) then {" \n
+                                         "		ctrlDelete (findDisplay 46 displayCtrl _x)" \n
+                                         "	};" \n
+                                         "	true" \n
+                                         "} count [1929,1930,1931];" \n
+                                         "(findDisplay 46) displayRemoveAllEventHandlers ""KeyDown"";" \n
+                                         "inGameUISetEventHandler [""Action"", """"];" \n
+                                         "inGameUISetEventHandler [""PrevAction"", """"];" \n
+                                         "inGameUISetEventHandler [""NextAction"", """"];" \n
+                                         "" \n
+                                         "// ncb_layer_staticScreen cutRsc [""RscNoise"",""black""];" \n
+                                         "disableSerialization;" \n
+                                         "(findDisplay 46) ctrlCreate [""horde_RscStructuredText"",1930];" \n
+                                         "(findDisplay 46 displayCtrl 1930) ctrlSetPosition [" \n
+                                         "	0.28125 * safezoneW + safezoneX," \n
+                                         "	0.45 * safezoneH + safezoneY," \n
+                                         "	0.4375 * safezoneW," \n
+                                         "	0.21 * safezoneH" \n
+                                         "];" \n
+                                         "" \n
+                                         "(findDisplay 46) displayAddEventHandler [""KeyDown"", {" \n
+                                         "	_this call horde_fnc_keyPressed" \n
+                                         "}];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__3">*/
+                class __3
+                {
+                        name = "__3";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "mssg_2">*/
+                                class mssg_2
+                                {
+                                        itemno = 11;
+                                        priority = 1.000000;
+                                        to="__4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"disableSerialization;" \n
+                                         "_msg = parseText format [" \n
+                                         "	""<t size='3.5'color='#00EB00'align='center'shadow='2'>- - %1 - -</t>""," \n
+                                         "	_mssg" \n
+                                         "];" \n
+                                         "(findDisplay 46 displayCtrl 1930) ctrlSetStructuredText _msg;" \n
+                                         "(findDisplay 46 displayCtrl 1930) ctrlCommit 0;" \n
+                                         "" \n
+                                         "_timeOut = time + 0.1;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__4">*/
+                class __4
+                {
+                        name = "__4";
+                        itemno = 12;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "mssg_3">*/
+                                class mssg_3
+                                {
+                                        itemno = 13;
+                                        priority = 1.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"disableSerialization;" \n
+                                         "_msg = parseText format [" \n
+                                         "	""<t size='3.5'color='#00EB00'align='center'shadow='2'>- - - %1 - - -</t>""," \n
+                                         "	_mssg" \n
+                                         "];" \n
+                                         "(findDisplay 46 displayCtrl 1930) ctrlSetStructuredText _msg;" \n
+                                         "(findDisplay 46 displayCtrl 1930) ctrlCommit 0;" \n
+                                         "" \n
+                                         "_timeOut = time + 0.1;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__5">*/
+                class __5
+                {
+                        name = "__5";
+                        itemno = 15;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "finish_loading">*/
+                                class finish_loading
+                                {
+                                        itemno = 14;
+                                        priority = 1.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeOut"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"ncb_layer_staticScreen cutText ["""",""PLAIN DOWN""];" \n
+                                         "ncb_layer_blackOutScreen cutText ["""",""BLACK FADED"",0];" \n
+                                         "titleRsc [""RscStatic"",""PLAIN""];" \n
+                                         "" \n
+                                         "[player,true,false] remoteExecCall [" \n
+                                         "	""horde_fnc_playerRequestSimAndHide""," \n
+                                         "	2" \n
+                                         "];" \n
+                                         "" \n
+                                         "if (ncb_param_localFurniture == 1) then {" \n
+                                         "	0 execFSM ""client\environment\furnitureManager.fsm"";" \n
+                                         "};" \n
+                                         "" \n
+                                         "player setUnitTrait [""explosiveSpecialist"",true];" \n
+                                         "" \n
+                                         "player addEventHandler [" \n
+                                         "	""WeaponAssembled"", {" \n
+                                         "		params [""_unit"",""_obj""];" \n
+                                         "		call {" \n
+                                         "			if (_obj isKindOf ""StaticWeapon"") exitWith {" \n
+                                         "				[_obj,0] call horde_fnc_setVehicleAmmoGlobal;" \n
+                                         "			};" \n
+                                         "			if (_obj isKindOf ""UAV_01_base_F"") exitWith {" \n
+                                         "				{_x disableUAVConnectability [_obj,true]} forEach (allPlayers - [_unit])" \n
+                                         "			}" \n
+                                         "		}" \n
+                                         "	}" \n
+                                         "];" \n
+                                         "player addEventHandler [""InventoryOpened"", {" \n
+                                         "	ncb_gv_currentInvContainer = _this select 1;" \n
+                                         "	[" \n
+                                         "		[],{" \n
+                                         "			if not (isNull (findDisplay 602)) then {" \n
+                                         "				disableSerialization;" \n
+                                         "				if not (ncb_gv_currentInvContainer isKindOf ""weaponholder"") then {" \n
+                                         "					//diag_log format [""type: %1"",typeOf ncb_gv_currentInvContainer];" \n
+                                         "					/*(findDisplay 602 displayCtrl 6401) ctrlSetText (typeOf ncb_gv_currentInvContainer);" \n
+                                         "					ctrlSetText [6401, (typeOf ncb_gv_currentInvContainer)];*/" \n
+                                         "					/*_ctrl = findDisplay 602 ctrlCreate [""horde_RscText"",-1];" \n
+                                         "					_ctrl ctrlSetText (typeOf ncb_gv_currentInvContainer);" \n
+                                         "					private _pos = ctrlPosition (findDisplay 602 displayCtrl 6401);" \n
+                                         "					_pos set [1,(_pos select 1) - 0.05];" \n
+                                         "					_ctrl ctrlSetPosition _pos;" \n
+                                         "					_ctrl ctrlCommit 0;*/" \n
+                                         "				};" \n
+                                         "				(findDisplay 602 displayCtrl 6191) ctrlAddEventHandler [" \n
+                                         "					""MouseButtonDown""," \n
+                                         "					""_this call horde_fnc_backpackSlotSelected""" \n
+                                         "				];" \n
+                                         "				/*(findDisplay 602 displayCtrl 6191) ctrlAddEventHandler [" \n
+                                         "					""KillFocus""," \n
+                                         "					""'' call horde_fnc_closeItemMenu;""" \n
+                                         "				];*/" \n
+                                         "				(findDisplay 602 displayCtrl 6331) ctrlAddEventHandler [" \n
+                                         "					""MouseButtonDown""," \n
+                                         "					""_this call horde_fnc_uniformSlotSelected""" \n
+                                         "				];" \n
+                                         "				/*(findDisplay 602 displayCtrl 6331) ctrlAddEventHandler [" \n
+                                         "					""KillFocus""," \n
+                                         "					""'' call horde_fnc_closeItemMenu;""" \n
+                                         "				];*/" \n
+                                         "				(findDisplay 602 displayCtrl 6381) ctrlAddEventHandler [" \n
+                                         "					""MouseButtonDown""," \n
+                                         "					""_this call horde_fnc_vestSlotSelected""" \n
+                                         "				];" \n
+                                         "				/*(findDisplay 602 displayCtrl 6381) ctrlAddEventHandler [" \n
+                                         "					""KillFocus""," \n
+                                         "					""'' call horde_fnc_closeItemMenu;""" \n
+                                         "				];*/" \n
+                                         "				(findDisplay 602 displayCtrl 6211) ctrlAddEventHandler [" \n
+                                         "					""MouseButtonUp""," \n
+                                         "					""if (_this select 1 == 0 and {'ItemMap' in assignedItems player}) then {closeDialog 0; openMap true}""" \n
+                                         "				];" \n
+                                         "				(findDisplay 602 displayCtrl 6213) ctrlAddEventHandler [" \n
+                                         "					""MouseButtonDown""," \n
+                                         "					""_this call horde_fnc_watchSlotSelected""" \n
+                                         "				];" \n
+                                         "				(findDisplay 602 displayCtrl 6214) ctrlAddEventHandler [" \n
+                                         "					""MouseButtonUp""," \n
+                                         "					""if (_this select 1 == 0 and {'ItemRadio' in assignedItems player}) then {closeDialog 0; createDialog 'ncb_dlg_dynamicGroups'}""" \n
+                                         "				];" \n
+                                         "				(findDisplay 602 displayCtrl 610) ctrlAddEventHandler [" \n
+                                         "					""MouseButtonDown""," \n
+                                         "					""(_this + [primaryWeapon player]) call horde_fnc_weaponSlotSelected""" \n
+                                         "				];" \n
+                                         "				/*(findDisplay 602 displayCtrl 610) ctrlAddEventHandler [" \n
+                                         "					""KillFocus""," \n
+                                         "					""'' call horde_fnc_closeItemMenu;""" \n
+                                         "				];*/" \n
+                                         "				(findDisplay 602 displayCtrl 612) ctrlAddEventHandler [" \n
+                                         "					""MouseButtonDown""," \n
+                                         "					""(_this + [handgunWeapon player]) call horde_fnc_weaponSlotSelected""" \n
+                                         "				];" \n
+                                         "				/*(findDisplay 602 displayCtrl 612) ctrlAddEventHandler [" \n
+                                         "					""KillFocus""," \n
+                                         "					""'' call horde_fnc_closeItemMenu;""" \n
+                                         "				];*/" \n
+                                         "				(findDisplay 602 displayCtrl 611) ctrlAddEventHandler [" \n
+                                         "					""MouseButtonDown""," \n
+                                         "					""(_this + [secondaryWeapon player]) call horde_fnc_weaponSlotSelected""" \n
+                                         "				];" \n
+                                         "				/*(findDisplay 602 displayCtrl 611) ctrlAddEventHandler [" \n
+                                         "					""KillFocus""," \n
+                                         "					""'' call horde_fnc_closeItemMenu;""" \n
+                                         "				];*/" \n
+                                         "				/*for ""_i"" from 0 to 10000 do {" \n
+                                         "					(findDisplay 602 displayCtrl _i) ctrlAddEventHandler [" \n
+                                         "						""MouseButtonDown""," \n
+                                         "						""systemChat format ['%1',_this]; diag_log format ['%1',_this]""" \n
+                                         "					];" \n
+                                         "				};*/" \n
+                                         "				ncb_gv_invClosed = (findDisplay 602) displayAddEventHandler [""keydown"", {" \n
+                                         "					if ((_this select 1) in (actionKeys ""gear"")) then {" \n
+                                         "						(findDisplay 602) displayRemoveEventHandler [""keydown"",ncb_gv_invClosed];" \n
+                                         "						closeDialog 0" \n
+                                         "					}" \n
+                                         "				}];" \n
+                                         "				call horde_fnc_removeEachFrame" \n
+                                         "			}" \n
+                                         "		}," \n
+                                         "		0" \n
+                                         "	] call horde_fnc_addEachFrame;" \n
+                                         "}];" \n
+                                         "" \n
+                                         "ncb_gv_playerInitDone = true;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Begin";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/

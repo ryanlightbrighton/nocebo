@@ -1,0 +1,876 @@
+/*%FSM<COMPILE "E:\Applications\Poseidon\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, furnitureManager">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Begin",0,250,-225.000000,-125.000000,-175.000000,-75.000000,0.000000,"Begin"};
+item1[] = {"no",8,218,-75.000000,-200.000000,-25.000000,-150.000000,0.000000,"no"};
+item2[] = {"always",5,218,-225.000000,-50.000000,-175.000000,0.000000,0.000000,"always"};
+item3[] = {"check_for_houses",2,250,-75.000000,-125.000000,-25.000000,-75.000000,0.000000,"check" \n "for" \n "houses"};
+item4[] = {"yes",4,218,0.000000,-125.000000,50.000000,-75.000000,1.000000,"yes"};
+item5[] = {"always",5,218,-75.000000,-50.000000,-25.000000,0.000000,0.000000,"always"};
+item6[] = {"_",2,250,-150.000000,-50.000000,-100.000000,0.000000,0.000000,""};
+item7[] = {"__1",-1,250,-1250.000000,1025.000000,50.000000,1500.000000,0.000000,""};
+item8[] = {"Furniture_manage",-1,250,-475.000000,-625.000000,-250.000000,-425.000000,0.000000,"Furniture" \n "manager"};
+item9[] = {"no_houses_left",8,218,75.000000,-200.000000,125.000000,-150.000000,0.000000,"no" \n "houses" \n "left"};
+item10[] = {"check_each_house",2,250,75.000000,-125.000000,125.000000,-75.000000,0.000000,"check" \n "each" \n "house"};
+item11[] = {"another_house",4,218,150.000000,-125.000000,200.000000,-75.000000,1.000000,"another" \n "house"};
+item12[] = {"some_furniture",4,218,300.000000,-125.000000,350.000000,-75.000000,1.000000,"some" \n "furniture"};
+item13[] = {"__2",2,250,225.000000,-125.000000,275.000000,-75.000000,0.000000,""};
+item14[] = {"always",5,218,0.000000,-275.000000,50.000000,-225.000000,0.000000,"always"};
+item15[] = {"del_old_house_25",2,250,0.000000,-200.000000,50.000000,-150.000000,0.000000,"del" \n "old house" \n "25m"};
+item16[] = {"always",5,218,-150.000000,-275.000000,-100.000000,-225.000000,0.000000,"always"};
+item17[] = {"del_old_house_50",2,250,-75.000000,-275.000000,-25.000000,-225.000000,0.000000,"del" \n "old house" \n "50m"};
+item18[] = {"always",5,218,-150.000000,-125.000000,-100.000000,-75.000000,0.000000,"always"};
+item19[] = {"__3",2,250,-150.000000,-200.000000,-100.000000,-150.000000,0.000000,""};
+item20[] = {"house_not_in_50m",4,218,450.000000,-125.000000,500.000000,-75.000000,1.000000,"house" \n "not in" \n "50m" \n "array"};
+item21[] = {"__4",2,250,375.000000,-125.000000,425.000000,-75.000000,0.000000,""};
+item22[] = {"false",8,218,75.000000,475.000000,125.000000,525.000000,0.000000,"false"};
+item23[] = {"still_some_furn",4,218,600.000000,-125.000000,650.000000,-75.000000,1.000000,"still" \n "some" \n "furn"};
+item24[] = {"__5",2,250,600.000000,-50.000000,650.000000,0.000000,0.000000,""};
+item25[] = {"setup_furn",4,218,525.000000,-50.000000,575.000000,0.000000,1.000000,"setup" \n "furn"};
+item26[] = {"__6",2,250,450.000000,-50.000000,500.000000,0.000000,0.000000,""};
+item27[] = {"none",8,218,375.000000,25.000000,425.000000,75.000000,0.000000,"none"};
+item28[] = {"__7",2,250,675.000000,-125.000000,725.000000,-75.000000,0.000000,""};
+item29[] = {"wait",5,218,675.000000,-50.000000,725.000000,0.000000,0.000000,"wait"};
+item30[] = {"within_25m",4,218,450.000000,100.000000,500.000000,150.000000,1.000000,"within" \n "25m"};
+item31[] = {"__8",2,250,375.000000,100.000000,425.000000,150.000000,0.000000,""};
+item32[] = {"not_in_old_25m_a",4,218,525.000000,175.000000,575.000000,225.000000,1.000000,"not in" \n "old 25m" \n "arr"};
+item33[] = {"__9",2,250,450.000000,175.000000,500.000000,225.000000,0.000000,""};
+item34[] = {"__10",2,250,525.000000,250.000000,575.000000,300.000000,0.000000,""};
+item35[] = {"wait",5,218,600.000000,250.000000,650.000000,300.000000,0.000000,"wait"};
+item36[] = {"setup_furn",4,218,675.000000,325.000000,725.000000,375.000000,1.000000,"setup" \n "furn"};
+item37[] = {"__11",2,250,600.000000,325.000000,650.000000,375.000000,0.000000,""};
+item38[] = {"still_some_furn",4,4314,750.000000,400.000000,800.000000,450.000000,1.000000,"still" \n "some" \n "furn"};
+item39[] = {"__12",2,250,675.000000,400.000000,725.000000,450.000000,0.000000,""};
+item40[] = {"__13",2,250,750.000000,475.000000,800.000000,525.000000,0.000000,""};
+item41[] = {"wait",5,218,675.000000,475.000000,725.000000,525.000000,0.000000,"wait"};
+item42[] = {"false",8,218,600.000000,400.000000,650.000000,450.000000,0.000000,"false"};
+item43[] = {"__14",2,250,600.000000,475.000000,650.000000,525.000000,0.000000,""};
+item44[] = {"false",8,218,600.000000,25.000000,650.000000,75.000000,0.000000,"false"};
+item45[] = {"__15",2,250,525.000000,25.000000,575.000000,75.000000,0.000000,""};
+version=1;
+class LayoutItems
+{
+	class Item7
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=17;
+			FontWeight=700;
+			lStyle=1;
+			lColor=-1;
+		};
+	};
+	class Item8
+	{
+		class ItemInfo
+		{
+			FontFace="Franklin Gothic Heavy";
+			FontHeight=36;
+		};
+		BgColor=8454143;
+	};
+};
+link0[] = {0,2};
+link1[] = {1,15};
+link2[] = {2,6};
+link3[] = {3,1};
+link4[] = {3,4};
+link5[] = {4,10};
+link6[] = {5,3};
+link7[] = {6,5};
+link8[] = {9,15};
+link9[] = {10,9};
+link10[] = {10,11};
+link11[] = {11,13};
+link12[] = {12,21};
+link13[] = {13,12};
+link14[] = {13,22};
+link15[] = {14,17};
+link16[] = {15,14};
+link17[] = {16,19};
+link18[] = {17,16};
+link19[] = {18,6};
+link20[] = {19,18};
+link21[] = {20,26};
+link22[] = {21,20};
+link23[] = {21,27};
+link24[] = {22,10};
+link25[] = {23,28};
+link26[] = {24,23};
+link27[] = {24,44};
+link28[] = {25,24};
+link29[] = {26,25};
+link30[] = {26,27};
+link31[] = {27,31};
+link32[] = {28,29};
+link33[] = {29,24};
+link34[] = {30,33};
+link35[] = {31,22};
+link36[] = {31,30};
+link37[] = {32,34};
+link38[] = {33,22};
+link39[] = {33,32};
+link40[] = {34,35};
+link41[] = {35,37};
+link42[] = {36,39};
+link43[] = {37,22};
+link44[] = {37,36};
+link45[] = {38,40};
+link46[] = {39,38};
+link47[] = {39,42};
+link48[] = {40,41};
+link49[] = {41,39};
+link50[] = {42,43};
+link51[] = {43,22};
+link52[] = {44,45};
+link53[] = {45,27};
+globals[] = {0.000000,0,0,0,0,640,480,3,436,6316128,1,-2.302704,771.004395,718.942078,-12.317307,1110,880,1};
+window[] = {2,-1,-1,-1,-1,1024,104,1390,104,3,1128};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "furnitureManager";
+        class States
+        {
+                /*%FSM<STATE "Begin">*/
+                class Begin
+                {
+                        name = "Begin";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_oldHousesIn25m = [];" \n
+                         "_oldHousesIn50m = [];" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "always">*/
+                                class always
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "check_for_houses">*/
+                class check_for_houses
+                {
+                        name = "check_for_houses";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "yes">*/
+                                class yes
+                                {
+                                        itemno = 4;
+                                        priority = 1.000000;
+                                        to="check_each_house";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"vectorMagnitude velocity vehicle player < 7.1" \n
+                                         "or {vehicle player isEqualTo player}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_nearHouses = nearestObjects [player,[""House_F""],50];" \n
+                                         "_eyePos = eyePos player;" \n
+                                         "_objectBlockingOver = lineIntersectsWith [_eyePos,_eyePos vectorAdd [0,0,5]];" \n
+                                         "_pl = player;" \n
+                                         "if not (_objectBlockingOver isEqualTo []) then {" \n
+                                         "	_pl = _objectBlockingOver select 0;" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no">*/
+                                class no
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="del_old_house_25";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "always">*/
+                                class always
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="check_for_houses";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_currentHousesIn25m = [];" \n
+                                         "_currentHousesIn50m = [];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "check_each_house">*/
+                class check_each_house
+                {
+                        name = "check_each_house";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "another_house">*/
+                                class another_house
+                                {
+                                        itemno = 11;
+                                        priority = 1.000000;
+                                        to="__2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (_nearHouses isEqualTo [])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_house = _nearHouses deleteAt 0;" \n
+                                         "" \n
+                                         "_houseClass = typeOf _house;" \n
+                                         "_houseSize = sizeOf _houseClass;" \n
+                                         "_cfgFurniture = (configFile >> ""CfgVehicles"" >> _houseClass >> ""Furniture"");"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no_houses_left">*/
+                                class no_houses_left
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="del_old_house_25";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__2">*/
+                class __2
+                {
+                        name = "__2";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "some_furniture">*/
+                                class some_furniture
+                                {
+                                        itemno = 12;
+                                        priority = 1.000000;
+                                        to="__4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isClass _cfgFurniture and {not (_cfgFurniture isEqualTo [])}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_currentHousesIn50m pushBack _house;" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "false">*/
+                                class false
+                                {
+                                        itemno = 22;
+                                        priority = 0.000000;
+                                        to="check_each_house";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "del_old_house_25">*/
+                class del_old_house_25
+                {
+                        name = "del_old_house_25";
+                        itemno = 15;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "always">*/
+                                class always
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="del_old_house_50";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"{" \n
+                                         "	_house = _x;" \n
+                                         "	if not (_house in _currentHousesIn25m) then {" \n
+                                         "		_attachLogic = _house getVariable ""buildingFurnitureLogic25m"";" \n
+                                         "		if not (isNil ""_attachLogic"") then {" \n
+                                         "			deleteVehicle _attachLogic;" \n
+                                         "			_house setVariable [""buildingFurnitureLogic25m"",nil];" \n
+                                         "		};" \n
+                                         "		_exclude = _house getVariable ""buildingExcludeFromFurnitureManager"";" \n
+                                         "		if (isNil ""_exclude"") then {" \n
+                                         "			_furnitureArr = _house getVariable ""buildingFurniture25m"";" \n
+                                         "			if not (isNil ""_furnitureArr"") then {" \n
+                                         "				{" \n
+                                         "					deleteVehicle _x;" \n
+                                         "				} count _furnitureArr;" \n
+                                         "				_house setVariable [""buildingFurniture25m"",nil];" \n
+                                         "			};" \n
+                                         "		};" \n
+                                         "		_fanArr = _house getVariable ""buildingFanSoundSources"";" \n
+                                         "		if not (isNil ""_fanArr"") then {" \n
+                                         "			{" \n
+                                         "				deleteVehicle _x;" \n
+                                         "			} count _fanArr;" \n
+                                         "			_house setVariable [""buildingFanSoundSources"",nil];" \n
+                                         "		};" \n
+                                         "	};" \n
+                                         "	true" \n
+                                         "} count _oldHousesIn25m;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "del_old_house_50">*/
+                class del_old_house_50
+                {
+                        name = "del_old_house_50";
+                        itemno = 17;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "always">*/
+                                class always
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="__3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"{" \n
+                                         "	_house = _x;" \n
+                                         "	if not (_house in _currentHousesIn50m) then {" \n
+                                         "		_attachLogic = (_house getVariable ""buildingFurnitureLogic50m"");" \n
+                                         "		if not (isNil ""_attachLogic"") then {" \n
+                                         "			deleteVehicle _attachLogic;" \n
+                                         "			_house setVariable [""buildingFurnitureLogic50m"",nil];" \n
+                                         "		};" \n
+                                         "		_exclude = _house getVariable ""buildingExcludeFromFurnitureManager"";" \n
+                                         "		if (isNil ""_exclude"") then {" \n
+                                         "			_furnitureArr = (_house getVariable ""buildingFurniture50m"");" \n
+                                         "			if (not isNil ""_furnitureArr"") then {" \n
+                                         "				{" \n
+                                         "					deleteVehicle _x;" \n
+                                         "				} count _furnitureArr;" \n
+                                         "				_house setVariable [""buildingFurniture50m"",nil];" \n
+                                         "			};" \n
+                                         "		};" \n
+                                         "	};" \n
+                                         "	true" \n
+                                         "} count _oldHousesIn50m;" \n
+                                         "" \n
+                                         "_oldHousesIn25m = _currentHousesIn25m;" \n
+                                         "_oldHousesIn50m = _currentHousesIn50m;" \n
+                                         "" \n
+                                         "private [""_timeout""];" \n
+                                         "" \n
+                                         "if (_oldHousesIn50m isEqualTo [] and {vehicle player isEqualTo player}) then {" \n
+                                         "	_timeout = time + 3;" \n
+                                         "} else {" \n
+                                         "	_timeout = time +  1;" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__3">*/
+                class __3
+                {
+                        name = "__3";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "always">*/
+                                class always
+                                {
+                                        itemno = 18;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__4">*/
+                class __4
+                {
+                        name = "__4";
+                        itemno = 21;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "house_not_in_50m">*/
+                                class house_not_in_50m
+                                {
+                                        itemno = 20;
+                                        priority = 1.000000;
+                                        to="__6";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (_house in _oldHousesIn50m)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_modelFurn50mPosArr = getArray (_cfgFurniture >> ""furniture50m"");" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "none">*/
+                                class none
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="__8";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__5">*/
+                class __5
+                {
+                        name = "__5";
+                        itemno = 24;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "still_some_furn">*/
+                                class still_some_furn
+                                {
+                                        itemno = 23;
+                                        priority = 1.000000;
+                                        to="__7";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (_modelFurn50mPosArr isEqualTo [])" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_furn = _modelFurn50mPosArr deleteAt 0;" \n
+                                         "" \n
+                                         "_class = _furn select 0;" \n
+                                         "_attachToPos = _furn select 1;" \n
+                                         "_vDirUp = _furn select 2;" \n
+                                         "_item = _class createVehicleLocal [0,0,970];" \n
+                                         "_item allowDamage false;" \n
+                                         "_item attachTo [_attachLogic,_attachToPos];" \n
+                                         "_item setVectorDirAndUp _vDirUp;" \n
+                                         "_furnitureArr pushBack _item;" \n
+                                         "" \n
+                                         "_timeout = time + 0.01;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "false">*/
+                                class false
+                                {
+                                        itemno = 44;
+                                        priority = 0.000000;
+                                        to="__15";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_house setVariable [""buildingFurniture50m"",_furnitureArr];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__6">*/
+                class __6
+                {
+                        name = "__6";
+                        itemno = 26;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "setup_furn">*/
+                                class setup_furn
+                                {
+                                        itemno = 25;
+                                        priority = 1.000000;
+                                        to="__5";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (_modelFurn50mPosArr isEqualTo [])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_attachLogic = ""Logic"" createVehicleLocal getPos _house;" \n
+                                         "_attachLogic setPosWorld getPosWorld _house;" \n
+                                         "_attachLogic setDir getDir _house;" \n
+                                         "_house setVariable [""buildingFurnitureLogic50m"",_attachLogic];" \n
+                                         "_furnitureArr = [];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "none">*/
+                                class none
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="__8";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__7">*/
+                class __7
+                {
+                        name = "__7";
+                        itemno = 28;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 29;
+                                        priority = 0.000000;
+                                        to="__5";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__8">*/
+                class __8
+                {
+                        name = "__8";
+                        itemno = 31;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "within_25m">*/
+                                class within_25m
+                                {
+                                        itemno = 30;
+                                        priority = 1.000000;
+                                        to="__9";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_pl distance _house < 25 max _houseSize"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_currentHousesIn25m pushBack _house;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "false">*/
+                                class false
+                                {
+                                        itemno = 22;
+                                        priority = 0.000000;
+                                        to="check_each_house";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__9">*/
+                class __9
+                {
+                        name = "__9";
+                        itemno = 33;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "not_in_old_25m_a">*/
+                                class not_in_old_25m_a
+                                {
+                                        itemno = 32;
+                                        priority = 1.000000;
+                                        to="__10";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (_house in _oldHousesIn25m)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_modelFanPosArr = getArray (_cfgFurniture >> ""fans"");" \n
+                                         "_modelFurn25mPosArr = getArray (_cfgFurniture >> ""furniture25m"");" \n
+                                         "" \n
+                                         "if not (_modelFanPosArr isEqualTo []) then {" \n
+                                         "	_fanArr = [];" \n
+                                         "	{" \n
+                                         "		_worldPos = _house modelToWorld _x;" \n
+                                         "		_source = ""#particlesource"" createVehicleLocal _worldPos;" \n
+                                         "		_relDir = _house getRelDir _source;" \n
+                                         "		_source setDir _relDir;" \n
+                                         "		_fanArr pushBack _source;" \n
+                                         "		_source say3D ""horde_sound_fan"";" \n
+                                         "		[" \n
+                                         "			[_source],{" \n
+                                         "				call horde_fnc_getEachFrameArgs params [""_source""];" \n
+                                         "				if not (isNull _source) then {" \n
+                                         "					_source say3D ""horde_sound_fan"";" \n
+                                         "				} else {" \n
+                                         "					call horde_fnc_removeEachFrame" \n
+                                         "				}" \n
+                                         "			}," \n
+                                         "			28" \n
+                                         "		] call horde_fnc_addEachFrame;" \n
+                                         "		_source setParticleClass ""Horde_AirConditioningHaze"";" \n
+                                         "		true" \n
+                                         "	} count _modelFanPosArr;" \n
+                                         "	_house setVariable [""buildingFanSoundSources"",_fanArr];" \n
+                                         "};" \n
+                                         "" \n
+                                         "_timeout = time + 0.01;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "false">*/
+                                class false
+                                {
+                                        itemno = 22;
+                                        priority = 0.000000;
+                                        to="check_each_house";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__10">*/
+                class __10
+                {
+                        name = "__10";
+                        itemno = 34;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 35;
+                                        priority = 0.000000;
+                                        to="__11";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__11">*/
+                class __11
+                {
+                        name = "__11";
+                        itemno = 37;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "setup_furn">*/
+                                class setup_furn
+                                {
+                                        itemno = 36;
+                                        priority = 1.000000;
+                                        to="__12";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (_modelFurn25mPosArr isEqualTo [])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_attachLogic = ""Logic"" createVehicleLocal getPos _house;" \n
+                                         "_attachLogic setPosWorld getPosWorld _house;" \n
+                                         "_attachLogic setDir getDir _house;" \n
+                                         "_house setVariable [""buildingFurnitureLogic25m"",_attachLogic];" \n
+                                         "_furnitureArr = [];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "false">*/
+                                class false
+                                {
+                                        itemno = 22;
+                                        priority = 0.000000;
+                                        to="check_each_house";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__12">*/
+                class __12
+                {
+                        name = "__12";
+                        itemno = 39;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "still_some_furn">*/
+                                class still_some_furn
+                                {
+                                        itemno = 38;
+                                        priority = 1.000000;
+                                        to="__13";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (_modelFurn25mPosArr isEqualTo [])" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_furn = _modelFurn25mPosArr deleteAt 0;" \n
+                                         "" \n
+                                         "_class = _furn select 0;" \n
+                                         "_attachToPos = _furn select 1;" \n
+                                         "_vDirUp = _furn select 2;" \n
+                                         "_item = _class createVehicleLocal [0,0,970];" \n
+                                         "_item allowDamage false;" \n
+                                         "_item attachTo [_attachLogic,_attachToPos];" \n
+                                         "_item setVectorDirAndUp _vDirUp;" \n
+                                         "_config = configFile >> ""CfgVehicles"" >> _class;" \n
+                                         "_emitter = getNumber (_config >> ""horde_ambientEmitter"");" \n
+                                         "if (_emitter isEqualTo 1) then {" \n
+                                         "	_particleArr = getArray (_config >> ""horde_particles"");" \n
+                                         "	if not (_particleArr isEqualTo []) then {" \n
+                                         "		_source = ""#particlesource"" createVehicleLocal getPosATL _item;" \n
+                                         "		_source setParticleClass (selectRandom _particleArr);" \n
+                                         "		_furnitureArr pushBack _source;" \n
+                                         "	};" \n
+                                         "	_soundArr = getArray (_config >> ""horde_sound"");" \n
+                                         "	if not (_soundArr isEqualTo []) then {" \n
+                                         "		_rand = selectRandom _soundArr;" \n
+                                         "		_sound = _rand select 0;" \n
+                                         "		_length = _rand select 1;" \n
+                                         "		_item say3D _sound;" \n
+                                         "		[" \n
+                                         "			[_source,_sound],{" \n
+                                         "				call horde_fnc_getEachFrameArgs params [""_source"",""_sound""];" \n
+                                         "				if not (isNull _source) then {" \n
+                                         "					_source say3D _sound;" \n
+                                         "				} else {" \n
+                                         "					call horde_fnc_removeEachFrame" \n
+                                         "				}" \n
+                                         "			}," \n
+                                         "			_length" \n
+                                         "		] call horde_fnc_addEachFrame;" \n
+                                         "	};" \n
+                                         "};" \n
+                                         "_furnitureArr pushBack _item;" \n
+                                         "" \n
+                                         "_timeout = time + 0.01;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "false">*/
+                                class false
+                                {
+                                        itemno = 42;
+                                        priority = 0.000000;
+                                        to="__14";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_house setVariable [""buildingFurniture25m"",_furnitureArr];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__13">*/
+                class __13
+                {
+                        name = "__13";
+                        itemno = 40;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 41;
+                                        priority = 0.000000;
+                                        to="__12";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__14">*/
+                class __14
+                {
+                        name = "__14";
+                        itemno = 43;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "false">*/
+                                class false
+                                {
+                                        itemno = 22;
+                                        priority = 0.000000;
+                                        to="check_each_house";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__15">*/
+                class __15
+                {
+                        name = "__15";
+                        itemno = 45;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "none">*/
+                                class none
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="__8";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Begin";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/

@@ -1,0 +1,361 @@
+/*%FSM<COMPILE "E:\Applications\Poseidon\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, createRenegadeSquad">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Begin",0,250,100.000000,25.000000,150.000000,75.000000,0.000000,"Begin"};
+item1[] = {"not_found",8,218,100.000000,-50.000000,150.000000,0.000000,0.000000,"not" \n "found"};
+item2[] = {"guess_direction",5,218,175.000000,25.000000,225.000000,75.000000,0.000000,"guess" \n "direction"};
+item3[] = {"_",2,250,175.000000,-50.000000,225.000000,0.000000,0.000000,""};
+item4[] = {"__1",-1,250,-1250.000000,1025.000000,50.000000,1500.000000,0.000000,""};
+item5[] = {"Create_Renegade",-1,250,25.000000,-400.000000,600.000000,-200.000000,0.000000,"Create" \n "Renegade Squad"};
+item6[] = {"End",1,250,25.000000,-50.000000,75.000000,0.000000,0.000000,"End"};
+item7[] = {"good_pos_create",4,218,250.000000,-50.000000,300.000000,0.000000,1.000000,"good" \n "pos" \n "create" \n "grp"};
+item8[] = {"check_pool",4,218,100.000000,100.000000,150.000000,150.000000,1.000000,"check" \n "pool"};
+item9[] = {"wait",2,250,175.000000,100.000000,225.000000,150.000000,0.000000,"wait"};
+item10[] = {"pool_too_low",8,218,25.000000,25.000000,75.000000,75.000000,0.000000,"pool" \n "too" \n "low"};
+item11[] = {"Wait_For_Group",2,250,325.000000,-50.000000,375.000000,0.000000,0.000000,"Wait" \n "For" \n "Group"};
+item12[] = {"Set_WPs",8,218,25.000000,-125.000000,75.000000,-75.000000,0.000000,"Set" \n "WPs"};
+item13[] = {"always",5,218,400.000000,-50.000000,450.000000,0.000000,0.000000,"always"};
+item14[] = {"__2",2,250,400.000000,-125.000000,450.000000,-75.000000,0.000000,""};
+item15[] = {"Another_Unit",4,218,475.000000,-125.000000,525.000000,-75.000000,1.000000,"Another" \n "Unit"};
+item16[] = {"wait",5,218,400.000000,-200.000000,450.000000,-150.000000,0.000000,"wait"};
+item17[] = {"__3",2,250,475.000000,-200.000000,525.000000,-150.000000,0.000000,""};
+version=1;
+class LayoutItems
+{
+	class Item4
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=17;
+			FontWeight=700;
+			lStyle=1;
+			lColor=-1;
+		};
+	};
+	class Item5
+	{
+		class ItemInfo
+		{
+			FontFace="Franklin Gothic Heavy";
+			FontHeight=36;
+		};
+		BgColor=8454143;
+	};
+};
+link0[] = {0,8};
+link1[] = {0,10};
+link2[] = {1,6};
+link3[] = {2,3};
+link4[] = {3,1};
+link5[] = {3,7};
+link6[] = {7,11};
+link7[] = {8,9};
+link8[] = {9,2};
+link9[] = {10,6};
+link10[] = {11,13};
+link11[] = {12,6};
+link12[] = {13,14};
+link13[] = {14,12};
+link14[] = {14,15};
+link15[] = {15,17};
+link16[] = {16,14};
+link17[] = {17,16};
+globals[] = {0.000000,0,0,0,0,640,480,6,414,6316128,1,26.326950,267.335968,575.008240,-275.409912,432,741,1};
+window[] = {0,-1,-1,-1,-1,1069,182,1274,182,1,450};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "createRenegadeSquad";
+        class States
+        {
+                /*%FSM<STATE "Begin">*/
+                class Begin
+                {
+                        name = "Begin";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"params [""_player"",""_startPos"",""_fnc_findSpot""];" \n
+                         "" \n
+                         "_delay = 0.1;" \n
+                         "" \n
+                         "_fnc_findSafePosASL = horde_fnc_findSafePosASL;" \n
+                         "" \n
+                         "//systemChat format [""beginning squad rens %1"",_this];" \n
+                         "//diag_log format [""beginning squad rens %1"",_this];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "check_pool">*/
+                                class check_pool
+                                {
+                                        itemno = 8;
+                                        priority = 1.000000;
+                                        to="wait";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"count ncb_gv_renegadePool > 10"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timeout = time + 10;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "pool_too_low">*/
+                                class pool_too_low
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"//hintSilent format [""renegade pool too low - count %1"",count ncb_gv_renegadePool];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "good_pos_create">*/
+                                class good_pos_create
+                                {
+                                        itemno = 7;
+                                        priority = 1.000000;
+                                        to="Wait_For_Group";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not ([] isEqualTo _spawnPos)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_grp = createGroup resistance;" \n
+                                         "//diag_log format [""ren squad spawn pos %1"",_spawnPos];" \n
+                                         "//diag_log format [""ren squad grp %1"",_grp];" \n
+                                         "" \n
+                                         "_player setVariable [""playerLastRenegadeSpawnTime"",round time];" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "not_found">*/
+                                class not_found
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"//hintsilent format [""ren sqd no spawn pos %1"",_spawnPos];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "wait">*/
+                class wait
+                {
+                        name = "wait";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "guess_direction">*/
+                                class guess_direction
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_finishPos = getPosASL _player;" \n
+                                         "_dirTarg = 0;" \n
+                                         "_distCheck = 0;" \n
+                                         "if (_startPos distance2D _finishPos > 10) then {" \n
+                                         "	_distCheck = 200;" \n
+                                         "	_dirTarg = _startPos getDir _finishPos;" \n
+                                         "};" \n
+                                         "_spawnPos = (_finishPos getPos [_distCheck,_dirTarg]) call _fnc_findSpot;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Wait_For_Group">*/
+                class Wait_For_Group
+                {
+                        name = "Wait_For_Group";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"//hintsilent format [""creating group %1"",time];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "always">*/
+                                class always
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="__2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not isNull _grp"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_unitCount = round random [3,4.5,6];" \n
+                                         "//hintsilent format [""ren grp created %1"",_grp];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__2">*/
+                class __2
+                {
+                        name = "__2";
+                        itemno = 14;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Another_Unit">*/
+                                class Another_Unit
+                                {
+                                        itemno = 15;
+                                        priority = 1.000000;
+                                        to="__3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_unitCount > 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_unitCount = _unitCount - 1;" \n
+                                         "" \n
+                                         "_unit = ncb_gv_renegadePool deleteAt 0;" \n
+                                         "[_unit] joinSilent _grp;" \n
+                                         "_unit enableSimulationGlobal true;" \n
+                                         "_unit hideObjectGlobal false;" \n
+                                         "_unit setPosASL AGLtoASL _spawnPos;" \n
+                                         "[_unit,true] remoteExecCall [" \n
+                                         "	""allowDamage""," \n
+                                         "	_unit" \n
+                                         "];" \n
+                                         "" \n
+                                         "_unit enableAI ""checkVisible"";" \n
+                                         "" \n
+                                         "_timeout = time + _delay;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Set_WPs">*/
+                                class Set_WPs
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"" \n
+                                         "// randomise destination (what happens if water????)" \n
+                                         "" \n
+                                         "_finalPos = ASLtoAGL _finishPos;" \n
+                                         "if (surfaceIsWater _finalPos) then {" \n
+                                         "	_finalPos = getPosATL leader _grp" \n
+                                         "};" \n
+                                         "private _waypointPositions = [_finalPos getPos [100 + random 250,round random 360],400] call horde_fnc_findRenWaypoints;" \n
+                                         "" \n
+                                         "if ([] isEqualTo _waypointPositions) then {" \n
+                                         "    for ""_i"" from 1 to 5 do {" \n
+                                         "        _wp = _grp addWaypoint [" \n
+                                         "            _finalPos," \n
+                                         "            0" \n
+                                         "        ];" \n
+                                         "        call {" \n
+                                         "            if (_i isEqualTo 1) exitWith {" \n
+                                         "                _wp setWaypointBehaviour ""aware"";" \n
+                                         "                _wp setWaypointCombatMode ""red"";" \n
+                                         "                _wp setWaypointCompletionRadius 50;" \n
+                                         "                _wp setWaypointSpeed ""full"";" \n
+                                         "                _wp setWaypointStatements [""true"",""""];" \n
+                                         "                _wp setWaypointType ""move"";" \n
+                                         "            };" \n
+                                         "            if (_i isEqualTo 5) exitWith {" \n
+                                         "                _statement = """ \n
+                                         "                    if (local (group this)) then {" \n
+                                         "                        this call horde_fnc_renWaypointComplete" \n
+                                         "                    };" \n
+                                         "                "";" \n
+                                         "                _wp setWaypointStatements [""true"",_statement];" \n
+                                         "            };" \n
+                                         "        };" \n
+                                         "    };" \n
+                                         "} else {" \n
+                                         "    for ""_i"" from 1 to 5 do {" \n
+                                         "        _wp = _grp addWaypoint [" \n
+                                         "            _waypointPositions select (_i - 1) % (count _waypointPositions)," \n
+                                         "            0" \n
+                                         "        ];" \n
+                                         "        call {" \n
+                                         "            if (_i isEqualTo 1) exitWith {" \n
+                                         "                _wp setWaypointBehaviour ""aware"";" \n
+                                         "                _wp setWaypointCombatMode ""red"";" \n
+                                         "                _wp setWaypointCompletionRadius 50;" \n
+                                         "                _wp setWaypointSpeed ""full"";" \n
+                                         "                _wp setWaypointStatements [""true"",""""];" \n
+                                         "                _wp setWaypointType ""move"";" \n
+                                         "            };" \n
+                                         "            if (_i isEqualTo 5) exitWith {" \n
+                                         "                _statement = """ \n
+                                         "                    if (local (group this)) then {" \n
+                                         "                        this call horde_fnc_renWaypointComplete" \n
+                                         "                    };" \n
+                                         "                "";" \n
+                                         "                _wp setWaypointStatements [""true"",_statement];" \n
+                                         "            };" \n
+                                         "        };" \n
+                                         "    };" \n
+                                         "};" \n
+                                         "" \n
+                                         "_grp setVariable [""groupData"",[""ren_infantry""]];" \n
+                                         "" \n
+                                         "ncb_gv_renGrps pushBack _grp;" \n
+                                         "" \n
+                                         "//hintSilent format [""ren squad ncb_gv_renGrps %1"",ncb_gv_renGrps];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__3">*/
+                class __3
+                {
+                        name = "__3";
+                        itemno = 17;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="__2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Begin";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/

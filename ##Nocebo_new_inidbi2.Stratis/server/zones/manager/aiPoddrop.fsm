@@ -1,0 +1,423 @@
+/*%FSM<COMPILE "E:\Applications\Poseidon\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, aiPoddrop">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Begin",0,250,-150.000000,25.000000,-100.000000,75.000000,0.000000,"Begin"};
+item1[] = {"wait",5,218,-150.000000,-200.000000,-100.000000,-150.000000,1.000000,"wait"};
+item2[] = {"not_null",4,218,-150.000000,-50.000000,-100.000000,0.000000,1.000000,"not" \n "null"};
+item3[] = {"_",2,250,-150.000000,-125.000000,-100.000000,-75.000000,0.000000,""};
+item4[] = {"__1",2,250,0.000000,-125.000000,50.000000,-75.000000,0.000000,""};
+item5[] = {"End",1,250,0.000000,25.000000,50.000000,75.000000,0.000000,"End"};
+item6[] = {"__2",2,250,-75.000000,-200.000000,-25.000000,-150.000000,0.000000,""};
+item7[] = {"__3",-1,250,-1250.000000,1025.000000,50.000000,1500.000000,0.000000,""};
+item8[] = {"Pod_drop",-1,250,-425.000000,-275.000000,-200.000000,-75.000000,0.000000,"Pod drop"};
+item9[] = {"invincible_landi",5,218,0.000000,-200.000000,50.000000,-150.000000,0.000000,"invincible" \n "landing"};
+item10[] = {"null",8,218,-75.000000,25.000000,-25.000000,75.000000,0.000000,"null"};
+item11[] = {"alive",4,218,75.000000,-125.000000,125.000000,-75.000000,1.000000,"alive"};
+item12[] = {"null",8,218,0.000000,-50.000000,50.000000,0.000000,0.000000,"null"};
+item13[] = {"__4",2,250,150.000000,-125.000000,200.000000,-75.000000,0.000000,""};
+item14[] = {"wait",5,218,150.000000,-50.000000,200.000000,0.000000,1.000000,"wait"};
+item15[] = {"__5",2,250,150.000000,25.000000,200.000000,75.000000,0.000000,""};
+item16[] = {"alive",4,218,150.000000,100.000000,200.000000,150.000000,1.000000,"alive"};
+item17[] = {"not",8,218,75.000000,25.000000,125.000000,75.000000,0.000000,"not"};
+item18[] = {"__6",2,250,75.000000,100.000000,125.000000,150.000000,0.000000,""};
+item19[] = {"more_crew",4,218,25.000000,175.000000,75.000000,225.000000,1.000000,"more" \n "crew"};
+item20[] = {"wait",5,218,125.000000,175.000000,175.000000,225.000000,1.000000,"wait"};
+item21[] = {"__7",2,250,75.000000,250.000000,125.000000,300.000000,0.000000,""};
+item22[] = {"no_more_crew",8,218,0.000000,100.000000,50.000000,150.000000,0.000000,"no" \n "more" \n "crew"};
+version=1;
+class LayoutItems
+{
+	class Item7
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=17;
+			FontWeight=700;
+			lStyle=1;
+			lColor=-1;
+		};
+	};
+	class Item8
+	{
+		class ItemInfo
+		{
+			FontFace="Franklin Gothic Heavy";
+			FontHeight=36;
+		};
+		BgColor=8454143;
+	};
+};
+link0[] = {0,2};
+link1[] = {0,10};
+link2[] = {1,6};
+link3[] = {2,3};
+link4[] = {3,1};
+link5[] = {4,11};
+link6[] = {4,12};
+link7[] = {6,9};
+link8[] = {9,4};
+link9[] = {10,5};
+link10[] = {11,13};
+link11[] = {12,5};
+link12[] = {13,14};
+link13[] = {14,15};
+link14[] = {15,16};
+link15[] = {15,17};
+link16[] = {16,18};
+link17[] = {17,5};
+link18[] = {18,19};
+link19[] = {18,22};
+link20[] = {19,21};
+link21[] = {20,18};
+link22[] = {21,20};
+link23[] = {22,5};
+globals[] = {0.000000,0,0,0,0,640,480,3,390,6316128,1,-698.850281,539.958191,633.540405,-438.887939,928,880,1};
+window[] = {2,-1,-1,-1,-1,921,208,1692,208,3,946};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "aiPoddrop";
+        class States
+        {
+                /*%FSM<STATE "Begin">*/
+                class Begin
+                {
+                        name = "Begin";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_data = (_this getVariable ""groupDropPodData"");" \n
+                         "_heli = (_data select 0);" \n
+                         "_pod = (_data select 1);"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "not_null">*/
+                                class not_null
+                                {
+                                        itemno = 2;
+                                        priority = 1.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (isNull _pod)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_pod disableCollisionWith _heli;" \n
+                                         "detach _pod;" \n
+                                         "_timeout = time + 2;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "null">*/
+                                class null
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 1;
+                                        priority = 1.000000;
+                                        to="__2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_podVel = velocity _pod;" \n
+                                         "_podPos = getPos _pod;" \n
+                                         "_podDir = getDir _pod;" \n
+                                         "_chute = (createVehicle [""O_Parachute_02_F"",_podPos,[],0,""CAN_COLLIDE""]);" \n
+                                         "_chute setDir _podDir;" \n
+                                         "_chute setPos _podPos;" \n
+                                         "[_chute,_podVel] call horde_fnc_setVelocityGlobal;" \n
+                                         "_chuteAttachPos = [0.0949707,-0.500976563,-0.555181];" \n
+                                         "_pod attachTo [_chute,_chuteAttachPos];" \n
+                                         "_pod setVectorDirAndUp [[0,1,0],[0,0,1]];" \n
+                                         "[_chute,_podVel] call horde_fnc_setVelocityGlobal;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__1">*/
+                class __1
+                {
+                        name = "__1";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "alive">*/
+                                class alive
+                                {
+                                        itemno = 11;
+                                        priority = 1.000000;
+                                        to="__4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not isNull _pod" \n
+                                         "and {" \n
+                                         "	(getPos _pod select 2) < 0.05" \n
+                                         "	or {(velocity _pod isEqualTo [0,0,0])}" \n
+                                         "	or {_pod distance [0,0,0] < 1000}" \n
+                                         "	or {not isNil {(_pod getVariable ""vehicleDropPodTouchdown"")}}" \n
+                                         "}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timeout = time + 0.25;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "null">*/
+                                class null
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isNull _pod"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"(_pod setVariable [""vehicleDropPodTouchdown"",nil]);" \n
+                         "_pod removeAllEventHandlers ""epeContact"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__2">*/
+                class __2
+                {
+                        name = "__2";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "invincible_landi">*/
+                                class invincible_landi
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(getPos _pod) select 2 < 2" \n
+                                         "or {lineIntersects[" \n
+                                         "	getPosASL _pod," \n
+                                         "	[" \n
+                                         "		(getPosASL _pod select 0)," \n
+                                         "		(getPosASL _pod select 1)," \n
+                                         "		(getPosASL _pod select 2) - 2" \n
+                                         "	]," \n
+                                         "	_pod" \n
+                                         "]}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"[getPosATL _pod,""Horde_ImpactSparksSabot1"",0.5] remoteExecCall [" \n
+                                         "	""horde_fnc_timedParticleEffect""," \n
+                                         "	0" \n
+                                         "];" \n
+                                         "" \n
+                                         "playSound3D [" \n
+                                         "	""a3\sounds_f\weapons\Flare_Gun\flaregun_1_shoot.wss""," \n
+                                         "	_chute," \n
+                                         "	false," \n
+                                         "	getPosASL _chute," \n
+                                         "	3," \n
+                                         "	1," \n
+                                         "	100" \n
+                                         "];" \n
+                                         "detach _pod;" \n
+                                         "_chute disableCollisionWith _pod;" \n
+                                         "[_chute,[random 3 - random 6,random 3 - random 6,-10]] call horde_fnc_setVelocityGlobal;" \n
+                                         "" \n
+                                         "[" \n
+                                         "	[_chute],{" \n
+                                         "		call horde_fnc_getEachFrameArgs params [""_chute""];" \n
+                                         "		if not (isNull _chute) then {" \n
+                                         "			deleteVehicle _chute;" \n
+                                         "		};" \n
+                                         "		call horde_fnc_removeEachFrame" \n
+                                         "	}," \n
+                                         "	6" \n
+                                         "] call horde_fnc_addEachFrame;" \n
+                                         "" \n
+                                         "_pod addEventHandler [""epeContact"",{" \n
+                                         "	((_this select 0) setVariable [""vehicleDropPodTouchdown"",true]);" \n
+                                         "}];" \n
+                                         "if (_pod isKindOf ""Land_Pod_Heli_Transport_04_covered_F"") then {" \n
+                                         "	_pod animateDoor [""Door_4_source"",1,false];" \n
+                                         "	_pod animateDoor [""Door_5_source"",1,false];" \n
+                                         "	_pod animateDoor [""Door_6_source"",1,false];" \n
+                                         "};" \n
+                                         "" \n
+                                         "" \n
+                                         "" \n
+                                         "" \n
+                                         "" \n
+                                         "" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__4">*/
+                class __4
+                {
+                        name = "__4";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 14;
+                                        priority = 1.000000;
+                                        to="__5";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_sound = ""A3\Sounds_F\sfx\vehicle_collision.wss"";" \n
+                                         "if (surfaceIsWater getPosASL _pod) then {" \n
+                                         "	_sound = ""A3\Missions_F_EPA\data\sounds\fall_into_water.wss"";" \n
+                                         "};" \n
+                                         "playSound3D [" \n
+                                         "	_sound," \n
+                                         "	_pod," \n
+                                         "	false," \n
+                                         "	getPosASL _pod," \n
+                                         "	1," \n
+                                         "	1," \n
+                                         "	200" \n
+                                         "];" \n
+                                         "" \n
+                                         "_timeout = time + 1;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__5">*/
+                class __5
+                {
+                        name = "__5";
+                        itemno = 15;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "alive">*/
+                                class alive
+                                {
+                                        itemno = 16;
+                                        priority = 1.000000;
+                                        to="__6";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"alive _pod" \n
+                                         "and {time > _timeout}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_crew = crew _pod;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "not">*/
+                                class not
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not alive _pod" \n
+                                         "and {time > _timeout}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__6">*/
+                class __6
+                {
+                        name = "__6";
+                        itemno = 18;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "more_crew">*/
+                                class more_crew
+                                {
+                                        itemno = 19;
+                                        priority = 1.000000;
+                                        to="__7";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (_crew isEqualTo [])"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_unit = _crew deleteAt 0;" \n
+                                         "unassignVehicle _unit;" \n
+                                         "moveOut _unit;" \n
+                                         "" \n
+                                         "_timeout = time + 0.75;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no_more_crew">*/
+                                class no_more_crew
+                                {
+                                        itemno = 22;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__7">*/
+                class __7
+                {
+                        name = "__7";
+                        itemno = 21;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 20;
+                                        priority = 1.000000;
+                                        to="__6";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Begin";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/

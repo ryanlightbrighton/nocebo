@@ -1,0 +1,323 @@
+/*%FSM<COMPILE "E:\Applications\Poseidon\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, air_wreck">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"first_timeout",4,218,-490.000000,-40.000000,-410.000000,40.000000,0.000000,"first" \n "timeout"};
+item1[] = {"send_to_check",2,250,-470.000000,70.000000,-430.000000,110.000000,0.000000,"send" \n "to" \n "check"};
+item2[] = {"check_if_need_to",4,218,-400.000000,50.000000,-320.000000,130.000000,0.000000,"check" \n "if need to" \n "spawn any" \n "wrecks"};
+item3[] = {"finished_checkin",2,250,-380.000000,160.000000,-340.000000,200.000000,0.000000,"finished" \n "checking"};
+item4[] = {"set_timeout",8,218,-490.000000,140.000000,-410.000000,220.000000,1.000000,"set" \n "timeout"};
+item5[] = {"Start",0,250,-470.000000,-110.000000,-430.000000,-70.000000,0.000000,"Start"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,1};
+link5[] = {5,0};
+globals[] = {0.000000,0,0,0,0,640,480,1,227,6316128,1,-630.455444,-190.113525,314.203339,-132.923462,649,659,1};
+window[] = {0,-1,-1,-1,-1,961,156,1619,156,1,667};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "air_wreck";
+        class States
+        {
+                /*%FSM<STATE "send_to_check">*/
+                class send_to_check
+                {
+                        name = "send_to_check";
+                        itemno = 1;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "check_if_need_to">*/
+                                class check_if_need_to
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="finished_checkin";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"ncb_gv_AirWrecks = ncb_gv_AirWrecks - [objNull];" \n
+                                         "" \n
+                                         "private _wrecksToSpawn = _this - count ncb_gv_AirWrecks;" \n
+                                         "" \n
+                                         "if (_wrecksToSpawn > 0) then {" \n
+                                         "	for ""_i"" from 1 to _wrecksToSpawn do {" \n
+                                         "		_randomZone = str selectRandom ncb_gv_zoneList;" \n
+                                         "		if not ((missionNamespace getVariable _randomZone) getVariable [""zoneIsActive"",true]) then {" \n
+                                         "			_cfgEmptyPlaces = configFile >> ""cfgZones"" >> worldName >> _randomZone >> ""EmptyPlaces"";" \n
+                                         "			// build array of all empty places" \n
+                                         "			_allZoneEmptyPlaces = [];" \n
+                                         "			for ""_j"" from 0 to count _cfgEmptyPlaces - 1 do {" \n
+                                         "				_entry = _cfgEmptyPlaces select _j;" \n
+                                         "				_content = getArray _entry;" \n
+                                         "				{" \n
+                                         "					_allZoneEmptyPlaces pushBack _x;" \n
+                                         "					true" \n
+                                         "				} count _content;" \n
+                                         "			};" \n
+                                         "" \n
+                                         "			if not (_allZoneEmptyPlaces isEqualTo []) then {" \n
+                                         "				selectRandom _allZoneEmptyPlaces params [""_basePos"",""_maxRadius""];" \n
+                                         "				_wreckClass = selectRandom _airWrecks;" \n
+                                         "				_randDist = random _maxRadius;" \n
+                                         "				_randDir = random 359;" \n
+                                         "				_finalPosATL = [" \n
+                                         "					(_basePos select 0) + _randDist * sin _randDir," \n
+                                         "					(_basePos select 1) + _randDist * cos _randDir," \n
+                                         "					0" \n
+                                         "				];" \n
+                                         "				if ([] isEqualTo (nearestObjects [_finalPosATL,[""Wreck_base""],100])" \n
+                                         "					and {[] isEqualTo (nearestObjects [_finalPosATL,[""All""],15])}" \n
+                                         "					and {not ([_finalPosATL,1500] call horde_fnc_playerIsNear)}" \n
+                                         "				) then {" \n
+                                         "					_wreck = createVehicle [_wreckClass,_finalPosATL,[],0,""can_collide""];" \n
+                                         "					_items = getArray (configFile >> ""CfgVehicles"" >> _wreckClass >> ""InteractionInfo""  >> ""Salvage"" >> ""tools"");" \n
+                                         "					_item = selectRandom _items;" \n
+                                         "					_wreck setVariable [""wreckSalvageItem"",_item,true];" \n
+                                         "					_wreck setDir random 360;" \n
+                                         "					_wreck setPosATL _finalPosATL;" \n
+                                         "					_wreck setVectorUp surfaceNormal _finalPosATL;" \n
+                                         "					_wreck enableSimulationGlobal false;" \n
+                                         "					_wreck allowDamage false;" \n
+                                         "" \n
+                                         "					_smokePos = [0,0,0];" \n
+                                         "					call {" \n
+                                         "						if (_wreckClass == ""ncb_obj_wreck_blackfoot"") exitWith {" \n
+                                         "							_smokePos = _wreck modelToWorld [0.38,-2.50,0.16]" \n
+                                         "						};" \n
+                                         "						if (_wreckClass == ""ncb_obj_wreck_kajman"") exitWith {" \n
+                                         "							_smokePos = _wreck modelToWorld [0.65,-0.33,-0.68]" \n
+                                         "						};" \n
+                                         "						if (_wreckClass == ""ncb_obj_wreck_samson"") exitWith {" \n
+                                         "							_smokePos = _wreck modelToWorld (selectRandom [[-4.86,-4,2.65],[4.39,-4.62,1.75]])" \n
+                                         "						};" \n
+                                         "					};" \n
+                                         "					//_smoke = createVehicle [""Horde_WreckSmokeAmmo"",_smokePos,[],0,""can_collide""];" \n
+                                         "					_smoke = ""test_EmptyObjectForSmoke"" createVehicle _smokePos;" \n
+                                         "					_smoke setPos _smokePos;" \n
+                                         "" \n
+                                         "					_wreck enableDynamicSimulation true;" \n
+                                         "					_smoke enableDynamicSimulation true;" \n
+                                         "" \n
+                                         "					ncb_gv_AirWrecks pushBack _wreck;" \n
+                                         "" \n
+                                         "					_finalPosATL set [2,0];" \n
+                                         "					_wreckDir = getDir _wreck;" \n
+                                         "					// create furrows" \n
+                                         "					_startPos = _finalPosATL;" \n
+                                         "					_addFurrows = (floor random 4) + 3;" \n
+                                         "					for ""_i"" from 1 to _addFurrows + floor random _addFurrows do {" \n
+                                         "						_randDist = 2.7 + random 3;" \n
+                                         "						_furrowPos = [" \n
+                                         "							(_startPos select 0) + _randDist * sin _wreckDir," \n
+                                         "							(_startPos select 1) + _randDist * cos _wreckDir," \n
+                                         "							-0.5" \n
+                                         "						];" \n
+                                         "						_furrow = createVehicle[""CraterLong"",_furrowPos,[],0,""can_collide""];" \n
+                                         "						_furrow setVectorDirAndUp [" \n
+                                         "							vectorDir _wreck," \n
+                                         "							surfaceNormal _furrowPos" \n
+                                         "						];" \n
+                                         "						_furrow enableDynamicSimulation true;" \n
+                                         "						_startPos = _furrowPos;" \n
+                                         "					};" \n
+                                         "" \n
+                                         "					_extraClasses = [];" \n
+                                         "					_count = 1;" \n
+                                         "					if (_wreckClass == ""ncb_obj_wreck_samson"") then {" \n
+                                         "						_extraClasses = [""ncb_obj_ammobox_l""];" \n
+                                         "						_count = (floor random 2) + 2;" \n
+                                         "					};" \n
+                                         "" \n
+                                         "					for ""_i"" from 1 to _count do {" \n
+                                         "						_class = selectRandom (_airWreckCrateTypes + _extraClasses);" \n
+                                         "						_randDist = 4 + (random 5);" \n
+                                         "						_randDir = random 359;" \n
+                                         "						_cratePos = [" \n
+                                         "							(_finalPosATL select 0) + _randDist * sin _randDir," \n
+                                         "							(_finalPosATL select 1) + _randDist * cos _randDir," \n
+                                         "							0" \n
+                                         "						];" \n
+                                         "						_ret = [" \n
+                                         "							_cratePos," \n
+                                         "							5," \n
+                                         "							10," \n
+                                         "							3," \n
+                                         "							1," \n
+                                         "							1," \n
+                                         "							0" \n
+                                         "						] call horde_fnc_findSafePosASL;" \n
+                                         "						_crate = objNull;" \n
+                                         "						if (_ret isEqualTo []) then {" \n
+                                         "							_crate = createVehicle[_class,_cratePos,[],0,""can_collide""];" \n
+                                         "						} else {" \n
+                                         "							_crate = createVehicle[_class,_ret,[],0,""can_collide""];" \n
+                                         "						};" \n
+                                         "						_crate allowDamage false;" \n
+                                         "						call {" \n
+                                         "							if (_class == ""ncb_obj_ammobox_m"") exitWith {" \n
+                                         "								_filled = [" \n
+                                         "									_crate," \n
+                                         "									[0,4,1,3],	// optics" \n
+                                         "									[0,5,1,2],	// vests" \n
+                                         "									[0,5,1,2],	// helmets" \n
+                                         "									[0,5,1,2],	// guns" \n
+                                         "									[0,4,1,3],	// backpacks" \n
+                                         "									[0,2,1,5],	// charges" \n
+                                         "									[0,2,1,5],	// medical" \n
+                                         "									[0,2,1,5],	// food" \n
+                                         "									[],				// tools" \n
+                                         "									[1,2,1,2],	// tents" \n
+                                         "									[],				// fuel" \n
+                                         "									[0,3,1,2],	// vehicle ammo" \n
+                                         "									[],				// launchers" \n
+                                         "									[]				// vehicle parts" \n
+                                         "								] call horde_fnc_fillCrate;" \n
+                                         "							};" \n
+                                         "							if (_class == ""ncb_obj_ammobox_l"") exitWith {" \n
+                                         "								_filled = [" \n
+                                         "									_crate," \n
+                                         "									[5,10,1,3],	// optics" \n
+                                         "									[5,10,1,3],	// vests" \n
+                                         "									[3,6,1,3],	// helmets" \n
+                                         "									[5,10,2,5],	// guns" \n
+                                         "									[1,5,1,5],	// backpacks" \n
+                                         "									[1,6,1,5],	// charges" \n
+                                         "									[1,4,1,5],	// medical" \n
+                                         "									[0,4,1,5],	// food" \n
+                                         "									[0,2,1,2],	// tools" \n
+                                         "									[1,2,1,2],	// tents" \n
+                                         "									[],				// fuel" \n
+                                         "									[5,10,1,5],	// vehicle ammo" \n
+                                         "									[0,5,1,5],	// launchers" \n
+                                         "									[]				// vehicle parts" \n
+                                         "								] call horde_fnc_fillCrate;" \n
+                                         "							};" \n
+                                         "							if (_class == ""ncb_obj_repair_parts_box_m"") exitWith {" \n
+                                         "								_filled = [" \n
+                                         "									_crate," \n
+                                         "									[],				// optics" \n
+                                         "									[],				// vests" \n
+                                         "									[],				// helmets" \n
+                                         "									[],				// guns" \n
+                                         "									[],				// backpacks" \n
+                                         "									[],				// charges" \n
+                                         "									[],				// medical" \n
+                                         "									[],				// food" \n
+                                         "									[5,10,2,5],	// tools" \n
+                                         "									[1,2,1,2],	// tents" \n
+                                         "									[1,5,1,5],	// fuel" \n
+                                         "									[],				// vehicle ammo" \n
+                                         "									[],				// launchers" \n
+                                         "									[15,30,1,2]	// vehicle parts" \n
+                                         "								] call horde_fnc_fillCrate;" \n
+                                         "							};" \n
+                                         "						};" \n
+                                         "						[" \n
+                                         "							[_crate],{" \n
+                                         "								call horde_fnc_getEachFrameArgs params [""_crate""];" \n
+                                         "								if (vectorMagnitude velocity _crate < 0.01) then {" \n
+                                         "									_crate setPosATL [" \n
+                                         "										(getPos _crate select 0)," \n
+                                         "										(getPos _crate select 1)," \n
+                                         "										0" \n
+                                         "									];" \n
+                                         "									_crate setVectorDirAndUp [ vectorDir _crate,surfaceNormal getPosATL _crate];" \n
+                                         "									_crate allowDamage true;" \n
+                                         "									_crate enableDynamicSimulation true;" \n
+                                         "									call horde_fnc_removeEachFrame" \n
+                                         "								}" \n
+                                         "							}," \n
+                                         "							1" \n
+                                         "						] call horde_fnc_addEachFrame;" \n
+                                         "					};" \n
+                                         "" \n
+                                         "					if (ncb_param_debugMode == 1) then {" \n
+                                         "						_mkr = createMarker [str _wreck,_finalPosATL];" \n
+                                         "						_mkr setMarkerSize [200,200];" \n
+                                         "						_mkr setMarkerShape ""Ellipse"";" \n
+                                         "						_mkr setMarkerBrush ""SolidBorder"";" \n
+                                         "						_mkr setMarkerColor ""ColorRed"";" \n
+                                         "						_mkr setMarkerAlpha 0.5;" \n
+                                         "					}" \n
+                                         "				}" \n
+                                         "			}" \n
+                                         "		}" \n
+                                         "	}" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "finished_checkin">*/
+                class finished_checkin
+                {
+                        name = "finished_checkin";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "set_timeout">*/
+                                class set_timeout
+                                {
+                                        itemno = 4;
+                                        priority = 1.000000;
+                                        to="send_to_check";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timeout = time + 600;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"// ""_this"" is the number of wrecks we would like on the map" \n
+                         "" \n
+                         "// ncb_gv_AirWrecks = []; defined in serverPreInit.sqf" \n
+                         "" \n
+                         "_airWrecks = [" \n
+                         "	""ncb_obj_wreck_blackfoot""," \n
+                         "	""ncb_obj_wreck_kajman""," \n
+                         "	""ncb_obj_wreck_samson""" \n
+                         "];" \n
+                         "" \n
+                         "_airWreckCrateTypes = [" \n
+                         "	""ncb_obj_ammobox_m""," \n
+                         "	""ncb_obj_fuel_supply_m""," \n
+                         "	""ncb_obj_repair_parts_box_m""" \n
+                         "];" \n
+                         "" \n
+                         "private _timeout = time + 1;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "first_timeout">*/
+                                class first_timeout
+                                {
+                                        itemno = 0;
+                                        priority = 0.000000;
+                                        to="send_to_check";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/

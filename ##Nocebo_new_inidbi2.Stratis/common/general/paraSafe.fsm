@@ -1,0 +1,209 @@
+/*%FSM<COMPILE "E:\Applications\Poseidon\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, paraSafe">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Begin",0,250,25.000000,25.000000,75.000000,75.000000,0.000000,"Begin"};
+item1[] = {"chute_deployed",8,218,-50.000000,25.000000,0.000000,75.000000,0.000000,"chute" \n "deployed"};
+item2[] = {"_",2,250,-50.000000,-200.000000,0.000000,-150.000000,0.000000,""};
+item3[] = {"allow_damage",5,218,-50.000000,-275.000000,0.000000,-225.000000,0.000000,"allow" \n "damage"};
+item4[] = {"dead",4,218,25.000000,-50.000000,75.000000,0.000000,1.000000,"dead"};
+item5[] = {"End",1,250,25.000000,-125.000000,75.000000,-75.000000,0.000000,"End"};
+item6[] = {"__1",2,250,25.000000,-275.000000,75.000000,-225.000000,0.000000,""};
+item7[] = {"__2",2,250,-50.000000,-50.000000,0.000000,0.000000,0.000000,""};
+item8[] = {"__3",-1,250,-1250.000000,1025.000000,50.000000,1500.000000,0.000000,""};
+item9[] = {"Para_Safe",-1,250,-425.000000,-275.000000,-200.000000,-75.000000,0.000000,"Para" \n "Safe"};
+item10[] = {"landed",8,4314,-50.000000,-125.000000,0.000000,-75.000000,0.000000,"landed"};
+item11[] = {"delete_chute",5,218,25.000000,-200.000000,75.000000,-150.000000,0.000000,"delete" \n "chute"};
+version=1;
+class LayoutItems
+{
+	class Item8
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=17;
+			FontWeight=700;
+			lStyle=1;
+			lColor=-1;
+		};
+	};
+	class Item9
+	{
+		class ItemInfo
+		{
+			FontFace="Franklin Gothic Heavy";
+			FontHeight=36;
+		};
+		BgColor=8454143;
+	};
+};
+link0[] = {0,1};
+link1[] = {0,4};
+link2[] = {1,7};
+link3[] = {2,3};
+link4[] = {3,6};
+link5[] = {4,5};
+link6[] = {6,11};
+link7[] = {7,4};
+link8[] = {7,10};
+link9[] = {10,2};
+link10[] = {11,5};
+globals[] = {0.000000,0,0,0,0,640,480,3,377,6316128,1,-498.152618,521.037476,418.599670,-463.706512,960,568,1};
+window[] = {0,-1,-1,-1,-1,924,1742,3214,211,1,978};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "paraSafe";
+        class States
+        {
+                /*%FSM<STATE "Begin">*/
+                class Begin
+                {
+                        name = "Begin";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "dead">*/
+                                class dead
+                                {
+                                        itemno = 4;
+                                        priority = 1.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not alive _this"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "chute_deployed">*/
+                                class chute_deployed
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="__2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (vehicle _this isEqualTo _this)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_chute = vehicle _this;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "allow_damage">*/
+                                class allow_damage
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"vehicle _this isEqualTo _this"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_this allowDamage true;" \n
+                                         "" \n
+                                         "_timeout = time + 5;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__1">*/
+                class __1
+                {
+                        name = "__1";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "delete_chute">*/
+                                class delete_chute
+                                {
+                                        itemno = 11;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"if not (isNull _chute) then {" \n
+                                         "	deleteVehicle _chute" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__2">*/
+                class __2
+                {
+                        name = "__2";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "dead">*/
+                                class dead
+                                {
+                                        itemno = 4;
+                                        priority = 1.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not alive _this"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "landed">*/
+                                class landed
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"getPos vehicle _this select 2 < 0.1" \n
+                                         "or {terrainIntersect [getPos _chute,(getPos _chute) vectorAdd [0,0,-0.1]]}" \n
+                                         "or {lineIntersects [getPosASL _chute,(getPosASL _chute) vectorAdd [0,0,-0.1],_chute]}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_this allowDamage false;" \n
+                                         "" \n
+                                         "_pos = ASLtoAGL getPosASL vehicle _this;" \n
+                                         "" \n
+                                         "if not (surfaceIsWater _pos) then {" \n
+                                         "	[_pos,""CircleDustMed"",0.7] remoteExecCall [" \n
+                                         "		""horde_fnc_timedParticleEffect""," \n
+                                         "		[_pos,800] call horde_fnc_allPlayersInRange" \n
+                                         "	];" \n
+                                         "};" \n
+                                         "" \n
+                                         "_this action [""GetOut"",_chute];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Begin";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/

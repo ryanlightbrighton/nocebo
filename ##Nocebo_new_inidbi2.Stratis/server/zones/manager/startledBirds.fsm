@@ -1,0 +1,385 @@
+/*%FSM<COMPILE "E:\Applications\Poseidon\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, startledBirds">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Begin",0,250,-425.000000,150.000000,-375.000000,200.000000,0.000000,"Begin"};
+item1[] = {"no_more",8,218,-350.000000,0.000000,-300.000000,50.000000,0.000000,"no" \n "more"};
+item2[] = {"always",5,218,-425.000000,75.000000,-375.000000,125.000000,0.000000,"always"};
+item3[] = {"Check_conds",2,250,-275.000000,-150.000000,-225.000000,-100.000000,0.000000,"Check" \n "conds"};
+item4[] = {"Check_birds",2,250,-275.000000,0.000000,-225.000000,50.000000,0.000000,"Check" \n "birds"};
+item5[] = {"always",8,218,-275.000000,-75.000000,-225.000000,-25.000000,0.000000,"always"};
+item6[] = {"always",5,218,-275.000000,75.000000,-225.000000,125.000000,0.000000,"always"};
+item7[] = {"loop_wait",2,250,-350.000000,75.000000,-300.000000,125.000000,0.000000,"loop" \n "wait"};
+item8[] = {"_",-1,250,-1250.000000,1025.000000,50.000000,1500.000000,0.000000,""};
+item9[] = {"Check_birds_trig",-1,250,-700.000000,-350.000000,-475.000000,-150.000000,0.000000,"Check" \n "birds" \n "triggered"};
+item10[] = {"more_birds",4,218,-200.000000,-75.000000,-150.000000,-25.000000,1.000000,"more" \n "birds"};
+item11[] = {"zone_inactive",4,218,-200.000000,0.000000,-150.000000,50.000000,2.000000,"zone" \n "inactive"};
+item12[] = {"End",1,250,-200.000000,75.000000,-150.000000,125.000000,0.000000,"End"};
+item13[] = {"tripped",4,218,-350.000000,-75.000000,-300.000000,-25.000000,1.000000,"tripped"};
+version=1;
+class LayoutItems
+{
+	class Item8
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=17;
+			FontWeight=700;
+			lStyle=1;
+			lColor=-1;
+		};
+	};
+	class Item9
+	{
+		class ItemInfo
+		{
+			FontFace="Franklin Gothic Heavy";
+			FontHeight=36;
+		};
+		BgColor=8454143;
+	};
+};
+link0[] = {0,2};
+link1[] = {1,7};
+link2[] = {2,7};
+link3[] = {3,5};
+link4[] = {3,13};
+link5[] = {4,1};
+link6[] = {4,10};
+link7[] = {4,11};
+link8[] = {5,4};
+link9[] = {6,4};
+link10[] = {7,6};
+link11[] = {10,3};
+link12[] = {11,12};
+link13[] = {13,4};
+globals[] = {0.000000,0,0,0,0,640,480,3,372,6316128,1,-654.521729,-17.745331,308.630890,-196.319702,761,690,1};
+window[] = {0,-1,-1,-1,-1,1070,234,1749,234,1,779};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "startledBirds";
+        class States
+        {
+                /*%FSM<STATE "Begin">*/
+                class Begin
+                {
+                        name = "Begin";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_zone = _this select 0;" \n
+                         "_treeData = _this select 1;" \n
+                         "" \n
+                         "_birdClass = ""Crowe"";" \n
+                         "(selectBestPlaces [ " \n
+                         "  position player, " \n
+                         "  1000, " \n
+                         "  ""sea"", " \n
+                         "  300, " \n
+                         "  1 " \n
+                         " ]) select 0 params ["""",""_expressionResult""];" \n
+                         "if (_expressionResult > 0) then {" \n
+                         "	_birdClass =""Horde_Seagull_F"";" \n
+                         "}; "/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "always">*/
+                                class always
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="loop_wait";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_zoneName = str _zone;" \n
+                                         "" \n
+                                         "{" \n
+                                         "	if (ncb_param_debugMode == 1) then {" \n
+                                         "		_mkr = createMarker [_zoneName + ""_testMkr_"" + str (_x select 1) + str (random 99999),(_x select 0)];" \n
+                                         "		_mkr setMarkerSize [60, 60];" \n
+                                         "		_mkr setMarkerShape ""Ellipse"";" \n
+                                         "		_mkr setMarkerBrush ""SolidBorder"";" \n
+                                         "		_mkr setMarkerColor ""ColorRed"";" \n
+                                         "		_mkr setMarkerAlpha 0.5;" \n
+                                         "	};" \n
+                                         "" \n
+                                         "	_log = ""StartledBirds_Logic"" createVehicleLocal (_x select 0);" \n
+                                         "	_ehID = _log addEventHandler [""FiredNear"",{" \n
+                                         "		(_this select 0) setVariable [""TRIGGERED"",true];" \n
+                                         "	}];" \n
+                                         "	_x pushBack _log;" \n
+                                         "	true" \n
+                                         "} count _treeData;" \n
+                                         "" \n
+                                         "_timeout = time + 1;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Check_conds">*/
+                class Check_conds
+                {
+                        name = "Check_conds";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "tripped">*/
+                                class tripped
+                                {
+                                        itemno = 13;
+                                        priority = 1.000000;
+                                        to="Check_birds";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not isNil {(_log getVariable ""TRIGGERED"")}" \n
+                                         "or {damage _tree == 1}" \n
+                                         "or {{vectorMagnitude velocity _x > 3.7} count (_treePos nearEntities [[""CAManBase""],50]) > 0}" \n
+                                         "or {{isEngineOn _x} count (_treePos nearEntities [[""Air"",""car""],50]) > 0}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"deleteVehicle _log;" \n
+                                         "_treeData set [_index - 1,objNull];" \n
+                                         "" \n
+                                         "if not (_anyTreeTripped) then {" \n
+                                         "	_anyTreeTripped = true" \n
+                                         "};" \n
+                                         "" \n
+                                         "_nearPlayers = [_treePos,1000] call horde_fnc_allPlayersInRange;" \n
+                                         "if not (_nearPlayers isEqualTo []) then {" \n
+                                         "	_flockDiameter = 20;" \n
+                                         "	_flockCount = 20 + random 15;" \n
+                                         "	_startPos = _treePos;" \n
+                                         "	_startPos set [2,3];" \n
+                                         "	_randDist = random _flockDiameter;" \n
+                                         "	_randDir = random 360;" \n
+                                         "	_ascendPos = [" \n
+                                         "		(_startPos select 0) + _randDist * sin _randDir," \n
+                                         "		(_startPos select 1) + _randDist * cos _randDir," \n
+                                         "		0" \n
+                                         "	];" \n
+                                         "	_testPos = _ascendPos getPos [300,random 360];" \n
+                                         "	_ret = selectBestPlaces [" \n
+                                         "		_testPos," \n
+                                         "		100," \n
+                                         "		""trees""," \n
+                                         "		50," \n
+                                         "		1" \n
+                                         "	];" \n
+                                         "	if (_ret isEqualTo []) then {" \n
+                                         "		_ret = [[_testPos,0]]" \n
+                                         "	};" \n
+                                         "	_ascendPos set [2,30];" \n
+                                         "	_destinationPos = (_ret select 0 select 0);" \n
+                                         "	_destinationPos set [2,0];" \n
+                                         "	_roostPos = _destinationPos;" \n
+                                         "	{" \n
+                                         "		if (((toLower (str _x)) find "": t_"") > -1) exitWith {" \n
+                                         "			_roostPos = getPosATL _x" \n
+                                         "		};" \n
+                                         "		true" \n
+                                         "	} count (nearestObjects [_destinationPos,[],15]);" \n
+                                         "	_destinationPos set [2,15];" \n
+                                         "	_roostPos set [2,3];" \n
+                                         "	_numbBirds = 4 + random 14;" \n
+                                         "" \n
+                                         "	[" \n
+                                         "		_treePos," \n
+                                         "		_startPos," \n
+                                         "		_ascendPos," \n
+                                         "		_destinationPos," \n
+                                         "		_roostPos," \n
+                                         "		_numbBirds," \n
+                                         "		_flockDiameter," \n
+                                         "		_birdClass" \n
+                                         "	] remoteExecCall [" \n
+                                         "		""horde_fnc_startledBirds""," \n
+                                         "		_nearPlayers" \n
+                                         "	];" \n
+                                         "};" \n
+                                         "" \n
+                                         "// alert nearest AI squad from this zone in 400m" \n
+                                         "_nearestMan = objNull;" \n
+                                         "_grpInvestigate = grpNull;" \n
+                                         "// if any AI in 69m then assume they sprung it so don't bother to investigate" \n
+                                         "_nearEntities = _treePos nearEntities [[""Air"",""car"",""Horde_Antagonist_Base""],69];" \n
+                                         "if ({if (side _x isEqualTo east or {side _x isEqualTo independent}) exitWith {1}} count _nearEntities isEqualTo 0) then {" \n
+                                         "	// find someone to check it out" \n
+                                         "	{" \n
+                                         "		_unit = _x;" \n
+                                         "		_grp = group _x;" \n
+                                         "		// grp must be local (spawned on this machine)" \n
+                                         "		if (local _grp) then {" \n
+                                         "			if (_grp != _grpInvestigate) then {" \n
+                                         "				_groupType = (_grp getVariable ""groupData"");" \n
+                                         "				// could be on another hc" \n
+                                         "				if (not isNil {_groupType}" \n
+                                         "					and {(_groupType select 6) == _zoneName}" \n
+                                         "				) then {" \n
+                                         "					if (isNull _nearestMan) then {" \n
+                                         "						_nearestMan = _unit;" \n
+                                         "						_grpInvestigate = _grp;" \n
+                                         "					} else {" \n
+                                         "						if (_unit distance _treePos < _nearestMan distance _treePos) then {" \n
+                                         "							_nearestMan = _unit;" \n
+                                         "							_grpInvestigate = _grp;" \n
+                                         "						};" \n
+                                         "					};" \n
+                                         "				};" \n
+                                         "			};" \n
+                                         "		};" \n
+                                         "	} count  (_treePos nearEntities [""Horde_Antagonist_Base"",400]);" \n
+                                         "};" \n
+                                         "// now we have the nearest squad in that zone, find current wp and divert it" \n
+                                         "if (not isNull _grpInvestigate) then {" \n
+                                         "	if (behaviour _nearestMan != ""COMBAT"") then {" \n
+                                         "		_wp = [_grpInvestigate,currentWaypoint _grpInvestigate];" \n
+                                         "		if (_grpInvestigate call horde_fnc_isGroupPatrolling) then {" \n
+                                         "			// only change the orig pos if grp isn't already checking" \n
+                                         "			if (isNil {_grpInvestigate getVariable ""grpCheckingNoiseOrigWpPos""}) then {" \n
+                                         "				_origWPPos = waypointPosition _wp;" \n
+                                         "				_grpInvestigate setVariable [""grpCheckingNoiseOrigWpPos"",[_wp,_origWPPos]];" \n
+                                         "			};" \n
+                                         "			_wp setWaypointPosition [_treePos,30];" \n
+                                         "			[" \n
+                                         "				[_wp],{" \n
+                                         "					call horde_fnc_getEachFrameArgs params [""_wp""];" \n
+                                         "					private _grp = _wp select 0;" \n
+                                         "					if (not isNull _grp) then {" \n
+                                         "						private _var = _grp getVariable ""grpCheckingNoiseOrigWpPos"";" \n
+                                         "						if (not isNil ""_var"") then {" \n
+                                         "							_var params [""_wp"",""_pos""];" \n
+                                         "							_wp setWaypointPosition [_pos,0];" \n
+                                         "							_grp setVariable [""grpCheckingNoiseOrigWpPos"",nil];" \n
+                                         "						};" \n
+                                         "					};" \n
+                                         "					call horde_fnc_removeEachFrame" \n
+                                         "				}," \n
+                                         "				120" \n
+                                         "			] call horde_fnc_addEachFrame;" \n
+                                         "		};" \n
+                                         "	};" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "always">*/
+                                class always
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Check_birds";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Check_birds">*/
+                class Check_birds
+                {
+                        name = "Check_birds";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "zone_inactive">*/
+                                class zone_inactive
+                                {
+                                        itemno = 11;
+                                        priority = 2.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"not (_zone getVariable ""zoneIsActive"")" \n
+                                         "or {_treeData isEqualTo []}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"if not (_treeData isEqualTo []) then {" \n
+                                         "	{" \n
+                                         "		deleteVehicle (_x select 2)" \n
+                                         "	} count _treeData;" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "more_birds">*/
+                                class more_birds
+                                {
+                                        itemno = 10;
+                                        priority = 1.000000;
+                                        to="Check_conds";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_index < _maxIndex"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_data = _treeData select _index;" \n
+                                         "_index = _index + 1;" \n
+                                         "" \n
+                                         "_treePos = _data select 0;" \n
+                                         "_tree = _data select 1;" \n
+                                         "_log = _data select 2;" \n
+                                         "" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no_more">*/
+                                class no_more
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="loop_wait";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timeout = time + 1;" \n
+                                         "" \n
+                                         "if (_anyTreeTripped) then {" \n
+                                         "	_treeData = _treeData - [objNull]" \n
+                                         "};"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "loop_wait">*/
+                class loop_wait
+                {
+                        name = "loop_wait";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "always">*/
+                                class always
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="Check_birds";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_maxIndex = count _treeData;" \n
+                                         "" \n
+                                         "_index = 0;" \n
+                                         "" \n
+                                         "_anyTreeTripped = false;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 12;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Begin";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/
